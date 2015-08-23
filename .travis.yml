@@ -10,7 +10,6 @@ script:
   - tars --version
   - mkdir tars-temp
   - cd tars-temp
-  - ls -ll
   - tars init -s https://github.com/tars/tars/archive/version-1.3.0-cli-integration.zip
   - tars add-module new
   - tars add-page main.html

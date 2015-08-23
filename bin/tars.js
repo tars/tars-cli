@@ -81,12 +81,12 @@ program
     .option('-v, --version', 'Version of tars-cli')
     .description('Get version of tars-cli');
 
-program.parse(process.argv);
-
-if (program.version && process.argv.slice(2).length) {
+if (program.version && process.argv.slice(2).length && process.argv.slice(2)[0] === '--version') {
     getCliRoot(getVersion);
 }
 
 if (!process.argv.slice(2).length) {
     program.outputHelp();
 }
+
+program.parse(process.argv);
