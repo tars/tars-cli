@@ -1,0 +1,8 @@
+.DS_Store
+*.log
+node_modules
+*.node
+coverage
+*.orig
+.idea
+test/*

@@ -1,2 +1,2 @@
 # tars-cli
-CLI for TARS
+tars-cli
