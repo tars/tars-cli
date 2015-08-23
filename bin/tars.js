@@ -12,13 +12,14 @@ var build = require('../lib/commandActions/build');
 var reInit = require('../lib/commandActions/reInit');
 var init = require('../lib/commandActions/init');
 var update = require('../lib/commandActions/update');
-var getNpmRootPrefix = require('../lib/getNpmRootPrefix');
+var getNpmRootPrefix = require('../lib/getCliRoot');
 
 program
     .command('init')
     .description('Init TARS-project in current directory')
-    .action(function () {
-        getNpmRootPrefix(init);
+    .option('-s, --source <source>', 'Change source of TARS')
+    .action(function (options) {
+        getNpmRootPrefix(init, options);
     });
 
 program
