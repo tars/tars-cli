@@ -1,6 +1,6 @@
 {
   "name": "tars-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "CLI utility for TARS",
   "keywords": [
     "tars",
@@ -67,7 +67,7 @@
     "mkdirp": "0.5.1",
     "ncp": "2.0.0",
     "run-sequence": "^1.1.2",
-    "through2": "^2.0.0",
+    "through2": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^1.0.0"

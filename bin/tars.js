@@ -12,21 +12,22 @@ var build = require('../lib/commandActions/build');
 var reInit = require('../lib/commandActions/reInit');
 var init = require('../lib/commandActions/init');
 var update = require('../lib/commandActions/update');
-var getNpmRootPrefix = require('../lib/getCliRoot');
+var getVersion = require('../lib/commandActions/getVersion');
+var getCliRoot = require('../lib/getCliRoot');
 
 program
     .command('init')
     .description('Init TARS-project in current directory')
     .option('-s, --source <source>', 'Change source of TARS')
     .action(function (options) {
-        getNpmRootPrefix(init, options);
+        getCliRoot(init, options);
     });
 
 program
     .command('re-init')
     .description('Re-init TARS-project')
     .action(function () {
-        getNpmRootPrefix(reInit);
+        getCliRoot(reInit);
     });
 
 program
@@ -36,7 +37,7 @@ program
     .option('-m, --min', 'Create build with minified files')
     .option('--ie8', 'Generate files for ie8')
     .action(function (options) {
-        getNpmRootPrefix(build, options);
+        getCliRoot(build, options);
     });
 
 program
@@ -47,7 +48,7 @@ program
     .option('--lr', 'Allias flag for livereload')
     .option('--ie8', 'Generate files for ie8')
     .action(function (options) {
-        getNpmRootPrefix(dev, options);
+        getCliRoot(dev, options);
     });
 
 program
@@ -71,12 +72,20 @@ program
 
 program
     .command('update')
-    .description('Update tars-cli dependencies')
+    .description('Update tars-cli')
     .action(function () {
         update();
     });
 
+program
+    .option('-v, --version', 'Version of tars-cli')
+    .description('Get version of tars-cli');
+
 program.parse(process.argv);
+
+if (program.version && process.argv.slice(2).length) {
+    getCliRoot(getVersion);
+}
 
 if (!process.argv.slice(2).length) {
     program.outputHelp();
