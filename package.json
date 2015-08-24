@@ -1,6 +1,6 @@
 {
   "name": "tars-cli",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "CLI utility for TARS",
   "keywords": [
     "tars",
@@ -88,8 +88,6 @@
     "url": "https://github.com/tars/tars-cli/issues",
     "email": "artem.malko@gmail.com"
   },
-  "readme": "# tars-cli\ntars-cli\n",
-  "readmeFilename": "README.md",
   "gitHead": "a8686f7f8be67410a8e3a0c09170686013705816",
   "homepage": "https://github.com/tars/tars-cli",
   "_id": "tars-cli@1.0.3",
