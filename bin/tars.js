@@ -14,6 +14,7 @@ var init = require('../lib/commandActions/init');
 var update = require('../lib/commandActions/update');
 var getVersion = require('../lib/commandActions/getVersion');
 var getCliRoot = require('../lib/getCliRoot');
+var args = process.argv.slice(2);
 
 program
     .command('init')
@@ -81,11 +82,11 @@ program
     .option('-v, --version', 'Version of tars-cli')
     .description('Get version of tars-cli');
 
-if (program.version && process.argv.slice(2).length && process.argv.slice(2)[0] === '--version') {
+if (program.version && args.length && (args[0] === '--version' || args[0] === '-v')) {
     getCliRoot(getVersion);
 }
 
-if (!process.argv.slice(2).length) {
+if (!args.length) {
     program.outputHelp();
 }
 
