@@ -1,5 +1,7 @@
 # tars-cli
 
+[![Build Status](https://travis-ci.org/tars/tars-cli.svg?branch=master)](https://travis-ci.org/tars/tars-cli) [![Dependency Status](https://david-dm.org/tars/tars-cli.svg)](https://david-dm.org/tars/tars-cli)
+
 !! This is a beta-release !!
 
 There is no any docs, but you can run the command 'tars -h', to see all avalible commands.
