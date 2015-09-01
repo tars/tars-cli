@@ -71,8 +71,7 @@
     "pty.js": "git://github.com/codehotter/pty.js.git#6c713e442a7f773591a13b22e8f95f783c88e0cd",
     "run-sequence": "^1.1.2",
     "stream-combiner": "0.2.2",
-    "through2": "^2.0.0",
-    "win-spawn": "^2.0.0"
+    "through2": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^1.0.0"

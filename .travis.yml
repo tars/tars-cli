@@ -1,7 +1,6 @@
 language: node_js
 os:
   - linux
-  - osx
 node_js:
   - "0.12"
   - "0.10"
@@ -13,6 +12,7 @@ script:
   - mkdir tars-temp
   - cd tars-temp
   - tars init -s https://github.com/tars/tars/archive/version-1.3.0-cli-integration.zip
+  - tars re-init
   - tars add-module new
   - tars add-page main.html
   - tars add-page inner
