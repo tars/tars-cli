@@ -11,7 +11,7 @@ script:
   - tars --version
   - mkdir tars-temp
   - cd tars-temp
-  - tars init -s https://github.com/tars/tars/archive/version-1.3.0-cli-integration.zip
+  - tars init -s https://github.com/tars/tars/archive/version-1.3.0.zip
   - tars re-init
   - tars add-module new
   - tars add-page main.html
