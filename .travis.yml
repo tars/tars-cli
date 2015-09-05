@@ -1,12 +1,28 @@
-language: node_js
+language: c
+
 os:
   - linux
-node_js:
-  - "0.12"
-  - "0.10"
+  - osx
+
+env:
+  matrix:
+    - export NODE_VERSION="0.12"
+    - export NODE_VERSION="0.10"
+
+matrix:
+  fast_finish: true
+
+before_install:
+  - echo $TRAVIS_OS_NAME
+  - git clone https://github.com/creationix/nvm.git ./.nvm
+  - source ./.nvm/nvm.sh
+  - nvm install $NODE_VERSION
+  - nvm use $NODE_VERSION
+
 before_script:
   - npm install -g gulp
   - 'npm install -g git://github.com/tars/tars-cli.git#${TRAVIS_COMMIT}'
+
 script:
   - tars --version
   - mkdir tars-temp
