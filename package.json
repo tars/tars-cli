@@ -1,6 +1,6 @@
 {
   "name": "tars-cli",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "CLI utility for TARS",
   "keywords": [
     "tars",
@@ -70,17 +70,18 @@
     "jshint-stylish": "2.0.1",
     "mkdirp": "0.5.1",
     "ncp": "2.0.0",
-    "pty.js": "^0.3.0",
     "run-sequence": "^1.1.2",
     "stream-combiner": "0.2.2",
-    "through2": "^2.0.0"
+    "through2": "^2.0.0",
+     "win-spawn": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^1.0.0"
   },
   "optionalDependencies": {
     "posix": "^2.0.1",
-    "fsevents": "^0.3.7"
+    "fsevents": "^0.3.7",
+    "pty.js": "^0.3.0"
   },
   "bin": {
     "tars": "./bin/tars.js"
@@ -95,8 +96,5 @@
     "email": "tars.builder@gmail.com"
   },
   "gitHead": "a8686f7f8be67410a8e3a0c09170686013705816",
-  "homepage": "https://github.com/tars/tars-cli",
-  "_id": "tars-cli@1.0.3",
-  "_shasum": "1b9b164b1d90c87fd42b917a33bec788fdecaf53",
-  "_from": "tars-cli@*"
+  "homepage": "https://github.com/tars/tars-cli"
 }
