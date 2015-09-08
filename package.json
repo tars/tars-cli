@@ -70,7 +70,7 @@
     "jshint-stylish": "2.0.1",
     "mkdirp": "0.5.1",
     "ncp": "2.0.0",
-    "pty.js-dl": "^0.1.2",
+    "pty.js": "^0.3.0",
     "run-sequence": "^1.1.2",
     "stream-combiner": "0.2.2",
     "through2": "^2.0.0"
