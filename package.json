@@ -16,7 +16,7 @@
   "contributors": [
     {
       "name": "Artem Malko",
-      "email": "tars.builder@gmail.com"
+      "email": "artem.malko@gmail.com"
     }
   ],
   "repository": {
@@ -70,7 +70,7 @@
     "jshint-stylish": "2.0.1",
     "mkdirp": "0.5.1",
     "ncp": "2.0.0",
-    "pty.js": "git://github.com/codehotter/pty.js.git#6c713e442a7f773591a13b22e8f95f783c88e0cd",
+    "pty.js-dl": "^0.1.2",
     "run-sequence": "^1.1.2",
     "stream-combiner": "0.2.2",
     "through2": "^2.0.0"
@@ -92,7 +92,7 @@
   },
   "bugs": {
     "url": "https://github.com/tars/tars-cli/issues",
-    "email": "artem.malko@gmail.com"
+    "email": "tars.builder@gmail.com"
   },
   "gitHead": "a8686f7f8be67410a8e3a0c09170686013705816",
   "homepage": "https://github.com/tars/tars-cli",
