@@ -27,9 +27,14 @@ script:
   - tars --version
   - mkdir tars-temp
   - cd tars-temp
-  - tars init -s https://github.com/tars/tars/archive/version-1.3.0.zip
+  - tars init
   - tars re-init
   - tars add-module new
+  - tars add-module new1 -f
+  - tars add-module new2 -b
+  - tars add-module new3 -a
+  - tars add-module new4 -i
   - tars add-page main.html
   - tars add-page inner
+  - tars add-page contacts -e
   - tars build --release --ie8
