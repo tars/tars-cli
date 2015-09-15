@@ -27,8 +27,8 @@ script:
   - tars --version
   - mkdir tars-temp
   - cd tars-temp
-  - tars init
-  - tars re-init
+  - tars init --silent
+  - tars re-init --silent
   - tars add-module new
   - tars add-module new1 -f
   - tars add-module new2 -b

@@ -19,6 +19,7 @@ var args = process.argv.slice(2);
 program
     .command('init')
     .description('Init TARS-project in current directory')
+    .option('--silent', 'TARS will not ask any question about configuration')
     .option('-s, --source <source>', 'Change source of TARS')
     .action(function (options) {
         getCliRoot(init, options);
@@ -27,8 +28,9 @@ program
 program
     .command('re-init')
     .description('Re-init TARS-project')
-    .action(function () {
-        getCliRoot(reInit);
+    .option('--silent', 'TARS will not ask any question about configuration')
+    .action(function (options) {
+        getCliRoot(reInit, options);
     });
 
 program
