@@ -1,5 +1,7 @@
 # TARS-CLI
 
+[![Join the chat at https://gitter.im/tars/tars-cli](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://travis-ci.org/tars/tars-cli.svg?branch=master)](https://travis-ci.org/tars/tars-cli) [![Dependency Status](https://david-dm.org/tars/tars-cli.svg)](https://david-dm.org/tars/tars-cli)
 
 TARS-CLI — Command Line Interface для сборщика верстки [TARS](https://github.com/tars/tars).
