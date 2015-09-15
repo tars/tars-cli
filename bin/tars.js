@@ -60,6 +60,7 @@ program
     .option('-f, --full', 'Add module with all files and folders (assets folder, folder for IE and so on)')
     .option('-i, --ie', 'Add module with general files + folder for IE')
     .option('-a, --assets', 'Add module with general files + folder for assets')
+    .option('-d, --data', 'Add module with general files + folder for data')
     .option('-b, --basic', 'Add module with .js, .scss (.less, .styl) and .html (.jade) files')
     .action(function (moduleName, options) {
         addModule(moduleName, options);
