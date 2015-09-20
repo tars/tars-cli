@@ -29,11 +29,12 @@ script:
   - cd tars-temp
   - tars init --silent
   - tars re-init --silent
-  - tars add-module new
+  - tars add-module new -e
   - tars add-module new1 -f
   - tars add-module new2 -b
   - tars add-module new3 -a
   - tars add-module new4 -i
+  - tars add-module new5 -d
   - tars add-page main.html
   - tars add-page inner
   - tars add-page contacts -e

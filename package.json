@@ -58,11 +58,11 @@
     "gulp-rename": "1.2.2",
     "gulp-replace-task": "0.2.3",
     "gulp-sass": "2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
     "gulp-strip-debug": "^1.0.2",
     "gulp-stylus": "2.0.6",
     "gulp-svg-spritesheet": "git://github.com/artem-malko/gulp-svg-spritesheet.git#877e77bb8f098c0922c530267ee3bb3439ce6049",
     "gulp-svg2png": "^0.3.0",
-    "gulp-sourcemaps": "1.5.2",
     "gulp-uglify": "1.2.0",
     "gulp-util": "3.0.6",
     "gulp-zip": "3.0.2",
@@ -74,6 +74,7 @@
     "run-sequence": "^1.1.2",
     "stream-combiner": "0.2.2",
     "through2": "^2.0.0",
+    "update-notifier": "^0.5.0",
     "win-spawn": "^2.0.0"
   },
   "devDependencies": {
@@ -95,7 +96,5 @@
   "bugs": {
     "url": "https://github.com/tars/tars-cli/issues",
     "email": "tars.builder@gmail.com"
-  },
-  "gitHead": "a8686f7f8be67410a8e3a0c09170686013705816",
-  "homepage": "https://github.com/tars/tars-cli"
+  }
 }
