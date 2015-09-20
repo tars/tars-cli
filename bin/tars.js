@@ -3,7 +3,7 @@
 'use strict';
 
 var program = require('commander');
-var getCliRoot = require('../lib/getCliRoot');
+var getCliRoot = require('../lib/get-cli-root');
 var tarsUtils = require('../lib/utils');
 var args = process.argv.slice(2);
 
@@ -30,7 +30,7 @@ program
     .option('--silent', 'TARS will not ask any question about configuration')
     .option('-s, --source <source>', 'Change source of TARS')
     .action(function (options) {
-        getCliRoot(require('../lib/commandActions/init'), options);
+        getCliRoot(require('../lib/command-actions/init'), options);
     });
 
 program
@@ -40,7 +40,7 @@ program
     .action(function (options) {
 
         if (isTarsInited()) {
-            getCliRoot(require('../lib/commandActions/reInit'), options);
+            getCliRoot(require('../lib/command-actions/re-init'), options);
         }
     });
 
@@ -55,7 +55,7 @@ program
     .action(function (options) {
 
         if (isTarsInited()) {
-            getCliRoot(require('../lib/commandActions/build'), options);
+            getCliRoot(require('../lib/command-actions/build'), options);
         }
     });
 
@@ -71,7 +71,7 @@ program
     .action(function (options) {
 
         if (isTarsInited()) {
-            getCliRoot(require('../lib/commandActions/dev'), options);
+            getCliRoot(require('../lib/command-actions/dev'), options);
         }
     });
 
@@ -88,7 +88,7 @@ program
     .action(function (moduleName, options) {
 
         if (isTarsInited()) {
-            require('../lib/commandActions/addModule')(moduleName, options);
+            require('../lib/command-actions/add-module')(moduleName, options);
         }
     });
 
@@ -99,7 +99,7 @@ program
     .action(function (pageName, options) {
 
         if (isTarsInited()) {
-            require('../lib/commandActions/addPage')(pageName, options);
+            require('../lib/command-actions/add-page')(pageName, options);
         }
     });
 
@@ -107,14 +107,14 @@ program
     .command('update')
     .description('Update TARS-cli')
     .action(function () {
-        require('../lib/commandActions/update')();
+        require('../lib/command-actions/update')();
     });
 
 program
     .option('-v, --version', 'Version of TARS-cli');
 
 if (program.version && args.length && (args[0] === '--version' || args[0] === '-v')) {
-    getCliRoot(require('../lib/commandActions/getVersion'));
+    getCliRoot(require('../lib/command-actions/get-version'));
 }
 
 if (!args.length) {

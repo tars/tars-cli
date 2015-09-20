@@ -10,7 +10,6 @@ rules:
     indent: [2, 4, {SwitchCase: 1}]
     brace-style: [2, "1tbs"]
     camelcase: [2, { properties: "always" }]
-    callback-return: [2, ["cb", "callback", "next"]]
     comma-spacing: [2, {"before": false, "after": true}]
     comma-style: [2, "last"]
     consistent-return: 2
