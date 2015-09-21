@@ -20,7 +20,6 @@ before_install:
   - nvm use $NODE_VERSION
 
 before_script:
-  - npm install -g gulp
   - 'npm install -g git://github.com/tars/tars-cli.git#${TRAVIS_COMMIT}'
 
 script:
