@@ -1,6 +1,6 @@
 # TARS-CLI
 
-[![Build Status](https://travis-ci.org/tars/tars-cli.svg?branch=master)](https://travis-ci.org/tars/tars-cli) [![Dependency Status](https://david-dm.org/tars/tars-cli.svg)](https://david-dm.org/tars/tars-cli) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-link] [![Dependency Status][deps-image]][deps-link] [![Gitter][gitter-image]][gitter-link]
 
 TARS-CLI — Command Line Interface для сборщика верстки [TARS](https://github.com/tars/tars).
 
@@ -16,11 +16,7 @@ TARS-CLI — это интерфейс к основному сборщику, �
 
 ## Установка
 
-Для корректной работы необзодимо установить gulp глобально:
-
-`npm i -g gulp`
-
-Затем устанавливаем TARS-CLI, также глобально:
+Для корректной работы необходимо установить TARS-CLI глобально:
 
 `npm i -g tars-cli`
 
@@ -34,7 +30,7 @@ TARS-CLI — это интерфейс к основному сборщику, �
 
 В любой момент можно запустить `tars --help` или `tars -h` или просто `tars`, без дополнительных комманд и флагов. Данная команда выведет информацию о всех доступных командах. Также можно добавить ключ `--help` или `-h` к любой команде, чтобы получить наиболее полное описание этой команды.
 
-`tars -v` или `tars --version` выведет текущую установленную версию TARS-CLI.
+`tars -v` или `tars --version` выведет текущую установленную версию TARS-CLI. Также будет выведена информация по обновлению, если оно доступно.
 
 ### tars init
 
@@ -120,20 +116,30 @@ tars build --release --ie8
 #### Доступные флаги
 
 * `-f`, `--full`: добавляет модуль со всеми папками и файлами, которые могут быть в модуле:  папка для assets, ie, data + файл выбранного шаблонизатора, js и выбранного препроцессора.
-* `-i`, `--ie`: добавляет все основные файлы и папку для стилей для IE.
-* `-a`, `--assets`: добавляет все основные файлы и папку для assets.
-* `-d`, `--data`: добавляет все основные файлы и папку для data. Также создается файл с данными в виде:
+* `-b`, `--basic`: добавляет только основные файлы.
+* `-d`, `--data`: добавляет папку для data. Также создается файл с данными со следующим содержанием:
 ````javascript
 moduleName: {}
 ````
-* `--basic`, `-b`: добавляет только основные файлы.
+* `-i`, `--ie`: добавляет папку для стилей для IE.
+* `-a`, `--assets`: добавляет папку для assets.
+* `-e`, `--empty`: добавляет только папку модуля, без файлов.
+
+Ключи имеют следующий приоритет:
+* `-e`
+* `-f`
+* `other`
+
+Иными словами, если вы используете `-d -b` и `-e`, будет создана пустая папка для модуля, так как `-e` имеет больший приоритет.
 
 #### Пример использования команды
 
 ````bash
 tars add-module sidebar
 
-tars add-module sidebar -a
+tars add-module sidebar -b -a
+
+tars add-module sidebar -b -a -d
 
 tars add-module sidebar --full
 ````
@@ -168,3 +174,15 @@ tars update
 
 По всем вопросам и предложениям сюда: [tars.builder@gmail.com](tars.builder@gmail.com)
 
+[downloads-image]: http://img.shields.io/npm/dm/tars-cli.svg
+[npm-url]: https://npmjs.org/package/tars-cli
+[npm-image]: http://img.shields.io/npm/v/tars-cli.svg
+
+[travis-image]: https://travis-ci.org/tars/tars-cli.svg?branch=master
+[travis-link]: https://travis-ci.org/tars/tars-cli
+
+[deps-image]: https://david-dm.org/tars/tars-cli.svg
+[deps-link]: https://david-dm.org/tars/tars-cli
+
+[gitter-image]: https://badges.gitter.im/Join%20Chat.svg
+[gitter-link]: https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge
