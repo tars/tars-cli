@@ -20,16 +20,21 @@ before_install:
   - nvm use $NODE_VERSION
 
 before_script:
-  - npm install -g gulp
   - 'npm install -g git://github.com/tars/tars-cli.git#${TRAVIS_COMMIT}'
 
 script:
   - tars --version
   - mkdir tars-temp
   - cd tars-temp
-  - tars init -s https://github.com/tars/tars/archive/version-1.3.0.zip
-  - tars re-init
-  - tars add-module new
+  - tars init --silent
+  - tars re-init --silent
+  - tars add-module new -e
+  - tars add-module new1 -f
+  - tars add-module new2 -b
+  - tars add-module new3 -a
+  - tars add-module new4 -i
+  - tars add-module new5 -d
   - tars add-page main.html
   - tars add-page inner
+  - tars add-page contacts -e
   - tars build --release --ie8
