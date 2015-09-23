@@ -82,8 +82,7 @@
   },
   "optionalDependencies": {
     "posix": "^2.0.1",
-    "fsevents": "^0.3.7",
-    "pty.js": "git://github.com/jeremyramin/pty.js#dbac38376f85af232bd8aa5c7c15df317b09d72b"
+    "fsevents": "^0.3.7"
   },
   "bin": {
     "tars": "./bin/tars.js"
