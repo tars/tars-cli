@@ -6,7 +6,7 @@ English description | <a href="README_RU.md">Описание на русско�
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-link] [![Dependency Status][deps-image]][deps-link] [![Gitter][gitter-image]][gitter-link]
 
-TARS-CLI — TARS-CLI - Command Line Interface for the TARS markup builder [TARS](https://github.com/tars/tars/blob/master/README.md).
+TARS-CLI — Command Line Interface for the TARS markup builder [TARS](https://github.com/tars/tars/blob/master/README.md).
 
 The main problem in developing markup with TARS is all npm-dependences installing for each project every time. As the result, each project takes more than 200MB. To simplify initialization of the project and the work with TARS TARS-CLI was established. All TARS basic documentation is in the original TARS repository [TARS](https://github.com/tars/tars/blob/master/README.md).
 
@@ -18,7 +18,7 @@ TARS-CLI is just an interface of the main builder, which allows you to:
 * Add module with different set of files.
 * Add empty page or copy an existing page.
 
-If you have any problems with TARS-CLI, please read the troubleshooting section [troubleshooting](#troubleshooting).
+If you have any problems with TARS-CLI, please read [the troubleshooting section](#troubleshooting).
 
 ## How to install
 
@@ -26,19 +26,19 @@ You have to install TARS-CLI globally:
 
 `npm i -g tars-cli`
 
-May be it needs the superuser rights. But desirably to configure the system  so that it wasn’t required.
+If you get a **Permission denied** or **Error: EACCES** error, you should run the previous command again in sudo.
 
 ## TARS-CLI commands
 
-All command are run by template: 
+All commands have similar template of executing: 
 
 `tars` + `command-name` + `flags`
 
-At any moment you can run the `tars --help` or `tars -h` or just `tars` without additional command and flags. his command displays information about all available commands. Also you can add the `--help` key or `-h` key to any command to get the most full description of this command.
+You can run the `tars --help` or `tars -h` or just `tars` without additional command and flags at any moment. This command displays information about all available commands and flags. Also you can add the `--help` key or `-h` key to any command to get full description of this command.
 
-`tars -v` or `tars --version` will display the currently installed version of TARS-CLI. Also, you will be informed about updating, if it is available.
+`tars -v` or `tars --version` will display version of TARS-CLI installed on your computer. Also, you will be informed about updating, if it is available.
 
-Almost all command has the interactive mode. In this mode you can to communicate with CLI via the GUI similarity. If you are using interactive mode you don’t need to know what the flags are responsible for, because you are communicate with CLI with natural language. Interactive mode is easy to disable if you need to carry out automatic testing or something else that doesn’t require the human presence.
+Almost all command has the interactive mode. In this mode you can to communicate with CLI like it has its own GUI. If you are using interactive mode you don’t need to know what the flags are responsible for, because you are communicate with CLI with natural language. Interactive mode is easy to disable if you use automatic testing or something else that doesn’t require the human presence.
 
 ### Command list
 
@@ -52,14 +52,18 @@ Almost all command has the interactive mode. In this mode you can to communicate
 
 ### tars init
 
-This command allows you to initialize TARS in the current directory. Starts `gulp init`command it TARS.
+This command allows you to initialize TARS in the current directory. Starts `gulp init` command in TARS.
 
-Interactive mode is availabilitied as default. You can select a template, a preprocessor, to show system notifications, with what pixel density to support screens and etc. it the interactive mode is not needed to you, this command must be run with `--silent` flag.
+This will fetch the files directly from Github (original TARS repository) and extract them.
+
+Interactive mode is available by default. If your command line isn't pointing at an empty folder, it will ask you what to do—twice!—to prevent you from deleting any files by accident. When the downloading and extraction have completed, you will be asked a few questions to configure your project. You can select a template, a css-preprocessor, system notifications showing, pixel density screens you would like to support and etc.
+
+If you don't need to use the interactive mode, this command must be run with flag `--silent`.
 
 #### Available flags
 
 * `--silent`: starts init without interactive mode.
-* `-s`, `--source`: by default init downloads from the repository TARS the latest markup builder version and unpacks in the current directory. With the `-s`you can determine where to download the zip-archive with TARS, if you have your own TARS builder. **Attention, the option must be the latest!**
+* `-s`, `--source`: init downloads from the repository TARS the latest markup builder version and unpacks in the current directory by default. With the `-s` flag you can determine where to download the zip-archive with TARS, if you have your own TARS builder-version (fork). **Attention, this flag with url have to be the last!**
     
 #### An example of using the command
 
@@ -70,20 +74,20 @@ tars init
 # Starts init without interactive mode
 tars init --silent
 
-# Download TARS from http://url.to.tars.zip and init project in interactive mode
+# Downloads TARS from http://url.to.tars.zip and inits project in interactive mode
 tars init -s http://url.to.tars.zip
 
-# Download TARS from http://url.to.tars.zip and init project without interactive mode
+# Downloads TARS from http://url.to.tars.zip and inits project without interactive mode
 tars init --silent --source http://url.to.tars.zip
 ````
 
-[Back to the list command list.](#command-list)
+[Back to the command list.](#command-list)
 
 ### tars re-init
 
-This command allows us to re-initialize TARS with new settings (template, preprocessor). Not necessarily to change this settings by your hands, because you can change them in interactive mode. Runs `gulp re-init`command in TARS.
+This command allows to re-initialize TARS with new settings (template, css-preprocessor). It is not necessary to change this settings by your hands, because you can change them in interactive mode. This command runs `gulp re-init` task in TARS.
 
-Interactive mode is availability like in `init`command.
+Interactive mode is available by default like in `init` command.
 
 #### Available flags
 
@@ -99,21 +103,21 @@ tars re-init
 tars re-init --silent
 ````
 
-[Back to the list command list.](#command-list)
+[Back to the command list.](#command-list)
 
 ### tars dev
 
-This command starts dev-builder with watchers. Runs `gulp dev` command in TARS.
+This command starts dev-command (make a regular build) with watchers. Runs `gulp dev` task in TARS.
 
-Interactive mode is availabilitied if you run command without flags. You can select dev-builder additional options, available through the flags. If you want to run the command without flags and without interactive mode, use the `--silent` flag.
+Interactive mode is available if you run command without flags. You can select dev-command additional options, available through the flags. If you want to run the command without flags and without interactive mode, use the flag `--silent`.
 
 #### Available flags
 
 * `-l`, `--livereload`, `--lr`: starts livereload in browser.
-* `-t`, `--tunnel`: initialization project with sharing markup in outside Web.
+* `-t`, `--tunnel`: initialization of project with sharing markup in outside Web.
 * `--ie8`: includes styles for ie8 in the build.
 * `--silent`: starts builder without interactive mode.
-* `--custom-flags`: allows you to use custom flags with dev-team command. An example of use is described below. In interactive mode the flags are listed by the space without quotes and commas. **Attention, the option must be the latest!**
+* `--custom-flags`: allows you to use custom flags with dev-team command. An example of use is described below. In interactive mode the flags are listed by the space without quotes and commas. **Attention, this flag with url have to be the last!**
 
 #### An example of using the command
 
@@ -134,21 +138,21 @@ tars dev --tunnel --ie8
 tars dev --tunnel --ie8 --custom-flags '--custom-flag1 --custom-flag2'
 ````
 
-[Back to the list command list.](#command-list)
+[Back to the command list.](#command-list)
 
 ### tars build
 
-This command starts the final build of the project, without running of watchers. Runs the `gulp build` command in TARS.
+This command starts the final build of the project, without running watchers. Runs the `gulp build` task in TARS.
 
-Available interactive mode when you run the command without flags. You can select additional options of markup builder, available through the flags. If you want to run the command without flags and without interactive mode, use the `--silent` flag.
+Available interactive mode when you run the command without flags. You can select additional options of markup builder, available through the flags. If you want to run the command without flags and without interactive mode, use the flag `--silent`.
 
 #### Available flags
 
-* `-m`, `--min`: minimized files are connected to html.
-* `-r`, `--release`: minimized files are connected to html whose names have hash. This mode is useful if you are trying to post markup directly to the server. 
+* `-m`, `--min`: minimizes static files.
+* `-r`, `--release`: minimizes static files and adds hash to file-names. This mode is useful if you need build, that is ready for deploy.
 * `--ie8`: includes styles for ie8 in the build.
 * `--silent`: starts builder without interactive mode.
-* `--custom-flags`: allows you to use custom flags with dev-team command. An example of use is described below. In interactive mode the flags are listed by the space without quotes and commas.  **Attention, the option must be the latest!**
+* `--custom-flags`: allows you to use custom flags with dev-command. An example of use is described below. Flags have to be separated by the space without quotes and commas in interactive mode.  **Attention, this flag with url have to be the last!**
 
 #### An example of using the command
 
@@ -169,25 +173,25 @@ tars build --release --ie8
 tars build --release --ie8 --custom-flags '--custom-flag1 --custom-flag2'
 ````
 
-[Back to the list command list.](#command-list)
+[Back to the command list.](#command-list)
 
 ### tars add-module %moduleName%
 
-The command adds a module to the project. As a parameter takes the name of the module. If the module already exists, will be given a appropriate error. To create a module with ready files - you need to use flags.
+The command adds a module to the project. It takes the name of the module as a parameter. An error will be thrown in case the module already exists. You have to use flags to create a module with ready files.
 
 Available interactive mode when you run the command without flags. You can select the files and folders to be created with the module.
 
 #### Available flags
 
-* `-f`, `--full`: adds modules with all folders and files that can be in the module: folder for the assets, ie, data + selected template file, js and selected preprocessor.
+* `-f`, `--full`: adds module with all folders and files that can be in the module: folder for the assets, ie, data + selected templater file, js and selected css-preprocessor.
 * `-b`, `--basic`: adds only basic files.
-* `-d`, `--data`: adds a folder for data. It also creates a data file with the following contents:
+* `-d`, `--data`: adds a folder for data. It also creates a data-file with the following contents:
 ````javascript
 moduleName: {}
 ````
 * `-i`, `--ie`: adds a folder for the styles for IE.
 * `-a`, `--assets`: adds a folder for assets.
-* `-e`, `--empty`: adds just the module folder without files.
+* `-e`, `--empty`: adds just module folder without files.
 
 The keys have the following priority:
 * `-e`
@@ -215,11 +219,11 @@ tars add-module sidebar --full
 tars add-module sidebar -e -b -a -d -i
 ````
     
-[Back to the list command list.](#command-list)
+[Back to the command list.](#command-list)
 
 ### tars add-page %pageName%
 
-This command adds a new page in the markup/pages. As a parameter takes the name of the page. If the page already exists, will be given a appropriate error. It is possible to add an empty page  and copy of the template page (the default is _template. {html, jade, hbs}). You can create your _template. {Html, jade, hbs}, to TARS-CLI copy this page.
+This command adds a new page in the markup/pages. It takes the name of the page as a parameter . An error will be thrown in case the page already exists. It is possible to add an empty page  and copy of the template page (the default is _template. {html, jade, hbs}). You can create your _template. {html, jade, hbs}, to TARS-CLI copy this page.
 
 Interactive mode is not available.
 
@@ -240,7 +244,7 @@ tars add-page inner.html
 tars add-page inner -e
 ````
 
-[Back to the list command list.](#command-list)
+[Back to the command list.](#command-list)
 
 ###  tars update
 
@@ -256,13 +260,16 @@ tars update
 
 ## Troubleshooting
 
-To work with TARS-CLI currently require git. It should be installed in the system and  registered in the PATH. If during the installation you get an error message that says that you do not have git, then I ask you to install it.
+Git is required for working with TARS-CLI. It should be installed in the system and registered in the PATH-var. If you get an error message that says that you do not have git, so, just install it.
 
-If you have Windows and git is not registered in the PATH (git --version command gives an error in cmd), the TARS-CLI must be set and updated in git bash. You can’t work with TARS-CLI in git bash. You must use the standard cmd or any other terminal.
+If you are Windows user and git is not registered in the PATH (git --version command gives an error in cmd.exe), TARS-CLI must be installed and updated in gitbash. You must not to work with TARS-CLI in gitbash. Cmd.exe (or other terminal) is required for it.
 
-If there is a problem with the module pty.js, please upgrade to at least 1.1.3.
+If there is a problem with the module pty.js, please upgrade to at least 1.1.3 by using command:
+```bash
+npm update -g tars-cli
+```
 
-If there are still any mistakes, feel free to write to [tars.builder@gmail.com](tars.builder@gmail.com) or [gitter](https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
+Feel free to write to [tars.builder@gmail.com](tars.builder@gmail.com) or [gitter](https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge) and ask me all question about TARS-CLI.
 
 [downloads-image]: http://img.shields.io/npm/dm/tars-cli.svg
 [npm-url]: https://npmjs.org/package/tars-cli
