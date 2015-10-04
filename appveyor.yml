@@ -19,7 +19,7 @@ environment:
 install:
   - cmd: npm -v
   - cmd: node -v
-  - cmd: 'npm install -g git://github.com/tars/tars-cli.git#$(APPVEYOR_REPO_COMMIT)'
+  - cmd: 'npm install -g git://github.com/tars/tars-cli.git#${APPVEYOR_REPO_COMMIT}'
 
 build: off
 
