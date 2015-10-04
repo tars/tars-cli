@@ -31,7 +31,7 @@
     "chokidar": "^1.0.5",
     "cli-spinner": "^0.2.1",
     "commander": "^2.8.1",
-    "del": "^1.2.1",
+    "del": "^2.0.2",
     "digits": "0.1.4",
     "download": "4.2.0",
     "es6-promise": "^3.0.2",
