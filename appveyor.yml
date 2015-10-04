@@ -23,9 +23,6 @@ install:
 
 build: off
 
-build_script:
-  - gulp init
-
 test_script:
   - cmd: tars --version
   - cmd: mkdir tars-temp
