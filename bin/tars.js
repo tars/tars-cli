@@ -49,7 +49,9 @@ program
     .description('Build project without watchers')
     .option('-r, --release', 'Create release build')
     .option('-m, --min', 'Create build with minified files')
+    .option('--ie9', 'Generate files for ie9')
     .option('--ie8', 'Generate files for ie8')
+    .option('--ie', 'Generate files for ie')
     .option('--silent', 'Start build in silent mode, without promt')
     .option('--custom-flags <customFlags>', 'Add custom flags')
     .action(function (options) {
@@ -65,7 +67,9 @@ program
     .option('-t, --tunnel', 'Create tunnel to the Internet')
     .option('-l, --livereload', 'Start server')
     .option('--lr', 'Allias for livereload')
+    .option('--ie9', 'Generate files for ie9')
     .option('--ie8', 'Generate files for ie8')
+    .option('--ie', 'Generate files for ie')
     .option('--silent', 'Start dev in silent mode, without promt')
     .option('--custom-flags <customFlags>', 'Add custom flags')
     .action(function (options) {
