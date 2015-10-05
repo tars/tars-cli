@@ -116,6 +116,8 @@ Interactive mode is available if you run command without flags. You can select d
 * `-l`, `--livereload`, `--lr`: starts livereload in browser.
 * `-t`, `--tunnel`: initialization of project with sharing markup in outside Web.
 * `--ie8`: includes styles for ie8 in the build.
+* `--ie9`: includes styles for ie9 in the build.
+* `--ie`: includes styles for ie8 and ie9 in the build.
 * `--silent`: starts builder without interactive mode.
 * `--custom-flags`: allows you to use custom flags with dev-team command. An example of use is described below. In interactive mode the flags are listed by the space without quotes and commas. **Attention, this flag with url have to be the last!**
 
@@ -134,8 +136,8 @@ tars dev -l
 # Will be start the server for livereload and create a tunnel to the outside Web + ie8 support
 tars dev --tunnel --ie8
 
-# Will be start the server for livereload and creates a tunnel to the outside web ie8 + + two custom flag support 
-tars dev --tunnel --ie8 --custom-flags '--custom-flag1 --custom-flag2'
+# Will be start the server for livereload and creates a tunnel to the outside web ie8 and ie9 + two custom flag support 
+tars dev --tunnel --ie --custom-flags '--custom-flag1 --custom-flag2'
 ````
 
 [Back to the command list.](#command-list)
@@ -151,6 +153,8 @@ Available interactive mode when you run the command without flags. You can selec
 * `-m`, `--min`: minimizes static files.
 * `-r`, `--release`: minimizes static files and adds hash to file-names. This mode is useful if you need build, that is ready for deploy.
 * `--ie8`: includes styles for ie8 in the build.
+* `--ie9`: includes styles for ie9 in the build.
+* `--ie`: includes styles for ie8 and ie9 in the build.
 * `--silent`: starts builder without interactive mode.
 * `--custom-flags`: allows you to use custom flags with dev-command. An example of use is described below. Flags have to be separated by the space without quotes and commas in interactive mode.  **Attention, this flag with url have to be the last!**
 
@@ -169,8 +173,8 @@ tars build -m
 # Will be created a release-version of the build + ie8 support 
 tars build --release --ie8
 
-# Will be created a release-version of the build + ie8 support + two custom flag
-tars build --release --ie8 --custom-flags '--custom-flag1 --custom-flag2'
+# Will be created a release-version of the build + ie8 and ie9 support + two custom flag
+tars build --release --ie --custom-flags '--custom-flag1 --custom-flag2'
 ````
 
 [Back to the command list.](#command-list)
