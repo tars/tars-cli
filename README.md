@@ -264,10 +264,6 @@ tars update
 
 ## Troubleshooting
 
-Git is required for working with TARS-CLI. It should be installed in the system and registered in the PATH-var. If you get an error message that says that you do not have git, so, just install it.
-
-If you are Windows user and git is not registered in the PATH (git --version command gives an error in cmd.exe), TARS-CLI must be installed and updated in gitbash. You must not to work with TARS-CLI in gitbash. Cmd.exe (or other terminal) is required for it.
-
 If there is a problem with the module pty.js, please upgrade to at least 1.1.3 by using command:
 ```bash
 npm update -g tars-cli
