@@ -46,7 +46,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-csso": "^1.0.0",
     "gulp-data": "^1.2.0",
-    "gulp-if": "^1.2.5",
+    "gulp-if": "^2.0.0",
     "gulp-imagemin": "2.3.0",
     "gulp-jade": "^1.1.0",
     "gulp-jscs": "^3.0.1",
