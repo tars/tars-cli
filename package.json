@@ -1,6 +1,6 @@
 {
   "name": "tars-cli",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "CLI utility for TARS",
   "keywords": [
     "tars",
@@ -51,7 +51,7 @@
     "gulp-jade": "^1.1.0",
     "gulp-jscs": "^3.0.1",
     "gulp-jshint": "^1.11.2",
-    "gulp-html-prettify": "^0.0.1",
+    "gulp-html-prettify": "https://github.com/artem-malko/gulp-html-prettify/archive/master.tar.gz",
     "gulp-less": "^3.0.3",
     "gulp-minify-html": "^1.0.4",
     "gulp-notify": "^2.2.0",
