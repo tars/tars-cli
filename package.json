@@ -1,6 +1,6 @@
 {
   "name": "tars-cli",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "CLI utility for TARS",
   "keywords": [
     "tars",
@@ -33,7 +33,7 @@
     "commander": "^2.8.1",
     "del": "^2.0.2",
     "digits": "0.1.4",
-    "download": "4.2.0",
+    "download": "^4.3.1",
     "es6-promise": "^3.0.2",
     "extfs": "0.0.7",
     "fs-extra": "^0.24.0",
