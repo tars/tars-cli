@@ -1,6 +1,6 @@
 {
   "name": "tars-cli",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "CLI utility for TARS",
   "keywords": [
     "tars",
@@ -48,6 +48,7 @@
     "gulp-data": "^1.2.0",
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "2.3.0",
+    "gulp-importify": "^0.0.2",
     "gulp-jade": "^1.1.0",
     "gulp-jscs": "^3.0.1",
     "gulp-jshint": "^1.11.2",

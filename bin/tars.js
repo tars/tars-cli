@@ -115,6 +115,17 @@ program
     });
 
 program
+    .command('start <taskName>')
+    .description('Start task from the local gulpfile')
+    .option('--flags <flags>', 'Add flags "--flags" \'flags, with space separator\'')
+    .action(function (taskName, options) {
+
+        if (isTarsInited()) {
+            getCliRoot(require('../lib/command-actions/start-task'), taskName, options);
+        }
+    });
+
+program
     .option('-v, --version', 'Version of TARS-cli');
 
 if (program.version && args.length && (args[0] === '--version' || args[0] === '-v')) {
