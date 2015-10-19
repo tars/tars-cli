@@ -4,13 +4,14 @@
 
 ## Command list
 
-* [tars init](#tars-init)
-* [tars re-init](#tars-re-init)
-* [tars dev](#tars-dev)
-* [tars build](#tars-build)
-* [tars add-module](#tars-add-module-modulename)
-* [tars add-page](#tars-add-page-pagename)
-* [tars update](#tars-update)
+* [tars init](#tars-init) — инициализирует TARS.
+* [tars re-init](#tars-re-init) — запускает реинит TARS.
+* [tars dev](#tars-dev) — запускает dev-режим сборки.
+* [tars build](#tars-build) — запускает build-режим сборки.
+* [tars start](#tars-start-taskname) — запускает любой gulp-таск из локального gulpfile.
+* [tars add-module](#tars-add-module-modulename) — добавляет модуль в markup/modules.
+* [tars add-page](#tars-add-page-pagename) — добавляет страницу в markup/pages.
+* [tars update](#tars-update) — обновляет TARS-CLI.
 
 ## tars init
 
@@ -135,6 +136,29 @@ tars build --release --ie8
 
 # Будет создана release-версия сборки + поддержка ie8 и ie9 + два кастомных флага
 tars build --release --ie --custom-flags '--custom-flag1 --custom-flag2'
+````
+
+[Назад, к списку команд.](#command-list)
+
+## tars start %taskName%
+
+Вы можете запустить любой таск из локального gulpfile проекта. Интерактивный режим не доступен.
+
+### Доступные флаги
+
+* `--flags`: позволяет использовать флаги с %taskName%. Пример использования описан ниже. В интерактивном режиме флаги перечисляются через пробел без кавычек и запятых. **Внимание, опция должна идти последней!**
+
+### Пример использования команды
+
+````bash
+# Запустит dev-таск из локального gulpfile
+tars start dev
+
+# Запустит dev-таск с флагом --lr из локального gulpfile
+tars start dev --flags '--lr'
+
+# Запустит dev-таск с флагами --lr и --ie из локального gulpfile
+tars start dev --flags '--lr --ie'
 ````
 
 [Назад, к списку команд.](#command-list)

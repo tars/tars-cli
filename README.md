@@ -18,7 +18,7 @@ TARS-CLI is just an interface of the main builder, which allows you to:
 * Add module with different set of files.
 * Add empty page or copy an existing page.
 
-**If you have any problems with TARS-CLI, please read [the troubleshooting docs](https://github.com/tars/tars-cli/docs/en/troubleshooting.md).**
+**If you have any problems with TARS-CLI, please read [the troubleshooting docs](https://github.com/tars/tars-cli/blob/master/docs/en/troubleshooting.md).**
 
 ## How to install
 
@@ -42,13 +42,15 @@ Almost all command has the interactive mode. In this mode you can to communicate
 
 ### Command list
 
-* [tars init](https://github.com/tars/tars-cli/docs/en/commands.md#tars-init)
-* [tars re-init](https://github.com/tars/tars-cli/docs/en/commands.md#tars-re-init)
-* [tars dev](https://github.com/tars/tars-cli/docs/en/commands.md#tars-dev)
-* [tars build](https://github.com/tars/tars-cli/docs/en/commands.md#tars-build)
-* [tars add-module](https://github.com/tars/tars-cli/docs/en/commands.md#tars-add-module-modulename)
-* [tars add-page](https://github.com/tars/tars-cli/docs/en/commands.md#tars-add-page-pagename)
-* [tars update](https://github.com/tars/tars-cli/docs/en/commands.md#tars-update)
+* [tars init](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-init) — TARS initialization.
+* [tars re-init](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-re-init) — TARS re-init. 
+* [tars dev](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-dev) — run dev task in TARS.
+* [tars build](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-build) — run build task in TARS.
+* [tars start](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-start-taskname) — run custom task from local gulpfile.
+* [tars add-module](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-add-module-modulename) — add module to markup/modules.
+* [tars add-page](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-add-page-pagename) — add page to markup/pages.
+* [tars update](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-update) — update TARS-CLI.
+
 
 Feel free to write to [tars.builder@gmail.com](tars.builder@gmail.com) or [gitter](https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge) and ask me all question about TARS-CLI.
 

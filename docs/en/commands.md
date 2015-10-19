@@ -4,13 +4,14 @@ There is a description for all TARS-CLI commands.
 
 ## Command list
 
-* [tars init](#tars-init)
-* [tars re-init](#tars-re-init)
-* [tars dev](#tars-dev)
-* [tars build](#tars-build)
-* [tars add-module](#tars-add-module-modulename)
-* [tars add-page](#tars-add-page-pagename)
-* [tars update](#tars-update)
+* [tars init](#tars-init) — TARS initialization.
+* [tars re-init](#tars-re-init) — TARS re-init. 
+* [tars dev](#tars-dev) — run dev task in TARS.
+* [tars build](#tars-build) — run build task in TARS.
+* [tars start](#tars-start-taskname) — run custom task from local gulpfile.
+* [tars add-module](#tars-add-module-modulename) — add module to markup/modules.
+* [tars add-page](#tars-add-page-pagename) — add page to markup/pages.
+* [tars update](#tars-update) — update TARS-CLI.
 
 ## tars init
 
@@ -118,7 +119,7 @@ Available interactive mode when you run the command without flags. You can selec
 * `--ie9`: includes styles for ie9 in the build.
 * `--ie`: includes styles for ie8 and ie9 in the build.
 * `--silent`: starts builder without interactive mode.
-* `--custom-flags`: allows you to use custom flags with dev-command. An example of use is described below. Flags have to be separated by the space without quotes and commas in interactive mode.  **Attention, this flag with url have to be the last!**
+* `--custom-flags`: allows you to use custom flags with dev-command. An example of use is described below. Flags have to be separated by the space without quotes and commas in interactive mode. **Attention, this flag with url have to be the last!**
 
 ### An example of using the command
 
@@ -137,6 +138,29 @@ tars build --release --ie8
 
 # Will be created a release-version of the build + ie8 and ie9 support + two custom flag
 tars build --release --ie --custom-flags '--custom-flag1 --custom-flag2'
+````
+
+[Back to the command list.](#command-list)
+
+## tars start %taskName%
+
+You can start any task via TARS-CLI from your local gulpfile. Interactive mode is not available.
+
+### Available flags
+
+* `--flags`: allows you to use flags with %taskName%. An example of use is described below. Flags have to be separated by the space without quotes and commas in interactive mode. **Attention, this flag with url have to be the last!**
+
+### An example of using the command
+
+````bash
+# Starts dev task from gulpfile
+tars start dev
+
+# Starts dev task from gulpfile with --lr flag
+tars start dev --flags '--lr'
+
+# Starts dev task from gulpfile with --lr and --ie flags
+tars start dev --flags '--lr --ie'
 ````
 
 [Back to the command list.](#command-list)

@@ -27,7 +27,7 @@ test_script:
   - cmd: tars --version
   - cmd: mkdir tars-temp
   - cmd: cd tars-temp
-  - cmd: tars init --silent --source https://github.com/tars/tars/archive/version-1.4.1.zip
+  - cmd: tars init --silent
   - cmd: tars re-init --silent
   - cmd: tars start re-init --flags '--silent'
   - cmd: tars add-module new -e

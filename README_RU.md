@@ -18,7 +18,7 @@ TARS-CLI — это только интерфейс к основному сбо
 * Добавить модуль с различным набором файлов.
 * Добавить страницу, как пустую, так и копию существующей.
 
-**Если у вас возникли проблемы при работе с TARS-CLI, прошу ознакомится с разделом [troubleshooting](https://github.com/tars/tars-cli/docs/ru/troubleshooting.md).**
+**Если у вас возникли проблемы при работе с TARS-CLI, прошу ознакомится с разделом [troubleshooting](https://github.com/tars/tars-cli/blob/master/docs/ru/troubleshooting.md).**
 
 ## Установка
 
@@ -42,13 +42,14 @@ TARS-CLI — это только интерфейс к основному сбо
 
 ### Command list
 
-* [tars init](https://github.com/tars/tars-cli/docs/ru/commands.md#tars-init)
-* [tars re-init](https://github.com/tars/tars-cli/docs/ru/commands.md#tars-re-init)
-* [tars dev](https://github.com/tars/tars-cli/docs/ru/commands.md#tars-dev)
-* [tars build](https://github.com/tars/tars-cli/docs/ru/commands.md#tars-build)
-* [tars add-module](https://github.com/tars/tars-cli/docs/ru/commands.md#tars-add-module-modulename)
-* [tars add-page](https://github.com/tars/tars-cli/docs/ru/commands.md#tars-add-page-pagename)
-* [tars update](https://github.com/tars/tars-cli/docs/ru/commands.md#tars-update)
+* [tars init](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-init) — инициализирует TARS.
+* [tars re-init](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-re-init) — запускает реинит TARS.
+* [tars dev](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-dev) — запускает dev-режим сборки.
+* [tars build](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-build) — запускает build-режим сборки.
+ [tars start](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-start-taskname) — запускает любой gulp-таск из локального gulpfile.
+* [tars add-module](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-add-module-modulename) — добавляет модуль в markup/modules.
+* [tars add-page](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-add-page-pagename) — добавляет страницу в markup/pages.
+* [tars update](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-update) — обновляет TARS-CLI.
 
 Если возникают еще какие-либо ошибки, смело пишите на [tars.builder@gmail.com](tars.builder@gmail.com) или в [gitter](https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
