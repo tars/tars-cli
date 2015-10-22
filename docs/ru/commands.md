@@ -8,7 +8,7 @@
 * [tars re-init](#tars-re-init) — запускает реинит TARS.
 * [tars dev](#tars-dev) — запускает dev-режим сборки.
 * [tars build](#tars-build) — запускает build-режим сборки.
-* [tars start](#tars-start-taskname) — запускает любой gulp-таск из локального gulpfile.
+* [tars start](#tars-start-taskname) — запускает любой gulp-таск из gulpfile в текущей директории.
 * [tars add-module](#tars-add-module-modulename) — добавляет модуль в markup/modules.
 * [tars add-page](#tars-add-page-pagename) — добавляет страницу в markup/pages.
 * [tars update](#tars-update) — обновляет TARS-CLI.
@@ -142,7 +142,7 @@ tars build --release --ie --custom-flags '--custom-flag1 --custom-flag2'
 
 ## tars start %taskName%
 
-Вы можете запустить любой таск из локального gulpfile проекта. Интерактивный режим не доступен.
+Вы можете запустить любой таск из локального gulpfile проекта (или вообще из любого gulpfile в текущей директории). Интерактивный режим не доступен.
 
 ### Доступные флаги
 

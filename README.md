@@ -4,7 +4,7 @@ English description | <a href="README_RU.md">Описание на русско�
 
 # TARS-CLI
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Mac/Linux Build Status](https://img.shields.io/travis/tars/tars-cli/master.svg?label=Mac%20OSX%20%26%20Linux)](https://travis-ci.org/tars/tars-cli) [![Windows Build status](https://img.shields.io/appveyor/ci/artem-malko/tars-cli/master.svg?label=Windows)](https://ci.appveyor.com/project/artem-malko/tars-cli/branch/master) [![Dependency Status][deps-image]][deps-link] [![Gitter][gitter-image]][gitter-link]
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Mac/Linux Build Status](https://img.shields.io/travis/tars/tars-cli/master.svg?label=Mac%20OSX%20%26%20Linux&style=flat-square)](https://travis-ci.org/tars/tars-cli) [![Windows Build status](https://img.shields.io/appveyor/ci/artem-malko/tars-cli/master.svg?label=Windows&style=flat-square)](https://ci.appveyor.com/project/artem-malko/tars-cli/branch/master) [![Dependency Status][deps-image]][deps-link] [![Gitter][gitter-image]][gitter-link]
 
 TARS-CLI — Command Line Interface for the TARS markup builder [TARS](https://github.com/tars/tars/blob/master/README.md).
 
@@ -51,18 +51,17 @@ Almost all command has the interactive mode. In this mode you can to communicate
 * [tars add-page](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-add-page-pagename) — add page to markup/pages.
 * [tars update](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-update) — update TARS-CLI.
 
-
 Feel free to write to [tars.builder@gmail.com](tars.builder@gmail.com) or [gitter](https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge) and ask me all question about TARS-CLI.
 
-[downloads-image]: http://img.shields.io/npm/dm/tars-cli.svg
+[downloads-image]: http://img.shields.io/npm/dm/tars-cli.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/tars-cli
-[npm-image]: http://img.shields.io/npm/v/tars-cli.svg
+[npm-image]: http://img.shields.io/npm/v/tars-cli.svg?style=flat-square
 
 [travis-image]: https://travis-ci.org/tars/tars-cli.svg?branch=master
 [travis-link]: https://travis-ci.org/tars/tars-cli
 
-[deps-image]: https://david-dm.org/tars/tars-cli.svg
+[deps-image]: https://david-dm.org/tars/tars-cli.svg?style=flat-square
 [deps-link]: https://david-dm.org/tars/tars-cli
 
-[gitter-image]: https://badges.gitter.im/Join%20Chat.svg
+[gitter-image]: https://badges.gitter.im/Join%20Chat.svg?style=flat-square
 [gitter-link]: https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge

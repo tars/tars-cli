@@ -8,7 +8,7 @@ There is a description for all TARS-CLI commands.
 * [tars re-init](#tars-re-init) — TARS re-init. 
 * [tars dev](#tars-dev) — run dev task in TARS.
 * [tars build](#tars-build) — run build task in TARS.
-* [tars start](#tars-start-taskname) — run custom task from local gulpfile.
+* [tars start](#tars-start-taskname) — run custom task from gulpfile from current directory.
 * [tars add-module](#tars-add-module-modulename) — add module to markup/modules.
 * [tars add-page](#tars-add-page-pagename) — add page to markup/pages.
 * [tars update](#tars-update) — update TARS-CLI.
@@ -144,7 +144,7 @@ tars build --release --ie --custom-flags '--custom-flag1 --custom-flag2'
 
 ## tars start %taskName%
 
-You can start any task via TARS-CLI from your local gulpfile. Interactive mode is not available.
+You can start any task via TARS-CLI from your local gulpfile (or from gulpfile from current directory). Interactive mode is not available.
 
 ### Available flags
 
