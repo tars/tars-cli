@@ -28,6 +28,8 @@ You have to install TARS-CLI globally:
 
 If you get a **Permission denied** or **Error: EACCES** error, you should run the previous command again in sudo.
 
+**Attention: you have yo use npm 2.x.x for TARS-CLI installing. We are working on installation process via npm 3.x.x and it will be fixed in the closest release!**
+
 ## TARS-CLI commands
 
 All commands have similar template of executing: 
