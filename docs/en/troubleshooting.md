@@ -1,11 +1,50 @@
 # Troubleshooting
 
-If there is a problem with the module pty.js, please upgrade to at least 1.1.3 by using command:
+There is a list of the most frequently appearing problems.
+
+## Problem list
+
+* [I have started tars update and tars is not working now.](#I-have-started-tars-update-and-tars-is-not-working-now)
+* [I have a problem with installation, the error: "Error: EPERM: operation not permitted, rename".](#I-have-a-problem-with-installation-the-error-error-eperm-operation-not-permitted-rename)
+* [I have a problem with installation, git is not exist.](#I-have-a-problem-with-installation-git-is-not-exist)
+* [Build-process starts, but nothing happens after service:clean task](#Build-process-starts-but-nothing-happens-after-serviceclean-task)
+* [I have a problem with npm-package pty.js, tars-cli is installed with error of pty.js installing.](#I-have-a-problem-with-npm-package-ptyjs-tars-cli-is-installed-with-error-of-ptyjs-installing)
+
+Don’t hesitate to get in touch by email [tars.builder@gmail.com](tars.builder@gmail.com) or [gitter](https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge) and ask me all question about TARS-CLI.
+
+## Solutions
+
+### I have started tars update and tars is not working now
+
+In most cases, tars update is finished with error. It could happen in case you installed tars-cli with superuser permissions and started update process without it. You should to start installation of tars-cli again:
+
 ```bash
-npm update -g tars-cli
+npm i -g tars-cli
+
+# or, if it is needed
+
+sudo npm i -g tars-cli
 ```
 
-If you use TARS-CLI with TARS 1.3.1 version and below, please, update tasks tars/tasks/services/clean.js and tars/tasks/services/remove-init-fs.js:
+[To the problem list.](#Problem-list)
+
+### I have a problem with installation, the error: "Error: EPERM: operation not permitted, rename"
+
+It happens only on Windows. All desktop versions of Windows has the same problem: max path length, the limit is 256 symbols. So, npm can't rename file because of super-long path length. You should install official fix to resolve this problem. You have to have Service Pack 1 in case of Windows 7. You can download that fix from [official support-site](https://support.microsoft.com/en-us/kb/2891362). In case of using Windows 8 or 10, you just can try to install TARS-CLI again.
+You can start npm install -g tars-cli from PowerShell, if previous advice did'nt help you.
+
+[To the problem list.](#Problem-list)
+
+### I have a problem with installation, git is not exist
+
+This error can happen when one of dependencies of dependencies of tars-cli uses git in package.json to install in its own dependencies. You should install git in that case. If git is not available in terminal/cmd/console you should install tars-cli in git bash. You can use tars-cli in all type of console after installation.
+
+[To the problem list.](#Problem-list)
+
+### Build-process starts, but nothing happens after service:clean task
+
+If you use TARS-CLI with TARS 1.3.1 and below (you can find used version in tras.json in the root of your project), you have to [update used TARS](https://github.com/tars/tars/blob/master/docs/en/update-guide.md).
+If you don't want to update TARS, you can just update code of some tasks: tars/tasks/services/clean.js and tars/tasks/services/remove-init-fs.js:
 
 ```javascript
 // clean.js
@@ -77,4 +116,23 @@ module.exports = function () {
 
 ```
 
-Feel free to write to [tars.builder@gmail.com](tars.builder@gmail.com) or [gitter](https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge) and ask me all question about TARS-CLI.
+[To the problem list.](#Problem-list)
+
+### I have a problem with npm-package pty.js, tars-cli is installed with error of pty.js installing
+
+If there is a problem with pty.js module, you have to udpate TARS-CLI to the latest version. You have to update TARS-CLI via npm, not via tars update:
+
+```bash
+npm update -g tars-cli
+```
+
+If you get a **Permission denied** or **Error: EACCES** error, you should run the previous command again in sudo.
+
+In case of using Windows, and if you still has that error:
+* remove from C:/Users/%Username%/AppData/Roaming/npm/node_modules/ folder tars-cli;
+* run npm cache clean;
+* try npm install again.
+
+[To the problem list.](#Problem-list)
+
+Don’t hesitate to get in touch by email [tars.builder@gmail.com](tars.builder@gmail.com) or [gitter](https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge) and ask me all question about TARS-CLI.
