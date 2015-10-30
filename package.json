@@ -72,6 +72,7 @@
     "gulp.spritesmith": "^4.1.1",
     "inquirer": "^0.10.1",
     "jshint-stylish": "^2.0.1",
+    "handlebars": "^3.0.0",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "run-sequence": "^1.1.4",

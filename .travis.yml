@@ -8,6 +8,7 @@ env:
   matrix:
     - export NODE_VERSION="0.12"
     - export NODE_VERSION="4"
+    - export NODE_VERSION="5"
 
 matrix:
   fast_finish: true
@@ -26,7 +27,7 @@ script:
   - tars --version
   - mkdir tars-temp
   - cd tars-temp
-  - tars init --silent
+  - tars init --silent --source https://github.com/tars/tars/archive/version-1.5.0.zip
   - tars start re-init --flags '--silent'
   - tars add-module new -e
   - tars add-module new1 -f
