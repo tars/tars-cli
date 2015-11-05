@@ -24,7 +24,22 @@ TARS-CLI is just an interface of the main builder, which allows you to:
 
 You have to install TARS-CLI globally:
 
-`npm i -g tars-cli`
+```bash
+npm i -g tars-cli
+```
+
+If you get a **Permission denied** or **Error: EACCES** error, you should run the previous command again in sudo.
+
+If you use Node.js version 5.x.x, please, be sure, that you use npm version 3.3.10 and higher. Otherwise update npm by using command:
+
+```bash
+npm i -g npm
+```
+
+For Windows you have to do some more several steps:
+
+* navigate to C:\Program Files (x86)\nodejs or C:\Program Files\nodejs via cmd.exe or any available terminal. The path depends on how Node.js was installed;
+* run command `npm install npm@latest`.
 
 If you get a **Permission denied** or **Error: EACCES** error, you should run the previous command again in sudo.
 
