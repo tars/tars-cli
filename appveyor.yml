@@ -13,10 +13,10 @@ init:
 # What combinations to test
 environment:
   matrix:
-    - nodejs_version: 0.12
-    - nodejs_version: 4
+    - nodejs_version: 5
 
 install:
+  - cmd: npm install -g npm
   - cmd: npm -v
   - cmd: node -v
   - cmd: 'npm install -g git://github.com/tars/tars-cli.git#%APPVEYOR_REPO_COMMIT%'
