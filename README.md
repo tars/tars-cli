@@ -36,7 +36,7 @@ If you use Node.js version 5.x.x, please, be sure, that you use npm version 3.3.
 npm i -g npm
 ```
 
-For Windows you have to do some more several steps:
+For Windows you have to do some more steps:
 
 * navigate to C:\Program Files (x86)\nodejs or C:\Program Files\nodejs via cmd.exe or any available terminal. The path depends on how Node.js was installed;
 * run command `npm install npm@latest`.
