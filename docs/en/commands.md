@@ -48,7 +48,7 @@ tars init --silent --source http://url.to.tars.zip
 
 ## tars re-init
 
-This command allows to re-initialize TARS with new settings (template, css-preprocessor). It is not necessary to change this settings by your hands, because you can change them in interactive mode. This command runs `gulp re-init` task in TARS.
+This command allows to re-initialize TARS with new settings (template, css-preprocessor). It is not necessary to change this settings by your hands, because you can change them in interactive mode. This command runs `gulp re-init` task in TARS. **Attention, files from pages and static folder will be deleted.**
 
 Interactive mode is available by default like in `init` command.
 
