@@ -4,6 +4,10 @@
 # Build version format
 version: "{build}"
 
+platform:
+  - x64
+  - x86
+
 clone_depth: 10
 
 # Fix line endings on Windows
@@ -13,15 +17,16 @@ init:
 # What combinations to test
 environment:
   matrix:
-    - nodejs_version: 5.0
-    - nodejs_version: 4.0
+    - nodejs_version: 5
+    - nodejs_version: 4
     - nodejs_version: 0.12
 
 install:
-  - cmd: npm install -g npm
-  - cmd: npm -v
-  - cmd: node -v
-  - cmd: 'npm install -g git://github.com/tars/tars-cli.git#%APPVEYOR_REPO_COMMIT%'
+  - ps: Install-Product node $env:nodejs_version $env:platform
+  - node --version
+  - npm install -g npm
+  - npm --version
+  - 'npm install -g git://github.com/tars/tars-cli.git#%APPVEYOR_REPO_COMMIT%'
 
 build: off
 

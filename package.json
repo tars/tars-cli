@@ -31,7 +31,6 @@
     "chokidar": "^1.2.0",
     "cli-spinner": "^0.2.1",
     "commander": "^2.9.0",
-    "cross-spawn": "^2.1.0",
     "del": "2.0.2",
     "digits": "0.1.4",
     "download": "^4.4.1",
@@ -80,7 +79,8 @@
     "stream-combiner": "0.2.2",
     "stream-combiner2": "^1.1.1",
     "through2": "^2.0.0",
-    "update-notifier": "^0.6.0"
+    "update-notifier": "^0.6.0",
+    "win-spawn": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^1.7.3"
