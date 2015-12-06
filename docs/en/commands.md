@@ -144,7 +144,7 @@ tars build --release --ie --custom-flags '--custom-flag1 --custom-flag2'
 
 ## tars start %taskName%
 
-You can start any task via TARS-CLI from your local gulpfile (or from gulpfile from current directory). Interactive mode is not available.
+You can start any task via TARS-CLI from your local gulpfile (or from gulpfile from current directory). It is very important, that TARS have to be inited. This command will be usefull to add more commands to TARS-CLI. Interactive mode is not available.
 
 ### Available flags
 
