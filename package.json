@@ -80,7 +80,7 @@
     "stream-combiner": "0.2.2",
     "stream-combiner2": "^1.1.1",
     "through2": "^2.0.0",
-    "update-notifier": "^0.5.0"
+    "update-notifier": "^0.6.0"
   },
   "devDependencies": {
     "eslint": "^1.7.3"
