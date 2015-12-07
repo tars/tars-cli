@@ -83,11 +83,11 @@
     "win-spawn": "^2.0.0"
   },
   "devDependencies": {
-    "eslint": "^1.7.3"
+    "eslint": "^1.10.3"
   },
   "optionalDependencies": {
     "posix": "^4.0.0",
-    "fsevents": "^1.0.2"
+    "fsevents": "^1.0.5"
   },
   "bin": {
     "tars": "./bin/tars.js"
