@@ -181,9 +181,11 @@ moduleName: {}
 ````
 * `-i`, `--ie`: adds a folder for the styles for IE.
 * `-a`, `--assets`: adds a folder for assets.
+* `-t`, `--template`: creates new module, which is based on module _template. So, if you need your own template for all new modules, you can use this flag. **Attention, it is very important, that _template has to be existed in markup/modules!** After using flag `-t` new module this name %moduleName% will be created and it will be a full copy of _template module. So, you have to rename all files and folders in new module by yourself in that case, cause TARS doesn't know anything about structure of _template module.
 * `-e`, `--empty`: adds just module folder without files.
 
 The keys have the following priority:
+* `-t`
 * `-e`
 * `-f`
 * `other`
@@ -204,6 +206,9 @@ tars add-module sidebar -b -a -d
 
 # Adds Module "sidebar" with all files and folders
 tars add-module sidebar --full
+
+# Adds Module "sidebar" which is based on _template
+tars add-module sidebar --template
 
 # Adds in modules empty folder named "sidebar"
 tars add-module sidebar -e -b -a -d -i

@@ -87,6 +87,7 @@ program
     .option('-d, --data', 'Add module with general files + folder for data')
     .option('-i, --ie', 'Add module with general files + folder for IE')
     .option('-f, --full', 'Add module with all files and folders (assets folder, folder for IE and so on)')
+    .option('-t, --template', 'Add module as a copy of _template module')
     .option('-e, --empty', 'Add module without files')
     .option('--silent', 'Add module in silent mode, without promt')
     .action(function (moduleName, options) {
