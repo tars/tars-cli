@@ -1,3 +1,7 @@
+<p align="right">
+English description | <a href="../ru/troubleshooting.md">Описание на русском</a>
+</p>
+
 # Troubleshooting
 
 There is a list of the most frequently appearing problems.

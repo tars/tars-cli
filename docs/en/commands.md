@@ -1,3 +1,7 @@
+<p align="right">
+English description | <a href="../ru/commands.md">Описание на русском</a>
+</p>
+
 # TARS-CLI commands
 
 There is a description for all TARS-CLI commands.
