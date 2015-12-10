@@ -76,5 +76,5 @@ npm i -g npm
 [deps-image]: https://david-dm.org/tars/tars-cli.svg?style=flat-square
 [deps-link]: https://david-dm.org/tars/tars-cli
 
-[gitter-image]: https://badges.gitter.im/Join%20Chat.svg?style=flat-square
+[gitter-image]: https://img.shields.io/badge/gitter-join%20chat%20%E2%86%92-brightgreen.svg?style=flat-square
 [gitter-link]: https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge
