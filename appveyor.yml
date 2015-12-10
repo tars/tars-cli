@@ -1,60 +1,58 @@
-# AppVeyor file
-# http://www.appveyor.com/docs/appveyor-yml
+-
+  # AppVeyor file
+  # http://www.appveyor.com/docs/appveyor-yml
 
-# Build version format
-version: "{build}"
+  # Build version format
+  version: "{build}"
 
-platform:
-  - x64
-  - x86
+  platform:
+    - x64
+    - x86
 
-clone_depth: 10
+  clone_depth: 10
 
-# Fix line endings on Windows
-init:
-  - git config --global core.autocrlf true
+  # Fix line endings on Windows
+  init:
+    - git config --global core.autocrlf true
 
-# What combinations to test
-environment:
-  matrix:
-    - nodejs_version: 5
-    - nodejs_version: 4
-    - nodejs_version: 0.12
+  # What combinations to test
+  environment:
+    matrix:
+      - nodejs_version: 5
+      - nodejs_version: 4
 
-install:
-  - ps: Install-Product node $env:nodejs_version $env:platform
-  - node --version
-  - npm install -g npm
-  - npm --version
-  - 'npm install -g git://github.com/tars/tars-cli.git#%APPVEYOR_REPO_COMMIT%'
+  install:
+    - ps: Install-Product node $env:nodejs_version $env:platform
+    - node --version
+    - npm install -g npm
+    - npm --version
+    - 'npm install -g git://github.com/tars/tars-cli.git#%APPVEYOR_REPO_COMMIT%'
 
-build: off
+  build: off
 
-test_script:
-  - cmd: tars --version
-  - cmd: mkdir tars-temp
-  - cmd: cd tars-temp
-  - cmd: tars init --silent
-  - cmd: tars re-init --silent
-  - cmd: tars start re-init --flags '--silent'
-  - cmd: tars add-module new -e
-  - cmd: tars add-module new_ --empty
-  - cmd: tars add-module new1 -f
-  - cmd: tars add-module new1_ --full
-  - cmd: tars add-module new2 -b
-  - cmd: tars add-module new2_ --basic
-  - cmd: tars add-module new3 -a
-  - cmd: tars add-module new3_ --assets
-  - cmd: tars add-module new4 -i
-  - cmd: tars add-module new4_ --ie
-  - cmd: tars add-module new5 -d
-  - cmd: tars add-module new5_ --data
-  - cmd: tars add-module new6 -t
-  - cmd: tars add-module new6_ --template
-  - cmd: tars add-page main.html
-  - cmd: tars add-page inner
-  - cmd: tars add-page contacts -e
-  - cmd: tars add-page contacts_ --empty
-  - cmd: tars build --release --ie
-
-
+  test_script:
+    - cmd: tars --version
+    - cmd: mkdir tars-temp
+    - cmd: cd tars-temp
+    - cmd: tars init --silent
+    - cmd: tars re-init --silent
+    - cmd: tars start re-init --flags '--silent'
+    - cmd: tars add-module new -e
+    - cmd: tars add-module new_ --empty
+    - cmd: tars add-module new1 -f
+    - cmd: tars add-module new1_ --full
+    - cmd: tars add-module new2 -b
+    - cmd: tars add-module new2_ --basic
+    - cmd: tars add-module new3 -a
+    - cmd: tars add-module new3_ --assets
+    - cmd: tars add-module new4 -i
+    - cmd: tars add-module new4_ --ie
+    - cmd: tars add-module new5 -d
+    - cmd: tars add-module new5_ --data
+    - cmd: tars add-module new6 -t
+    - cmd: tars add-module new6_ --template
+    - cmd: tars add-page main.html
+    - cmd: tars add-page inner
+    - cmd: tars add-page contacts -e
+    - cmd: tars add-page contacts_ --empty
+    - cmd: tars build --release --ie
