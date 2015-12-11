@@ -29,7 +29,7 @@ script:
   - tars --version
   - mkdir tars-temp
   - cd tars-temp
-  - tars init --silent
+  - tars init --silent -s https://github.com/tars/tars/archive/version-1.6.0.zip
   - tars start re-init --flags '--silent'
   - tars add-module new -e
   - tars add-module new_ --empty
