@@ -4,7 +4,7 @@ English description | <a href="README_RU.md">Описание на русско�
 
 # TARS-CLI
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Mac/Linux Build Status](https://img.shields.io/travis/tars/tars-cli/master.svg?label=Mac%20OSX%20%26%20Linux&style=flat-square)](https://travis-ci.org/tars/tars-cli) [![Windows Build status](https://img.shields.io/appveyor/ci/artem-malko/tars-cli/master.svg?label=Windows&style=flat-square)](https://ci.appveyor.com/project/artem-malko/tars-cli/branch/master) [![Dependency Status][deps-image]][deps-link] [![Gitter][gitter-image]][gitter-link]
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Mac/Linux Build Status](https://img.shields.io/travis/tars/tars-cli/master.svg?label=Mac%20OSX%20%26%20Linux&style=flat-square)](https://travis-ci.org/tars/tars-cli) [![Windows Build status](https://img.shields.io/appveyor/ci/artem-malko/tars-cli/master.svg?label=Windows&style=flat-square)](https://ci.appveyor.com/project/artem-malko/tars-cli/branch/master) [![Gitter][gitter-image]][gitter-link]
 
 TARS-CLI — Command Line Interface for the TARS markup builder [TARS](https://github.com/tars/tars/blob/master/README.md).
 
