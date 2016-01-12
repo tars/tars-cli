@@ -59,7 +59,7 @@ npm i -g npm
 * [tars re-init](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-re-init) — запускает реинит TARS.
 * [tars dev](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-dev) — запускает dev-режим сборки.
 * [tars build](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-build) — запускает build-режим сборки.
- [tars start](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-start-taskname) — запускает любой gulp-таск из локального gulpfile.
+* [tars start](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-start-taskname) — запускает любой gulp-таск из локального gulpfile.
 * [tars add-module](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-add-module-modulename) — добавляет модуль в markup/modules.
 * [tars add-page](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-add-page-pagename) — добавляет страницу в markup/pages.
 * [tars update](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-update) — обновляет TARS-CLI.
