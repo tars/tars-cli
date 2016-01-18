@@ -2,10 +2,10 @@
 
 'use strict';
 
-var program = require('commander');
-var getCliRoot = require('../lib/get-cli-root');
-var tarsUtils = require('../lib/utils');
-var args = process.argv.slice(2);
+const program = require('commander');
+const getCliRoot = require('../lib/get-cli-root');
+const tarsUtils = require('../lib/utils');
+const args = process.argv.slice(2);
 
 /**
  * Check TARS initialization in current directory
@@ -29,7 +29,7 @@ program
     .description('Init TARS-project in current directory')
     .option('--silent', 'TARS will not ask any question about configuration')
     .option('-s, --source <source>', 'Change source of TARS')
-    .action(function (options) {
+    .action(options => {
         getCliRoot(require('../lib/command-actions/init'), options);
     });
 
@@ -37,7 +37,7 @@ program
     .command('re-init')
     .description('Re-init TARS-project')
     .option('--silent', 'TARS will not ask any question about configuration')
-    .action(function (options) {
+    .action(options => {
 
         if (isTarsInited()) {
             getCliRoot(require('../lib/command-actions/re-init'), options);
@@ -54,7 +54,7 @@ program
     .option('--ie', 'Generate files for ie')
     .option('--silent', 'Start build in silent mode, without promt')
     .option('--custom-flags <customFlags>', 'Add custom flags')
-    .action(function (options) {
+    .action(options => {
 
         if (isTarsInited()) {
             getCliRoot(require('../lib/command-actions/build'), options);
@@ -72,7 +72,7 @@ program
     .option('--ie', 'Generate files for ie')
     .option('--silent', 'Start dev in silent mode, without promt')
     .option('--custom-flags <customFlags>', 'Add custom flags')
-    .action(function (options) {
+    .action(options => {
 
         if (isTarsInited()) {
             getCliRoot(require('../lib/command-actions/dev'), options);
@@ -90,7 +90,7 @@ program
     .option('-t, --template', 'Add module as a copy of _template module')
     .option('-e, --empty', 'Add module without files')
     .option('--silent', 'Add module in silent mode, without promt')
-    .action(function (moduleName, options) {
+    .action((moduleName, options) => {
 
         if (isTarsInited()) {
             require('../lib/command-actions/add-module')(moduleName, options);
@@ -101,7 +101,7 @@ program
     .command('add-page <pageName>')
     .description('Add page to markup/pages directory')
     .option('-e, --empty', 'Add empty file')
-    .action(function (pageName, options) {
+    .action((pageName, options) => {
 
         if (isTarsInited()) {
             require('../lib/command-actions/add-page')(pageName, options);
@@ -111,7 +111,7 @@ program
 program
     .command('update')
     .description('Update TARS-cli')
-    .action(function () {
+    .action(() => {
         require('../lib/command-actions/update')();
     });
 
@@ -119,7 +119,7 @@ program
     .command('start <taskName>')
     .description('Start task from the local gulpfile')
     .option('--flags <flags>', 'Add flags "--flags" \'flags, with space separator\'')
-    .action(function (taskName, options) {
+    .action((taskName, options) => {
 
         if (isTarsInited()) {
             getCliRoot(require('../lib/command-actions/start-task'), taskName, options);
