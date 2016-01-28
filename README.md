@@ -58,13 +58,14 @@ Almost all command has the interactive mode. In this mode you can to communicate
 ### Command list
 
 * [tars init](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-init) — TARS initialization.
-* [tars re-init](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-re-init) — TARS re-init. 
+* [tars re-init](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-re-init) — TARS re-init. **Attention, files from pages and static folder will be deleted! Use this comman in case of initialization with wrong params only!**
 * [tars dev](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-dev) — run dev task in TARS.
 * [tars build](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-build) — run build task in TARS.
 * [tars start](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-start-taskname) — run custom task from local gulpfile.
 * [tars add-module](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-add-module-modulename) — add module to markup/modules.
 * [tars add-page](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-add-page-pagename) — add page to markup/pages.
 * [tars update](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-update) — update TARS-CLI.
+* [tars update-project](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-update-project) — update TARS in current project.
 
 Feel free to write to [tars.builder@gmail.com](tars.builder@gmail.com) or [gitter](https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge) and ask me all question about TARS-CLI.
 

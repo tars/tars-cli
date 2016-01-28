@@ -56,13 +56,14 @@ npm i -g npm
 ### Command list
 
 * [tars init](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-init) — инициализирует TARS.
-* [tars re-init](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-re-init) — запускает реинит TARS.
+* [tars re-init](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-re-init) — запускает реинит TARS. **Внимание, при переинициализации все папки и файлы удаляются. Используйте эту команду только в случае инициализации с неподходящими параметрами!**
 * [tars dev](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-dev) — запускает dev-режим сборки.
 * [tars build](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-build) — запускает build-режим сборки.
 * [tars start](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-start-taskname) — запускает любой gulp-таск из локального gulpfile.
 * [tars add-module](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-add-module-modulename) — добавляет модуль в markup/modules.
 * [tars add-page](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-add-page-pagename) — добавляет страницу в markup/pages.
 * [tars update](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-update) — обновляет TARS-CLI.
+* [tars update-project](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-update-project) — обновляет TARS В текущем проекте.
 
 По любым вопросам можно обращаться по почте [tars.builder@gmail.com](tars.builder@gmail.com) или в [gitter](https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 

@@ -1,6 +1,11 @@
 {
   "name": "tars-cli",
   "version": "1.6.0",
+  "engines": {
+    "npm": "^2.x.x",
+    "node": "^4.x.x"
+  },
+  "os": [ "darwin", "linux", "win32" ],
   "description": "CLI utility for TARS",
   "keywords": [
     "tars",

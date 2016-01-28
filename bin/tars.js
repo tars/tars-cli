@@ -27,6 +27,8 @@ program
 program
     .command('init')
     .description('Init TARS-project in current directory')
+    .option('--exclude-html', 'Prevent templater-files uploading')
+    .option('--exclude-css', 'Prevent preprocessor-files uploading')
     .option('--silent', 'TARS will not ask any question about configuration')
     .option('-s, --source <source>', 'Change source of TARS')
     .action(options => {
@@ -36,6 +38,8 @@ program
 program
     .command('re-init')
     .description('Re-init TARS-project')
+    .option('--exclude-html', 'Prevent templater-files uploading')
+    .option('--exclude-css', 'Prevent preprocessor-files uploading')
     .option('--silent', 'TARS will not ask any question about configuration')
     .action(options => {
 
@@ -113,6 +117,18 @@ program
     .description('Update TARS-cli')
     .action(() => {
         require('../lib/command-actions/update')();
+    });
+
+program
+    .command('update-project')
+    .description('Update TARS in current project')
+    .option('--exclude-html', 'Prevent templater-files updating')
+    .option('--exclude-css', 'Prevent preprocessor-files updating')
+    .option('-s, --source <source>', 'Change source of TARS for updating')
+    .action(options => {
+        if (isTarsInited()) {
+            getCliRoot(require('../lib/command-actions/update-project'), options);
+        }
     });
 
 program

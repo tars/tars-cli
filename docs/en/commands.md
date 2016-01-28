@@ -16,6 +16,7 @@ There is a description for all TARS-CLI commands.
 * [tars add-module](#tars-add-module-modulename) — add module to markup/modules.
 * [tars add-page](#tars-add-page-pagename) — add page to markup/pages.
 * [tars update](#tars-update) — update TARS-CLI.
+* [tars update-project](#tars-update-project) — update TARS in current project.
 
 ## tars init
 
@@ -31,6 +32,10 @@ If you don't need to use the interactive mode, this command must be run with fla
 
 * `--silent`: starts init without interactive mode.
 * `-s`, `--source`: init downloads from the repository TARS the latest markup builder version and unpacks in the current directory by default. With the `-s` flag you can determine where to download the zip-archive with TARS, if you have your own TARS builder-version (fork). **Attention, this flag with url have to be the last!**
+* `--exclude-html`: templater files will be updated by default, but you can prevent with behaviour, by using that flag.
+* `--exclude-css`: css-preprocessor files will be updated by default, but you can prevent with behaviour, by using that flag.
+
+`--exclude-html` and `--exclude-css` can be useful in case of initing from custom source.
     
 ### An example of using the command
 
@@ -46,13 +51,16 @@ tars init -s http://url.to.tars.zip
 
 # Downloads TARS from http://url.to.tars.zip and inits project without interactive mode
 tars init --silent --source http://url.to.tars.zip
+
+# Downloads TARS from http://url.to.tars.zip and inits project in interactive mode without templater-files updating
+tars init --exclude-html -s http://url.to.tars.zip
 ````
 
 [Back to the command list.](#command-list)
 
 ## tars re-init
 
-This command allows to re-initialize TARS with new settings (template, css-preprocessor). It is not necessary to change this settings by your hands, because you can change them in interactive mode. This command runs `gulp re-init` task in TARS. **Attention, files from pages and static folder will be deleted.**
+This command allows to re-initialize TARS with new settings (template, css-preprocessor). It is not necessary to change this settings by your hands, because you can change them in interactive mode. This command runs `gulp re-init` task in TARS. **Attention, files from pages and static folder will be deleted! Use this comman in case of initialization with wrong params only!**
 
 Interactive mode is available by default like in `init` command.
 
@@ -255,4 +263,34 @@ Interactive mode is not available.
 
 ````bash
 tars update
+````
+
+##  tars update-project
+
+Update the current version of TARS in current project to the latest available.
+
+### Available flags
+
+* `-s`, `--source`: you can update your current project with any TARS archive like in [tars init](#tars-init). **Attention, this flag with url have to be the last!**
+* `--exclude-html`: _template.{html,hbs,jade} will be updated by default, but you can prevent with behaviour, by using that flag.
+* `--exclude-css`: sprite-templates will be updated by default, but you can prevent with behaviour, by using that flag.
+
+`--exclude-html` and `--exclude-css` can be useful in case of updating from custom source.
+
+Interactive mode is not available.
+
+### An example of using the command
+
+````bash
+# Starts update-project
+tars update-project
+
+# Starts update-project without preprocessor-files updating
+tars update-project --exclude-css
+
+# Downloads TARS from http://url.to.tars.zip and update current project
+tars update-project -s http://url.to.tars.zip
+
+# Downloads TARS from http://url.to.tars.zip and update current project without templater-files updating
+tars update-project --exclude-html -s http://url.to.tars.zip
 ````
