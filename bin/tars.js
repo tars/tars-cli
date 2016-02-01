@@ -121,7 +121,6 @@ program
 program
     .command('update')
     .alias('upgrade')
-    .alias('up')
     .description('Update TARS-cli')
     .action(() => {
         require('../lib/command-actions/update')();
@@ -130,7 +129,6 @@ program
 program
     .command('update-project')
     .alias('upgrade-project')
-    .alias('up-project')
     .description('Update TARS in current project')
     .option('-f, --force', 'Force update, even you have the latest version')
     .option('--exclude-html', 'Prevent templater-files updating')
