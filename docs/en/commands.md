@@ -271,6 +271,7 @@ Update the current version of TARS in current project to the latest available.
 
 ### Available flags
 
+* `-f`, `--force`: update won't be started if current version of TARS in your project is the latest. But you can override it by using that flag.
 * `-s`, `--source`: you can update your current project with any TARS archive like in [tars init](#tars-init). **Attention, this flag with url have to be the last!**
 * `--exclude-html`: _template.{html,hbs,jade} will be updated by default, but you can prevent with behaviour, by using that flag.
 * `--exclude-css`: sprite-templates will be updated by default, but you can prevent with behaviour, by using that flag.

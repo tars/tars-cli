@@ -8,13 +8,17 @@ const tarsUtils = require('../lib/utils');
 const args = process.argv.slice(2);
 
 /**
- * Check TARS initialization in current directory
+ * Check TARS initialization and tars-config.js in current directory
  * @return {Boolean} TARS init status
  */
-function isTarsInited() {
+function isTarsReadyToWork() {
+    const isTarsInited = tarsUtils.isTarsInited();
+
     // If we are not in TARS directory or TARS has not been inited
-    if (!tarsUtils.isTarsInited()) {
-        tarsUtils.tarsNotInitedActions();
+    if (!isTarsInited.inited) {
+        if (!isTarsInited.error) {
+            tarsUtils.tarsNotInitedActions();
+        }
         return false;
     }
 
@@ -37,19 +41,20 @@ program
 
 program
     .command('re-init')
-    .description('Re-init TARS-project')
+    .description('Re-init TARS-project, DEPRICATED!')
     .option('--exclude-html', 'Prevent templater-files uploading')
     .option('--exclude-css', 'Prevent preprocessor-files uploading')
     .option('--silent', 'TARS will not ask any question about configuration')
     .action(options => {
 
-        if (isTarsInited()) {
+        if (isTarsReadyToWork()) {
             getCliRoot(require('../lib/command-actions/re-init'), options);
         }
     });
 
 program
     .command('build')
+    .alias('bld')
     .description('Build project without watchers')
     .option('-r, --release', 'Create release build')
     .option('-m, --min', 'Create build with minified files')
@@ -60,13 +65,14 @@ program
     .option('--custom-flags <customFlags>', 'Add custom flags')
     .action(options => {
 
-        if (isTarsInited()) {
+        if (isTarsReadyToWork()) {
             getCliRoot(require('../lib/command-actions/build'), options);
         }
     });
 
 program
     .command('dev')
+    .alias('development')
     .description('Build project with watchers')
     .option('-t, --tunnel', 'Create tunnel to the Internet')
     .option('-l, --livereload', 'Start server')
@@ -78,7 +84,7 @@ program
     .option('--custom-flags <customFlags>', 'Add custom flags')
     .action(options => {
 
-        if (isTarsInited()) {
+        if (isTarsReadyToWork()) {
             getCliRoot(require('../lib/command-actions/dev'), options);
         }
     });
@@ -96,7 +102,7 @@ program
     .option('--silent', 'Add module in silent mode, without promt')
     .action((moduleName, options) => {
 
-        if (isTarsInited()) {
+        if (isTarsReadyToWork()) {
             require('../lib/command-actions/add-module')(moduleName, options);
         }
     });
@@ -107,13 +113,15 @@ program
     .option('-e, --empty', 'Add empty file')
     .action((pageName, options) => {
 
-        if (isTarsInited()) {
+        if (isTarsReadyToWork()) {
             require('../lib/command-actions/add-page')(pageName, options);
         }
     });
 
 program
     .command('update')
+    .alias('upgrade')
+    .alias('up')
     .description('Update TARS-cli')
     .action(() => {
         require('../lib/command-actions/update')();
@@ -121,23 +129,27 @@ program
 
 program
     .command('update-project')
+    .alias('upgrade-project')
+    .alias('up-project')
     .description('Update TARS in current project')
+    .option('-f, --force', 'Force update, even you have the latest version')
     .option('--exclude-html', 'Prevent templater-files updating')
     .option('--exclude-css', 'Prevent preprocessor-files updating')
     .option('-s, --source <source>', 'Change source of TARS for updating')
     .action(options => {
-        if (isTarsInited()) {
+        if (isTarsReadyToWork()) {
             getCliRoot(require('../lib/command-actions/update-project'), options);
         }
     });
 
 program
     .command('start <taskName>')
+    .alias('run')
     .description('Start task from the local gulpfile')
     .option('--flags <flags>', 'Add flags "--flags" \'flags, with space separator\'')
     .action((taskName, options) => {
 
-        if (isTarsInited()) {
+        if (isTarsReadyToWork()) {
             getCliRoot(require('../lib/command-actions/start-task'), taskName, options);
         }
     });

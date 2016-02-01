@@ -29,7 +29,8 @@ script:
   - mkdir tars-temp
   - cd tars-temp
   - tars init --silent -s https://github.com/tars/tars/archive/version-1.6.0.zip
-  - tars start re-init --flags '--silent'
+  - tars update-project -s https://github.com/tars/tars/archive/version-1.6.0.zip
+  - tars upgrade-project -f --source https://github.com/tars/tars/archive/version-1.6.0.zip
   - tars add-module new -e
   - tars add-module new_ --empty
   - tars add-module new1 -f
