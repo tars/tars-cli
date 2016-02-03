@@ -34,9 +34,9 @@
     - cmd: tars --version
     - cmd: mkdir tars-temp
     - cmd: cd tars-temp
-    - cmd: tars init --silent -s https://github.com/tars/tars/archive/version-1.6.0.zip
-    - cmd: tars update-project -s https://github.com/tars/tars/archive/version-1.6.0.zip
-    - cmd: tars upgrade-project -f --source https://github.com/tars/tars/archive/version-1.6.0.zip
+    - cmd: tars init --silent
+    - cmd: tars update-project
+    - cmd: tars upgrade-project -f
     - cmd: tars add-module new -e
     - cmd: tars add-module new_ --empty
     - cmd: tars add-module new1 -f
