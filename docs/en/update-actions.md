@@ -1,28 +1,28 @@
 <p align="right">
-<a href="../en/update-actions.md">English description</a> | Описание на русском
+English description | <a href="../ru/update-actions.md">Описание на русском</a>
 </p>
 
-# Обновление TARS в проекте
+# TARS update in current project
 
-С версии TARS-CLI 1.6.0 стала доступна команда автообновления проекта. За это отвечает команда [tars update-project](./commands.md#tars-update-project).
+An automatic update is available in TARS-CLI from version 1.6.0 via [tars update-project](./commands.md#tars-update-project).
 
-## Порядок обновления проекта
+## Steps of updating process
 
-* Проверка, что обновление возможно. Обновление не произойдет, если TARS в текущем проекте уже обновлен до последней доступной версии либо имеет версию ниже 1.5.0
-* Скачивается последняя доступная версия TARS или та версия, которую вы указали после ключа `-s`. Также скачиваются файлы для препроцессора и шаблонизатора, если не были использованы флаги --exclude-html или --exclude-css.
-* Создается backup текущей версии TARS, которую вы сможете использовать, если во время обновления что-то пошло не так.
-* Происходит обновление конфигов: tars.js, .eslintrc (если проект обновляется с версии 1.5.0 то происходит удаление файла .jscsrc и просто добавление файла .eslintrc), .babelrc, tars-config.js и package.json. Все конфиги только дополняются новыми опциями, вам не придется снова выставлять в них все, что вы выбирали до обновления. В package.json вмерживаются пакеты из локального user-package.json, если он есть, и из user-package.json из новой версии TARS. Так что если вы исопльзуете свой форк для обновления и хотите, чтобы в обновленной версии были установлены новые пакеты, укажите их в user-package.json в вашем форке. Если эти файлы не будут найдены, в логе вы увидете предупреждение. Это не ошибка, а простое уведомление, что package.json не изменился.
-* Обновляются все системные таски, вотчеры, а также tars/tars.js Обновление происходит путем замены вышеперечисленных каталогов и файлов. Также обновляются example-task и example-watcher.
-* Если не был использован флаг --exclude-css, то происходит обновление всех файлов в каталоге static/{scss,stylus,less}/sprite-generator-templates
-* Происходит копирование всех файлов из separate-js в новой версии TARS в старую
-* Если не был использован флаг --exclude-html, то происходит обновление шаблона страницы (_template.{jade,html,hbs}).
-* Обновляется gulpfile.js путем замены старого файла, на новый.
-* Обновляется документация.
-* Устанавливаются новые npm-пакеты, если они появились.
-* Выполняются пользовательские действия из файла custom-update-actions.json, если он существует в новой версии TARS. Более подробно о том, как сконфигурировать пользовательские действия можно прочесть в [документации](./custom-update-actions.md).
-* Удаляются все временные файлы, которые исопльзовались во время обновления.
-* Выводится ог об успешном обновлении.
+* Some checks, that upate is available. Your project won't be updated in case you have the lates version of TARS already. You can update your project fom version 1.5.0
+* The latest available version is downloaded. If you have used flag -s (--source), TARS will be downloaded from url, which was after that flag. Also, all file for tempalter and preprocessor is downloaded. But you can prevent it by using flags --exclude-html and --exclude-css.
+* Backup of current version of your project is created.
+* All config files update (tars.js, .eslintrc, .babelrc, tars-config.js and package.json) All configs just get new properties, without changing already set properties. All packages from user-package.json from current project and new version will merge into package.json. So, if you use your own version of TARS and want to udpate npm-packges during update, just add all packges, that you need into user-package.json in your fork. There will be warning, if there is no any user-package.json file. It's just warning, not an error.
+* Update of all system tasks, watchers, tars/tars.js. TARS-CLI will remove all system task and watchers from current project and copy new files from new one.
+* If flag --exclude-css is not used, static/{scss,stylus,less}/sprite-generator-templates update is started. 
+* All files from new project separate-js to current project.
+* If flag --exclude-html is not used, templates update is started.
+* gulpfile.js update. Just replace old file with new gulpfile.js
+* Documentation update.
+* Installing of new npm-packages.
+* All user's actions from custom-update-actions.json executed, if that file is exists. You can get more info about it in [documentation](./custom-update-actions.md).
+* Deletion of all temp files.
+* Success log.
 
-Все действия происходят последовательно, чтобы избежать каких-либо конфликтов во время обновления.
+All actions will be executed synchronously to prevent problems during update.
 
-Если в процессе обновления что-то пошло не так, вы получите соответствующее уведомление. Большая просьба отправить текст ошибки на tars.builder@gmail.com, мы постараемся решить проблему как можно быстрее, а вы поможете сделать сборщик еще лучше.
+If something gone wrong during update, please, mail to tars.builder@gmail.com Do not forget to add error text and stack trace, it would be really useful.
