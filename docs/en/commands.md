@@ -278,6 +278,8 @@ Update the current version of TARS in current project to the latest available.
 
 `--exclude-html` and `--exclude-css` can be useful in case of updating from custom source.
 
+The update steps are described [here](update-actions.md).
+
 Interactive mode is not available.
 
 ### An example of using the command

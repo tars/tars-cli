@@ -276,6 +276,8 @@ tars update
 
 `--exclude-html` и `--exclude-css` могут быть полезны в случае обновления с кастомным архивом TARS.
 
+Алгоритм обновления проекта описан [тут](update-actions.md).
+
 Интерактивный режим не доступен.
 
 ### An example of using the command

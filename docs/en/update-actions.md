@@ -4,7 +4,7 @@ English description | <a href="../ru/update-actions.md">Описание на р
 
 # TARS update in current project
 
-An automatic update is available in TARS-CLI from version 1.6.0 via [tars update-project](./commands.md#tars-update-project).
+An automatic update is available in TARS-CLI from version 1.6.0 via [tars update-project](commands.md#tars-update-project).
 
 ## Steps of updating process
 
@@ -19,7 +19,7 @@ An automatic update is available in TARS-CLI from version 1.6.0 via [tars update
 * gulpfile.js update. Just replace old file with new gulpfile.js
 * Documentation update.
 * Installing of new npm-packages.
-* All user's actions from custom-update-actions.json executed, if that file is exists. You can get more info about it in [documentation](./custom-update-actions.md).
+* All user's actions from custom-update-actions.json executed, if that file is exists. You can get more info about it in [documentation](custom-update-actions.md).
 * Deletion of all temp files.
 * Success log.
 
