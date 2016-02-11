@@ -43,6 +43,12 @@ For Windows you have to do some more steps:
 
 If you get a **Permission denied** or **Error: EACCES** error, you should run the previous command again in sudo.
 
+Start your first project with
+
+```bash
+tars init
+```
+
 ## TARS-CLI commands
 
 All commands have similar template of executing: 
