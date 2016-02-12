@@ -64,7 +64,7 @@ Almost all command has the interactive mode. In this mode you can to communicate
 ### Command list
 
 * [tars init](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-init) — TARS initialization.
-* [tars re-init](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-re-init) — TARS re-init. **Attention, files from pages and static folder will be deleted! Use this comman in case of initialization with wrong params only!**
+* [tars re-init](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-re-init) — TARS re-init. **Attention, files from pages and static folder will be deleted! Use this command in case of initialization with wrong params only!**
 * [tars dev](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-dev) — run dev task in TARS.
 * [tars build](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-build) — run build task in TARS.
 * [tars start](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-start-taskname) — run custom task from local gulpfile.
