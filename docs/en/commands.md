@@ -60,6 +60,8 @@ tars init --exclude-html -s http://url.to.tars.zip
 
 ## tars re-init
 
+**Attention, this command is depricated!**
+
 This command allows to re-initialize TARS with new settings (template, css-preprocessor). It is not necessary to change this settings by your hands, because you can change them in interactive mode. This command runs `gulp re-init` task in TARS. **Attention, files from pages and static folder will be deleted! Use this comman in case of initialization with wrong params only!**
 
 Interactive mode is available by default like in `init` command.
@@ -230,7 +232,7 @@ tars add-module sidebar -e -b -a -d -i
 
 ## tars add-page %pageName%
 
-This command adds a new page in the markup/pages. It takes the name of the page as a parameter . An error will be thrown in case the page already exists. It is possible to add an empty page  and copy of the template page (the default is _template. {html, jade, hbs}). You can create your _template. {html, jade, hbs}, to TARS-CLI copy this page.
+This command adds a new page in the markup/pages. It takes the name of the page as a parameter . An error will be thrown in case the page already exists. It is possible to add an empty page  and copy of the template page. If there is an extension in pageName, new page will be created from _template page with the same extension. Otherwise, the default extension for current templater will be used: .jade for Jade and .html for Handlebars.
 
 Interactive mode is not available.
 
@@ -255,7 +257,11 @@ tars add-page inner -e
 
 ##  tars update
 
-Update the current version of TARS-CLI to the latest available. Starts npm update -g tars-cli command.
+Update the current version of TARS-CLI to the latest available. Starts npm update -g tars-cli command. In case of installation with sudo, you have to use sudo again in tars update. If you have the same version of TARS-cLI after update as before, you need to clean NPM-cache and restart update process:
+
+```bash
+npm cache clean
+```
 
 Interactive mode is not available.
 

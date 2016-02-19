@@ -43,7 +43,7 @@ For Windows you have to do some more steps:
 
 If you get a **Permission denied** or **Error: EACCES** error, you should run the previous command again in sudo.
 
-Start your first project with
+Initialize your first project with:
 
 ```bash
 tars init
@@ -57,7 +57,7 @@ All commands have similar template of executing:
 
 You can run the `tars --help` or `tars -h` or just `tars` without additional command and flags at any moment. This command displays information about all available commands and flags. Also you can add the `--help` key or `-h` key to any command to get full description of this command.
 
-`tars -v` or `tars --version` will display version of TARS-CLI installed on your computer. Also, you will be informed about updating, if it is available.
+`tars -v` or `tars --version` will display current version of TARS-CLI installed on your computer. Also, you will be informed about updating, if it is available.
 
 Almost all command has the interactive mode. In this mode you can to communicate with CLI like it has its own GUI. If you are using interactive mode you don’t need to know what the flags are responsible for, because you are communicate with CLI with natural language. Interactive mode is easy to disable if you use automatic testing or something else that doesn’t require the human presence.
 
