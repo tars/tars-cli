@@ -273,7 +273,7 @@ tars update
 
 ##  tars update-project
 
-Update the current version of TARS in current project to the latest available.
+Update the current version of TARS in current project to the latest available. **Please, be sure, that you use the latest version of TARS-CLI before update!**
 
 ### Available flags
 
