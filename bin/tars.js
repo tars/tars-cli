@@ -3,9 +3,22 @@
 'use strict';
 
 const program = require('commander');
-const getCliRoot = require('../lib/get-cli-root');
+const fs = require('fs');
+const path = require('path');
 const tarsUtils = require('../lib/utils');
 const args = process.argv.slice(2);
+const cliRootPath = path.resolve(__dirname, '../');
+let npmRootPath = path.join(cliRootPath, 'node_modules/');
+
+try {
+    fs.statSync(npmRootPath);
+} catch (error) {
+    npmRootPath = path.resolve(cliRootPath, '../') + path.sep;
+}
+
+// Get root npm directory for global packages and create env-var with it.
+process.env.cliRoot = cliRootPath;
+process.env.npmRoot = npmRootPath;
 
 /**
  * Check TARS initialization and tars-config.js in current directory
@@ -35,9 +48,7 @@ program
     .option('--exclude-css', 'Prevent preprocessor-files uploading')
     .option('--silent', 'TARS will not ask any question about configuration')
     .option('-s, --source <source>', 'Change source of TARS')
-    .action(options => {
-        getCliRoot(require('../lib/command-actions/init'), options);
-    });
+    .action(options => require('../lib/command-actions/init')(options));
 
 program
     .command('re-init')
@@ -48,7 +59,7 @@ program
     .action(options => {
 
         if (isTarsReadyToWork()) {
-            getCliRoot(require('../lib/command-actions/re-init'), options);
+            require('../lib/command-actions/re-init')(options);
         }
     });
 
@@ -66,7 +77,7 @@ program
     .action(options => {
 
         if (isTarsReadyToWork()) {
-            getCliRoot(require('../lib/command-actions/build'), options);
+            require('../lib/command-actions/build')(options);
         }
     });
 
@@ -85,7 +96,7 @@ program
     .action(options => {
 
         if (isTarsReadyToWork()) {
-            getCliRoot(require('../lib/command-actions/dev'), options);
+            require('../lib/command-actions/dev')(options);
         }
     });
 
@@ -122,9 +133,7 @@ program
     .command('update')
     .alias('upgrade')
     .description('Update TARS-cli')
-    .action(() => {
-        require('../lib/command-actions/update')();
-    });
+    .action(() => require('../lib/command-actions/update')());
 
 program
     .command('update-project')
@@ -135,8 +144,9 @@ program
     .option('--exclude-css', 'Prevent preprocessor-files updating')
     .option('-s, --source <source>', 'Change source of TARS for updating')
     .action(options => {
+
         if (isTarsReadyToWork()) {
-            getCliRoot(require('../lib/command-actions/update-project'), options);
+            require('../lib/command-actions/update-project')(options);
         }
     });
 
@@ -148,7 +158,7 @@ program
     .action((taskName, options) => {
 
         if (isTarsReadyToWork()) {
-            getCliRoot(require('../lib/command-actions/start-task'), taskName, options);
+            require('../lib/command-actions/start-task')(taskName, options);
         }
     });
 
@@ -156,7 +166,7 @@ program
     .option('-v, --version', 'Version of TARS-cli');
 
 if (program.version && args.length && (args[0] === '--version' || args[0] === '-v')) {
-    getCliRoot(require('../lib/command-actions/get-version'));
+    require('../lib/command-actions/get-version')();
 }
 
 if (!args.length) {
