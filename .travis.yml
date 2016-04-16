@@ -29,8 +29,11 @@ script:
   - mkdir tars-temp
   - cd tars-temp
   - tars init --silent
+  - tars -v
   - tars update-project
+  - tars -v
   - tars upgrade-project -f
+  - tars -v
   - tars add-module new -e
   - tars add-module new_ --empty
   - tars add-module new1 -f
