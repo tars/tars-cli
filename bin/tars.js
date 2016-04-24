@@ -57,7 +57,6 @@ program
     .option('--exclude-css', 'Prevent preprocessor-files uploading')
     .option('--silent', 'TARS will not ask any question about configuration')
     .action(options => {
-
         if (isTarsReadyToWork()) {
             require('../lib/command-actions/re-init')(options);
         }
@@ -75,7 +74,6 @@ program
     .option('--silent', 'Start build in silent mode, without promt')
     .option('--custom-flags <customFlags>', 'Add custom flags')
     .action(options => {
-
         if (isTarsReadyToWork()) {
             require('../lib/command-actions/build')(options);
         }
@@ -94,27 +92,26 @@ program
     .option('--silent', 'Start dev in silent mode, without promt')
     .option('--custom-flags <customFlags>', 'Add custom flags')
     .action(options => {
-
         if (isTarsReadyToWork()) {
             require('../lib/command-actions/dev')(options);
         }
     });
 
 program
-    .command('add-module <moduleName>')
-    .description('Add module to markup/modules directory')
-    .option('-b, --basic', 'Add module with .js, .scss (.less, .styl) and .html (.jade) files')
-    .option('-a, --assets', 'Add module with general files + folder for assets')
-    .option('-d, --data', 'Add module with general files + folder for data')
-    .option('-i, --ie', 'Add module with general files + folder for IE')
-    .option('-f, --full', 'Add module with all files and folders (assets folder, folder for IE and so on)')
-    .option('-t, --template', 'Add module as a copy of _template module')
-    .option('-e, --empty', 'Add module without files')
-    .option('--silent', 'Add module in silent mode, without promt')
-    .action((moduleName, options) => {
-
+    .command('add-component <componentName>')
+    .alias('add-module <componentName>')
+    .description('Add component to markup/modules directory')
+    .option('-b, --basic', 'Add component with .js, .scss (.less, .styl) and .html (.jade) files')
+    .option('-a, --assets', 'Add component with general files + folder for assets')
+    .option('-d, --data', 'Add component with general files + folder for data')
+    .option('-i, --ie', 'Add component with general files + folder for IE')
+    .option('-f, --full', 'Add component with all files and folders (assets folder, folder for IE and so on)')
+    .option('-t, --template', 'Add component as a copy of _template component')
+    .option('-e, --empty', 'Add component without files')
+    .option('--silent', 'Add component in silent mode, without promt')
+    .action((componentName, options) => {
         if (isTarsReadyToWork()) {
-            require('../lib/command-actions/add-module')(moduleName, options);
+            require('../lib/command-actions/add-component')(componentName, options);
         }
     });
 
@@ -123,7 +120,6 @@ program
     .description('Add page to markup/pages directory')
     .option('-e, --empty', 'Add empty file')
     .action((pageName, options) => {
-
         if (isTarsReadyToWork()) {
             require('../lib/command-actions/add-page')(pageName, options);
         }
@@ -144,7 +140,6 @@ program
     .option('--exclude-css', 'Prevent preprocessor-files updating')
     .option('-s, --source <source>', 'Change source of TARS for updating')
     .action(options => {
-
         if (isTarsReadyToWork()) {
             require('../lib/command-actions/update-project')(options);
         }
@@ -156,7 +151,6 @@ program
     .description('Start task from the local gulpfile')
     .option('--flags <flags>', 'Add flags "--flags" \'flags, with space separator\'')
     .action((taskName, options) => {
-
         if (isTarsReadyToWork()) {
             require('../lib/command-actions/start-task')(taskName, options);
         }

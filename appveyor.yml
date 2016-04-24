@@ -40,20 +40,27 @@
     - cmd: tars -v
     - cmd: tars upgrade-project -f
     - cmd: tars -v
-    - cmd: tars add-module new -e
-    - cmd: tars add-module new_ --empty
-    - cmd: tars add-module new1 -f
-    - cmd: tars add-module new1_ --full
-    - cmd: tars add-module new2 -b
-    - cmd: tars add-module new2_ --basic
-    - cmd: tars add-module new3 -a
-    - cmd: tars add-module new3_ --assets
-    - cmd: tars add-module new4 -i
-    - cmd: tars add-module new4_ --ie
-    - cmd: tars add-module new5 -d
-    - cmd: tars add-module new5_ --data
-    - cmd: tars add-module new6 -t
-    - cmd: tars add-module new6_ --template
+    - cmd: tars add-component new -e
+    - cmd: tars add-component new_ --empty
+    - cmd: tars add-module new_module -e
+    - cmd: tars add-component new1 -f
+    - cmd: tars add-component new1_ --full
+    - cmd: tars add-module new1_module -f
+    - cmd: tars add-component new2 -b
+    - cmd: tars add-component new2_ --basic
+    - cmd: tars add-module new2_module --basic
+    - cmd: tars add-component new3 -a
+    - cmd: tars add-component new3_ --assets
+    - cmd: tars add-module new3_module --assets
+    - cmd: tars add-component new4 -i
+    - cmd: tars add-component new4_ --ie
+    - cmd: tars add-module new4_module --ie
+    - cmd: tars add-component new5 -d
+    - cmd: tars add-component new5_ --data
+    - cmd: tars add-module new5_module --data
+    - cmd: tars add-component new6 -t
+    - cmd: tars add-component new6_ --template
+    - cmd: tars add-module new6_module --template
     - cmd: tars add-page main.html
     - cmd: tars add-page inner
     - cmd: tars add-page contacts -e
