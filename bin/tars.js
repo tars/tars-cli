@@ -100,7 +100,7 @@ program
 program
     .command('add-component <componentName>')
     .alias('add-module <componentName>')
-    .description('Add component to markup/modules directory')
+    .description('Add component to markup/components directory')
     .option('-b, --basic', 'Add component with .js, .scss (.less, .styl) and .html (.jade) files')
     .option('-a, --assets', 'Add component with general files + folder for assets')
     .option('-d, --data', 'Add component with general files + folder for data')

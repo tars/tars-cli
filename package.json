@@ -109,6 +109,8 @@
   "preferGlobal": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "postuninstall": "node ./lib/npm-scripts/postuninstall.js",
+    "postversion": "node ./lib/npm-scripts/postversion.js",
     "lint": "eslint bin/*.js lib/**/*.js"
   },
   "bugs": {
