@@ -60,3 +60,4 @@ script:
   - tars add-page contacts -e
   - tars add-page contacts_ --empty
   - tars build --release --ie
+  - npm un -g tars-cli

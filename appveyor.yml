@@ -66,3 +66,4 @@
     - cmd: tars add-page contacts -e
     - cmd: tars add-page contacts_ --empty
     - cmd: tars build --release --ie
+    - cmd: npm un -g tars-cli
