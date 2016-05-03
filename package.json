@@ -1,6 +1,6 @@
 {
   "name": "tars-cli",
-  "version": "1.7.4",
+  "version": "1.8.0",
   "engines": {
     "npm": "^3.x.x",
     "node": "^4.x.x"
@@ -81,7 +81,7 @@
     "gulp-util": "3.0.7",
     "gulp-zip": "^3.2.0",
     "gulp.spritesmith": "^6.2.1",
-    "inquirer": "^0.12.0",
+    "inquirer": "^1.0.2",
     "jshint-stylish": "^2.0.1",
     "handlebars": "^3.0.0",
     "mkdirp": "^0.5.1",
@@ -109,6 +109,9 @@
   "preferGlobal": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node ./lib/npm-scripts/postinstall.js",
+    "postuninstall": "node ./lib/npm-scripts/postuninstall.js",
+    "postversion": "node ./lib/npm-scripts/postversion.js",
     "lint": "eslint bin/*.js lib/**/*.js"
   },
   "bugs": {

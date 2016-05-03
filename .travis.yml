@@ -34,22 +34,30 @@ script:
   - tars -v
   - tars upgrade-project -f
   - tars -v
-  - tars add-module new -e
-  - tars add-module new_ --empty
-  - tars add-module new1 -f
-  - tars add-module new1_ --full
-  - tars add-module new2 -b
-  - tars add-module new2_ --basic
-  - tars add-module new3 -a
-  - tars add-module new3_ --assets
-  - tars add-module new4 -i
-  - tars add-module new4_ --ie
-  - tars add-module new5 -d
-  - tars add-module new5_ --data
-  - tars add-module new6 -t
-  - tars add-module new6_ --template
+  - tars add-component new -e
+  - tars add-component new_ --empty
+  - tars add-module new_module -e
+  - tars add-component new1 -f
+  - tars add-component new1_ --full
+  - tars add-module new1_module -f
+  - tars add-component new2 -b
+  - tars add-component new2_ --basic
+  - tars add-module new2_module --basic
+  - tars add-component new3 -a
+  - tars add-component new3_ --assets
+  - tars add-module new3_module --assets
+  - tars add-component new4 -i
+  - tars add-component new4_ --ie
+  - tars add-module new4_module --ie
+  - tars add-component new5 -d
+  - tars add-component new5_ --data
+  - tars add-module new5_module --data
+  - tars add-component new6 -t
+  - tars add-component new6_ --template
+  - tars add-module new6_module --template
   - tars add-page main.html
   - tars add-page inner
   - tars add-page contacts -e
   - tars add-page contacts_ --empty
   - tars build --release --ie
+  - npm un -g tars-cli
