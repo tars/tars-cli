@@ -15,7 +15,7 @@ TARS-CLI is just an interface of the main builder, which allows you to:
 * Initialize the project.
 * Start dev-command with browser reloading and opening tunnel to the Internet.
 * Start the build-command with the minified files or in release mode.
-* Add module with different set of files.
+* Add component with different set of files.
 * Add empty page or copy an existing page.
 
 **If you have any problems with TARS-CLI, please read [the troubleshooting docs](https://github.com/tars/tars-cli/blob/master/docs/en/troubleshooting.md).**
@@ -68,7 +68,7 @@ Almost all command has the interactive mode. In this mode you can to communicate
 * [tars dev](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-dev) — run dev task in TARS.
 * [tars build](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-build) — run build task in TARS.
 * [tars start](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-start-taskname) — run custom task from local gulpfile.
-* [tars add-module](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-add-module-modulename) — add module to markup/modules.
+* [tars add-component](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-add-component-componentname) — add component to markup/components.
 * [tars add-page](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-add-page-pagename) — add page to markup/pages.
 * [tars update](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-update) — update TARS-CLI.
 * [tars update-project](https://github.com/tars/tars-cli/blob/master/docs/en/commands.md#tars-update-project) — update TARS in current project.

@@ -15,7 +15,7 @@ TARS-CLI — это только интерфейс к основному сбо
 * Инициализировать проект.
 * Запустить dev-сборку с перезагрузкой браузера и открытием туннеля во внешний веб.
 * Запустить build-сборку с минифицированными файлами или в режиме release.
-* Добавить модуль с различным набором файлов.
+* Добавить компонент с различным набором файлов.
 * Добавить страницу, как пустую, так и копию существующей.
 
 **Если у вас возникли проблемы при работе с TARS-CLI, прошу ознакомится с разделом [troubleshooting](https://github.com/tars/tars-cli/blob/master/docs/ru/troubleshooting.md).**
@@ -66,7 +66,7 @@ tars init
 * [tars dev](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-dev) — запускает dev-режим сборки.
 * [tars build](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-build) — запускает build-режим сборки.
 * [tars start](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-start-taskname) — запускает любой gulp-таск из локального gulpfile.
-* [tars add-module](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-add-module-modulename) — добавляет модуль в markup/modules.
+* [tars add-component](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-add-component-componentname) — добавляет компонент в markup/components.
 * [tars add-page](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-add-page-pagename) — добавляет страницу в markup/pages.
 * [tars update](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-update) — обновляет TARS-CLI.
 * [tars update-project](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-update-project) — обновляет TARS В текущем проекте.

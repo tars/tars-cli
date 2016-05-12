@@ -13,7 +13,7 @@ There is a description for all TARS-CLI commands.
 * [tars dev](#tars-dev) — run dev task in TARS.
 * [tars build](#tars-build) — run build task in TARS.
 * [tars start](#tars-start-taskname) — run custom task from gulpfile from current directory.
-* [tars add-module](#tars-add-module-modulename) — add module to markup/modules.
+* [tars add-component](#tars-add-component-componentname) — add component to markup/components.
 * [tars add-page](#tars-add-page-pagename) — add page to markup/pages.
 * [tars update](#tars-update) — update TARS-CLI.
 * [tars update-project](#tars-update-project) — update TARS in current project.
@@ -179,53 +179,54 @@ tars start dev --flags '--lr --ie'
 
 [Back to the command list.](#command-list)
 
-## tars add-module %moduleName%
+## tars add-component %componentName%
 
-The command adds a module to the project. It takes the name of the module as a parameter. An error will be thrown in case the module already exists. You have to use flags to create a module with ready files.
+The command adds a component to the project. It takes the name of the component as a parameter. An error will be thrown in case the component already exists. You have to use flags to create a component with ready files.
 
-Available interactive mode when you run the command without flags. You can select the files and folders to be created with the module.
+Available interactive mode when you run the command without flags. You can select the files and folders to be created with the component.
 
 ### Available flags
 
-* `-f`, `--full`: adds module with all folders and files that can be in the module: folder for the assets, ie, data + selected templater file, js and selected css-preprocessor.
+* `-f`, `--full`: adds component with all folders and files that can be in the component: folder for the assets, ie, data + selected templater file, js and selected css-preprocessor.
 * `-b`, `--basic`: adds only basic files.
 * `-d`, `--data`: adds a folder for data. It also creates a data-file with the following contents:
 ````javascript
-moduleName: {}
+componentName: {}
 ````
 * `-i`, `--ie`: adds a folder for the styles for IE.
 * `-a`, `--assets`: adds a folder for assets.
-* `-t`, `--template`: creates new module, which is based on module _template. So, if you need your own template for all new modules, you can use this flag. **Attention, it is very important, that _template has to be existed in markup/modules!** After using flag `-t` new module this name %moduleName% will be created and it will be a full copy of _template module. So, you have to rename all files and folders in new module by yourself in that case, cause TARS doesn't know anything about structure of _template module.
-* `-e`, `--empty`: adds just module folder without files.
+* `-t`, `--template`: creates new component, which is based on component _template. So, if you need your own template for all new components, you can use this flag. **Attention, it is very important, that _template has to be existed in markup/components!** After using flag `-t` new component this name %componentName% will be created and it will be a full copy of _template component. So, you have to rename all files and folders in new component by yourself in that case, cause TARS doesn't know anything about structure of _template component.
+* `-e`, `--empty`: adds just component folder without files.
 
 The keys have the following priority:
+* `-s`
 * `-t`
 * `-e`
 * `-f`
 * `other`
 
-In other words, if you use the `-d -b` и `-e`,  empty folder will be created for the module, because `-e` has higher priority. If you select "Full version of the module" mode and "Empty Folder" mode will be created only an empty folder.
+In other words, if you use the `-d -b` и `-e`,  empty folder will be created for the component, because `-e` has higher priority. If you select "Full version of the component" mode and "Empty Folder" mode will be created only an empty folder.
 
 ### An example of using the command
 
 ````bash
-# Will be start an adding module interactive mode named "sidebar"
-tars add-module sidebar
+# Will be start an adding component interactive mode named "sidebar"
+tars add-component sidebar
 
-# Adds Module "sidebar" with basic file and assets folder 
-tars add-module sidebar -b -a
+# Adds component "sidebar" with basic file and assets folder 
+tars add-component sidebar -b -a
 
-# Adds Module "sidebar" with the basic files, folders, assets and folders for data
-tars add-module sidebar -b -a -d
+# Adds component "sidebar" with the basic files, folders, assets and folders for data
+tars add-component sidebar -b -a -d
 
-# Adds Module "sidebar" with all files and folders
-tars add-module sidebar --full
+# Adds component "sidebar" with all files and folders
+tars add-component sidebar --full
 
-# Adds Module "sidebar" which is based on _template
-tars add-module sidebar --template
+# Adds component "sidebar" which is based on _template
+tars add-component sidebar --template
 
-# Adds in modules empty folder named "sidebar"
-tars add-module sidebar -e -b -a -d -i
+# Adds in components empty folder named "sidebar"
+tars add-component sidebar -e -b -a -d -i
 ````
     
 [Back to the command list.](#command-list)
@@ -303,3 +304,7 @@ tars update-project -s http://url.to.tars.zip
 # Downloads TARS from http://url.to.tars.zip and update current project without templater-files updating
 tars update-project --exclude-html -s http://url.to.tars.zip
 ````
+
+## tars add-module %moduleName%
+
+Alias for [tars add-component](#tars-add-components-componentname).
