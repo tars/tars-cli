@@ -30,11 +30,11 @@ script:
   - tars --version
   - mkdir tars-temp
   - cd tars-temp
-  - tars init --silent
+  - tars init --silent -s https://github.com/tars/tars/archive/TARS-219-rename-modules-folder.zip
   - tars -v
   - tars update-project
   - tars -v
-  - tars upgrade-project -f
+  - tars upgrade-project -f -s https://github.com/tars/tars/archive/TARS-219-rename-modules-folder.zip
   - tars -v
   - tars add-component new -e
   - tars add-component new_ --empty
@@ -62,4 +62,3 @@ script:
   - tars add-page contacts -e
   - tars add-page contacts_ --empty
   - tars build --release --ie
-  - npm un -g tars-cli
