@@ -112,7 +112,7 @@ program
         'Add component, which structure is based on scheme file'
     )
     .option('-e, --empty', 'Add component without files')
-    .option('--customPath <customPath>', 'Add component into custom folder')
+    .option('--custom-path <customPath>', 'Add component into custom folder')
     .option('--silent', 'Add component in silent mode, without promt')
     .action((componentName, options) => {
         if (isTarsReadyToWork()) {
