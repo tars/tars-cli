@@ -292,7 +292,7 @@ tars update-project --exclude-html -s http://url.to.tars.zip
 
 ## tars add-module %moduleName%
 
-Alias for [tars add-component](#tars-add-components-componentname).
+Alias for [tars add-component](#tars-add-components-componentname)
 
 ## tars re-init
 
