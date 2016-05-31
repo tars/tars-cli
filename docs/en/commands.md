@@ -9,7 +9,6 @@ There is a description for all TARS-CLI commands.
 ## Command list
 
 * [tars init](#tars-init) — TARS initialization.
-* [tars re-init](#tars-re-init) — TARS re-init. 
 * [tars dev](#tars-dev) — run dev task in TARS.
 * [tars build](#tars-build) — run build task in TARS.
 * [tars start](#tars-start-taskname) — run custom task from gulpfile from current directory.
@@ -31,7 +30,7 @@ If you don't need to use the interactive mode, this command must be run with fla
 ### Available flags
 
 * `--silent`: starts init without interactive mode.
-* `-s`, `--source`: init downloads from the repository TARS the latest markup builder version and unpacks in the current directory by default. With the `-s` flag you can determine where to download the zip-archive with TARS, if you have your own TARS builder-version (fork). **Attention, this flag with url have to be the last!**
+* `-s`, `--source`: init downloads from the repository TARS the latest markup builder version and unpacks in the current directory by default. With the `-s` flag you can determine where to download the zip-archive with TARS, if you have your own TARS builder-version (fork).
 * `--exclude-html`: templater files will be updated by default, but you can prevent with behaviour, by using that flag.
 * `--exclude-css`: css-preprocessor files will be updated by default, but you can prevent with behaviour, by using that flag.
 
@@ -58,30 +57,6 @@ tars init --exclude-html -s http://url.to.tars.zip
 
 [Back to the command list.](#command-list)
 
-## tars re-init
-
-**Attention, this command is depricated!**
-
-This command allows to re-initialize TARS with new settings (template, css-preprocessor). It is not necessary to change this settings by your hands, because you can change them in interactive mode. This command runs `gulp re-init` task in TARS. **Attention, files from pages and static folder will be deleted! Use this comman in case of initialization with wrong params only!**
-
-Interactive mode is available by default like in `init` command.
-
-### Available flags
-
-* `--silent`: starts re-init without interactive mode.
-
-### An example of using the command
-
-````bash
-# Starts re-init in interactive mode
-tars re-init
-
-# Starts re-init without interactive mode
-tars re-init --silent
-````
-
-[Back to the command list.](#command-list)
-
 ## tars dev
 
 This command starts dev-command (make a regular build) with watchers. Runs `gulp dev` task in TARS.
@@ -96,7 +71,7 @@ Interactive mode is available if you run command without flags. You can select d
 * `--ie9`: includes styles for ie9 in the build.
 * `--ie`: includes styles for ie8 and ie9 in the build.
 * `--silent`: starts builder without interactive mode.
-* `--custom-flags`: allows you to use custom flags with dev-team command. An example of use is described below. In interactive mode the flags are listed by the space without quotes and commas. **Attention, this flag with url have to be the last!**
+* `--custom-flags`: allows you to use custom flags with dev-team command. An example of use is described below. In interactive mode the flags are listed by the space without quotes and commas.
 
 ### An example of using the command
 
@@ -133,7 +108,7 @@ Available interactive mode when you run the command without flags. You can selec
 * `--ie9`: includes styles for ie9 in the build.
 * `--ie`: includes styles for ie8 and ie9 in the build.
 * `--silent`: starts builder without interactive mode.
-* `--custom-flags`: allows you to use custom flags with dev-command. An example of use is described below. Flags have to be separated by the space without quotes and commas in interactive mode. **Attention, this flag with url have to be the last!**
+* `--custom-flags`: allows you to use custom flags with dev-command. An example of use is described below. Flags have to be separated by the space without quotes and commas in interactive mode.
 
 ### An example of using the command
 
@@ -162,7 +137,7 @@ You can start any task via TARS-CLI from your local gulpfile (or from gulpfile f
 
 ### Available flags
 
-* `--flags`: allows you to use flags with %taskName%. An example of use is described below. Flags have to be separated by the space without quotes and commas in interactive mode. **Attention, this flag with url have to be the last!**
+* `--flags`: allows you to use flags with %taskName%. An example of use is described below. Flags have to be separated by the space without quotes and commas in interactive mode.
 
 ### An example of using the command
 
@@ -196,6 +171,8 @@ componentName: {}
 * `-i`, `--ie`: adds a folder for the styles for IE.
 * `-a`, `--assets`: adds a folder for assets.
 * `-t`, `--template`: creates new component, which is based on component _template. So, if you need your own template for all new components, you can use this flag. **Attention, it is very important, that _template has to be existed in markup/components!** After using flag `-t` new component this name %componentName% will be created and it will be a full copy of _template component. So, you have to rename all files and folders in new component by yourself in that case, cause TARS doesn't know anything about structure of _template component.
+* `-s`, `--scheme`: adds a new component which structure is based on scheme file. By default it is default_component_scheme in components folder in your project. You can get more info about scheme from [docs](component-scheme.md).
+* `--custom-path`: this option allows to set custom path for new component. This option is usefull in case of creating inserted component.
 * `-e`, `--empty`: adds just component folder without files.
 
 The keys have the following priority:
@@ -227,6 +204,14 @@ tars add-component sidebar --template
 
 # Adds in components empty folder named "sidebar"
 tars add-component sidebar -e -b -a -d -i
+
+# Adds component "sidebar" which structure is based on
+# default_component_scheme.json
+tars add-component sidebar -s
+
+# Adds component "sidebar" into example-component directory
+# Structure of new component is based on custom_scheme.json
+tars add-component sidebar -s custom_scheme --custom-path example
 ````
     
 [Back to the command list.](#command-list)
@@ -279,7 +264,7 @@ Update the current version of TARS in current project to the latest available. *
 ### Available flags
 
 * `-f`, `--force`: update won't be started if current version of TARS in your project is the latest. But you can override it by using that flag.
-* `-s`, `--source`: you can update your current project with any TARS archive like in [tars init](#tars-init). **Attention, this flag with url have to be the last!**
+* `-s`, `--source`: you can update your current project with any TARS archive like in [tars init](#tars-init).
 * `--exclude-html`: _template.{html,hbs,jade} will be updated by default, but you can prevent with behaviour, by using that flag.
 * `--exclude-css`: sprite-templates will be updated by default, but you can prevent with behaviour, by using that flag.
 
@@ -308,3 +293,9 @@ tars update-project --exclude-html -s http://url.to.tars.zip
 ## tars add-module %moduleName%
 
 Alias for [tars add-component](#tars-add-components-componentname).
+
+## tars re-init
+
+**Attention, This command is depricated and was removed from TARS-CLI!**
+
+[Back to the command list.](#command-list)

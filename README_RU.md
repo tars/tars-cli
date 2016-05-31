@@ -62,7 +62,6 @@ tars init
 ### Command list
 
 * [tars init](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-init) — инициализирует TARS.
-* [tars re-init](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-re-init) — запускает реинит TARS. **Внимание, при переинициализации все папки и файлы удаляются. Используйте эту команду только в случае инициализации с неподходящими параметрами!**
 * [tars dev](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-dev) — запускает dev-режим сборки.
 * [tars build](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-build) — запускает build-режим сборки.
 * [tars start](https://github.com/tars/tars-cli/blob/master/docs/ru/commands.md#tars-start-taskname) — запускает любой gulp-таск из локального gulpfile.
