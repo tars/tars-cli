@@ -35,11 +35,11 @@
     - cmd: tars --version
     - cmd: mkdir tars-temp
     - cmd: cd tars-temp
-    - cmd: tars init --silent -s https://github.com/tars/tars/archive/TARS-219-rename-modules-folder.zip
+    - cmd: tars init --silent
     - cmd: tars -v
     - cmd: tars update-project
     - cmd: tars -v
-    - cmd: tars upgrade-project -f -s https://github.com/tars/tars/archive/TARS-219-rename-modules-folder.zip
+    - cmd: tars upgrade-project -f
     - cmd: tars -v
     - cmd: tars add-component new -e
     - cmd: tars add-component new_ --empty
