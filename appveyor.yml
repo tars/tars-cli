@@ -35,7 +35,7 @@
     - cmd: tars --version
     - cmd: mkdir tars-temp
     - cmd: cd tars-temp
-    - cmd: tars init --silent -s https://github.com/tars/tars/archive/version-1.9.0.zip
+    - cmd: tars init --silent
     - cmd: tars -v
     - cmd: tars update-project
     - cmd: tars -v

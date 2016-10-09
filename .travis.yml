@@ -30,7 +30,7 @@ script:
   - tars --version
   - mkdir tars-temp
   - cd tars-temp
-  - tars init --silent -s https://github.com/tars/tars/archive/version-1.9.0.zip
+  - tars init --silent
   - tars -v
   - tars update-project
   - tars -v
