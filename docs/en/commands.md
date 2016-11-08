@@ -36,6 +36,8 @@ If you don't need to use the interactive mode, this command must be run with fla
 
 `--exclude-html` and `--exclude-css` can be useful in case of initing from custom source.
     
+**Attention, -s (--source) flag always has to be passed as the last flag!**
+
 ### An example of using the command
 
 ````bash
