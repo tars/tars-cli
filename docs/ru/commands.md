@@ -12,7 +12,7 @@
 * [tars dev](#tars-dev) — запускает dev-режим сборки.
 * [tars build](#tars-build) — запускает build-режим сборки.
 * [tars start](#tars-start-taskname) — запускает любой gulp-таск из gulpfile в текущей директории.
-* [tars add-components](#tars-add-components-componentname) — добавляет компонент (модуль) в markup/components.
+* [tars add-component](#tars-add-component-componentname) — добавляет компонент (модуль) в markup/components.
 * [tars add-page](#tars-add-page-pagename) — добавляет страницу в markup/pages.
 * [tars update](#tars-update) — обновляет TARS-CLI.
 * [tars update-project](#tars-update-project) — обновляет TARS В текущем проекте.
