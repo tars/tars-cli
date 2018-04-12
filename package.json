@@ -1,6 +1,6 @@
 {
   "name": "tars-cli",
-  "version": "1.9.5",
+  "version": "1.9.6",
   "engines": {
     "npm": "^3.x.x",
     "node": "^6.x.x"
@@ -34,7 +34,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "autoprefixer": "^6.5.0",
+    "autoprefixer": "^8.2.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^6.2.5",
     "browser-sync": "^2.23.6",
