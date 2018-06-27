@@ -1,8 +1,7 @@
 {
   "name": "tars-cli",
-  "version": "1.9.7",
+  "version": "1.9.8",
   "engines": {
-    "npm": "^3.x.x",
     "node": "^6.x.x"
   },
   "os": [
