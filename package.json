@@ -1,6 +1,6 @@
 {
   "name": "tars-cli",
-  "version": "1.10.8",
+  "version": "1.10.9",
   "engines": {
     "node": "^6.x.x"
   },
