@@ -72,7 +72,7 @@
     "gulp-pug-inheritance": "https://github.com/artem-malko/gulp-pug-inheritance/archive/master.tar.gz",
     "gulp-rename": "^1.4.0",
     "gulp-replace-task": "0.11.0",
-    "gulp-sass": "4.0.1",
+    "gulp-sass": "https://github.com/stof/gulp-sass/archive/upgrade_lodash.tar.gz",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-strip-debug": "^3.0.0",
     "gulp-stylus": "^2.7.0",
