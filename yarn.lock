@@ -4500,9 +4500,9 @@ gulp-replace-task@0.11.0:
     gulp-util "^3.0.0"
     through2 "^2.0.0"
 
-"gulp-sass@https://github.com/stof/gulp-sass/archive/upgrade_lodash.tar.gz":
+"gulp-sass@https://github.com/stof/gulp-sass/archive/7ab018e3678729392978311eef2cb02754650960.tar.gz":
   version "4.0.2"
-  resolved "https://github.com/stof/gulp-sass/archive/upgrade_lodash.tar.gz#702158219f2244a2bb1c13447175850d6b1d16c3"
+  resolved "https://github.com/stof/gulp-sass/archive/7ab018e3678729392978311eef2cb02754650960.tar.gz#79525bca93e0362892fb2b9c7140b978dfcc4727"
   dependencies:
     chalk "^2.3.0"
     lodash "^4.17.11"

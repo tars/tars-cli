@@ -1,6 +1,6 @@
 {
   "name": "tars-cli",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "engines": {
     "node": "^8.x.x"
   },
@@ -72,7 +72,7 @@
     "gulp-pug-inheritance": "https://github.com/artem-malko/gulp-pug-inheritance/archive/master.tar.gz",
     "gulp-rename": "^1.4.0",
     "gulp-replace-task": "0.11.0",
-    "gulp-sass": "https://github.com/stof/gulp-sass/archive/upgrade_lodash.tar.gz",
+    "gulp-sass": "https://github.com/stof/gulp-sass/archive/7ab018e3678729392978311eef2cb02754650960.tar.gz",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-strip-debug": "^3.0.0",
     "gulp-stylus": "^2.7.0",
