@@ -8,6 +8,7 @@ There is a list of the most frequently appearing problems.
 
 ## Problem list
 
+* [I have started tars command on windows, in console Please wait for a moment, while I'm preparing builder for working and nonthing more is happen](#I-have-started-tars-command-on-windows-in-console-please-wait-for-a-moment-while-i-m-preparing-builder-for-working-and-nonthing-more-is-happen)
 * [I have started tars update and tars is not working now.](#I-have-started-tars-update-and-tars-is-not-working-now)
 * [I have a problem with installation, the error: "Error: EPERM: operation not permitted, rename".](#I-have-a-problem-with-installation-the-error-error-eperm-operation-not-permitted-rename)
 * [I have a problem with installation, git is not exist.](#I-have-a-problem-with-installation-git-is-not-exist)
@@ -17,6 +18,12 @@ There is a list of the most frequently appearing problems.
 Don’t hesitate to get in touch by email [tars.builder@gmail.com](tars.builder@gmail.com) or [gitter](https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge) and ask me all question about TARS-CLI.
 
 ## Solutions
+
+### I have started tars command on windows, in console Please wait for a moment, while I'm preparing builder for working and nonthing more is happen
+
+If you have windows 10, just use [wsl](https://docs.microsoft.com/ru-ru/windows/wsl/install-win10). It works like charm)
+
+For windows before 10 — just use any version of terminal except cmd. Standart terminal is really bad.
 
 ### I have started tars update and tars is not working now
 

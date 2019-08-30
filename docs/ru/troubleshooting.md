@@ -4,10 +4,11 @@
 
 # Troubleshooting
 
-Здесь собраны наиболее часто повторяющиеся проблемы. 
+Здесь собраны наиболее часто повторяющиеся проблемы.
 
 ## Список проблем
 
+* [Запустил любую команду tars на windows, в консоли Please wait for a moment, while I'm preparing builder for working и больше ничего не происходит](#Запустил-любую-команду-tars-на-windows-в-консоли-please-wait-for-a-moment-while-i-m-preparing-builder-for-working-и-больше-ничего-не-происходит)
 * [Запустил tars update, и теперь ничего не работает.](#Запустил-tars-update-и-теперь-ничего-не-работает)
 * [Проблема при установке, ошибка "Error: EPERM: operation not permitted, rename".](#Проблема-при-установке-ошибка-error-eperm-operation-not-permitted-rename)
 * [Проблема при установке, отсутствует git.](#Проблема-при-установке-отсутствует-git)
@@ -17,6 +18,12 @@
 Если возникают еще какие-либо ошибки, смело пишите на [tars.builder@gmail.com](tars.builder@gmail.com) или в [gitter](https://gitter.im/tars/tars-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
 ## Решения
+
+### Запустил любую команду tars на windows, в консоли Please wait for a moment, while I'm preparing builder for working и больше ничего не происходит
+
+Если речь идет о windows 10, рекомендую использовать [wsl](https://docs.microsoft.com/ru-ru/windows/wsl/install-win10) — встроенная ubuntu в windows. Обычный терминал работает очень плохо.
+
+Для windows младше 10 версии рекомендую просто перейти на любой другой терминал. Не использовать стандартный.
 
 ### Запустил tars update, и теперь ничего не работает
 
