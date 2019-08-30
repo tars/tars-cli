@@ -8,7 +8,7 @@
 
 ## Список проблем
 
-* [Запустил любую команду tars на windows, в консоли Please wait for a moment, while I'm preparing builder for working и больше ничего не происходит](#Запустил-любую-команду-tars-на-windows-в-консоли-please-wait-for-a-moment-while-i-m-preparing-builder-for-working-и-больше-ничего-не-происходит)
+* [Запустил любую команду tars на windows, в консоли Please wait for a moment, while I'm preparing builder for working и больше ничего не происходит](#запустил-любую-команду-tars-на-windows-в-консоли-please-wait-for-a-moment-while-im-preparing-builder-for-working-и-больше-ничего-не-происходит)
 * [Запустил tars update, и теперь ничего не работает.](#Запустил-tars-update-и-теперь-ничего-не-работает)
 * [Проблема при установке, ошибка "Error: EPERM: operation not permitted, rename".](#Проблема-при-установке-ошибка-error-eperm-operation-not-permitted-rename)
 * [Проблема при установке, отсутствует git.](#Проблема-при-установке-отсутствует-git)
