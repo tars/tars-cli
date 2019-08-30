@@ -8,7 +8,7 @@ There is a list of the most frequently appearing problems.
 
 ## Problem list
 
-* [I have started tars command on windows, in console Please wait for a moment, while I'm preparing builder for working and nonthing more is happen](#I-have-started-tars-command-on-windows-in-console-please-wait-for-a-moment-while-i-m-preparing-builder-for-working-and-nonthing-more-is-happen)
+* [I have started tars command on windows, in console Please wait for a moment, while I'm preparing builder for working and nonthing more is happen](#i-have-started-tars-command-on-windows-in-console-please-wait-for-a-moment-while-im-preparing-builder-for-working-and-nonthing-more-is-happen)
 * [I have started tars update and tars is not working now.](#I-have-started-tars-update-and-tars-is-not-working-now)
 * [I have a problem with installation, the error: "Error: EPERM: operation not permitted, rename".](#I-have-a-problem-with-installation-the-error-error-eperm-operation-not-permitted-rename)
 * [I have a problem with installation, git is not exist.](#I-have-a-problem-with-installation-git-is-not-exist)
