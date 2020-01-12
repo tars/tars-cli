@@ -91,7 +91,8 @@
     "uglifyjs-webpack-plugin": "2.2.0",
     "webpack": "^4.41.5",
     "webpack-dev-middleware": "^3.7.2",
-    "webpack-hot-middleware": "^2.25.0"
+    "webpack-hot-middleware": "^2.25.0",
+    "win-spawn": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0"
