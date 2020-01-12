@@ -35,13 +35,13 @@ If you don't need to use the interactive mode, this command must be run with fla
 * `--exclude-css`: css-preprocessor files will be updated by default, but you can prevent with behaviour, by using that flag.
 
 `--exclude-html` and `--exclude-css` can be useful in case of initing from custom source.
-    
+
 **Attention, -s (--source) flag always has to be passed as the last flag!**
 
 ### An example of using the command
 
 ````bash
-# Starts init in interactive mode 
+# Starts init in interactive mode
 tars init
 
 # Starts init without interactive mode
@@ -90,7 +90,7 @@ tars dev -l
 # Will be start the server for livereload and create a tunnel to the outside Web + ie8 support
 tars dev --tunnel --ie8
 
-# Will be start the server for livereload and creates a tunnel to the outside web ie8 and ie9 + two custom flag support 
+# Will be start the server for livereload and creates a tunnel to the outside web ie8 and ie9 + two custom flag support
 tars dev --tunnel --ie --custom-flags '--custom-flag1 --custom-flag2'
 ````
 
@@ -124,7 +124,7 @@ tars build --silent
 # Will be created a version of the build with minified files
 tars build -m
 
-# Will be created a release-version of the build + ie8 support 
+# Will be created a release-version of the build + ie8 support
 tars build --release --ie8
 
 # Will be created a release-version of the build + ie8 and ie9 support + two custom flag
@@ -192,7 +192,7 @@ In other words, if you use the `-d -b` и `-e`,  empty folder will be created fo
 # Will be start an adding component interactive mode named "sidebar"
 tars add-component sidebar
 
-# Adds component "sidebar" with basic file and assets folder 
+# Adds component "sidebar" with basic file and assets folder
 tars add-component sidebar -b -a
 
 # Adds component "sidebar" with the basic files, folders, assets and folders for data
@@ -215,7 +215,7 @@ tars add-component sidebar -s
 # Structure of new component is based on custom_scheme.json
 tars add-component sidebar -s custom_scheme --custom-path example
 ````
-    
+
 [Back to the command list.](#command-list)
 
 ## tars add-page %pageName%
@@ -237,7 +237,7 @@ tars add-page inner
 # Will be created an inner.html page based on _template.html
 tars add-page inner.html
 
-# Will be created an empty inner.html page 
+# Will be created an empty inner.html page
 tars add-page inner -e
 ````
 
@@ -295,9 +295,5 @@ tars update-project --exclude-html -s http://url.to.tars.zip
 ## tars add-module %moduleName%
 
 Alias for [tars add-component](#tars-add-components-componentname)
-
-## tars re-init
-
-**Attention, This command is depricated and was removed from TARS-CLI!**
 
 [Back to the command list.](#command-list)

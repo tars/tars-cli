@@ -35,7 +35,7 @@
 `--exclude-html` и `--exclude-css` могут быть полезны в случае обновления с кастомным архивом TARS.
 
 **Внимание, флаг -s (--source) всегда должен быть последним!**
-    
+
 ### Пример использования команды
 
 ````bash
@@ -103,7 +103,7 @@ tars dev --tunnel --ie --custom-flags '--custom-flag1 --custom-flag2'
 ### Доступные флаги
 
 * `-m`, `--min`: в html подключаются минимизированные файлы.
-* `-r`, `--release`: в html подключаются минимизированные файлы, в названии которых есть hash. Данный режим полезен, если вы напрямую выкладываете верстку на сервер. 
+* `-r`, `--release`: в html подключаются минимизированные файлы, в названии которых есть hash. Данный режим полезен, если вы напрямую выкладываете верстку на сервер.
 * `--ie8`: включить в сборку стили для ie8.
 * `--ie9`: включить в сборку стили для ie9.
 * `--ie`: включить в сборку стили для ie8 и ie9.
@@ -205,16 +205,16 @@ tars add-component sidebar --template
 # Добавит в компоненты пустую папку с именем "sidebar"
 tars add-component sidebar -e -b -a -d -i
 
-# Добавит компонент с именем "sidebar" на основе файла схемы 
+# Добавит компонент с именем "sidebar" на основе файла схемы
 # default_component_scheme.json
 tars add-component sidebar -s
 
 # Добавит компонент с именем "sidebar" в папку с компонентом example.
-# Компонент будет создан на основе на основе файла схемы 
+# Компонент будет создан на основе на основе файла схемы
 # custom_scheme.json
 tars add-component sidebar -s custom_scheme --custom-path example
 ````
-    
+
 [Назад, к списку команд.](#command-list)
 
 ## tars add-page %pageName%
@@ -296,9 +296,5 @@ tars update-project --exclude-html -s http://url.to.tars.zip
 ## tars add-module %moduleName%
 
 Алиас к [tars add-component](#tars-add-components-componentname).
-
-## tars re-init
-
-**Внимание, поддержка этой команды удалена!**
 
 [Назад, к списку команд.](#command-list)

@@ -51,18 +51,6 @@ program
     .action(options => require('../lib/command-actions/init')(options));
 
 program
-    .command('re-init')
-    .description('Re-init TARS-project, DEPRICATED!')
-    .option('--exclude-html', 'Prevent templater-files uploading')
-    .option('--exclude-css', 'Prevent preprocessor-files uploading')
-    .option('--silent', 'TARS will not ask any question about configuration')
-    .action(options => {
-        if (isTarsReadyToWork()) {
-            require('../lib/command-actions/re-init')(options);
-        }
-    });
-
-program
     .command('build')
     .alias('bld')
     .description('Build project without watchers')
