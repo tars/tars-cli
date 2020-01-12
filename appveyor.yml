@@ -1,70 +1,69 @@
--
-  # AppVeyor file
+- # AppVeyor file
   # http://www.appveyor.com/docs/appveyor-yml
 
   # Build version format
   version: "{build}"
 
   platform:
-    - x64
-    - x86
+      - x64
+      - x86
 
   clone_depth: 10
 
   # Fix line endings on Windows
   init:
-    - git config --global core.autocrlf true
+      - git config --global core.autocrlf true
 
   # What combinations to test
   environment:
-    matrix:
-      - nodejs_version: 11
-      - nodejs_version: 10
-      - nodejs_version: 9
-      - nodejs_version: 8
+      matrix:
+          - nodejs_version: 13
+          - nodejs_version: 12
+          - nodejs_version: 11
+          - nodejs_version: 10
 
   install:
-    - ps: Install-Product node $env:nodejs_version $env:platform
-    - node --version
-    - npm install -g npm
-    - npm --version
-    - 'npm install -g git://github.com/tars/tars-cli.git#%APPVEYOR_REPO_COMMIT%'
+      - ps: Install-Product node $env:nodejs_version $env:platform
+      - node --version
+      - npm install -g npm
+      - npm --version
+      - "npm install -g git://github.com/tars/tars-cli.git#%APPVEYOR_REPO_COMMIT%"
 
   build: off
 
   test_script:
-    - cmd: tars --version
-    - cmd: mkdir tars-temp
-    - cmd: cd tars-temp
-    - cmd: tars init --silent
-    - cmd: tars -v
-    - cmd: tars update-project
-    - cmd: tars -v
-    - cmd: tars upgrade-project -f
-    - cmd: tars -v
-    - cmd: tars add-component new -e
-    - cmd: tars add-component new_ --empty
-    - cmd: tars add-module new_module -e
-    - cmd: tars add-component new1 -f
-    - cmd: tars add-component new1_ --full
-    - cmd: tars add-module new1_module -f
-    - cmd: tars add-component new2 -b
-    - cmd: tars add-component new2_ --basic
-    - cmd: tars add-module new2_module --basic
-    - cmd: tars add-component new3 -a
-    - cmd: tars add-component new3_ --assets
-    - cmd: tars add-module new3_module --assets
-    - cmd: tars add-component new4 -i
-    - cmd: tars add-component new4_ --ie
-    - cmd: tars add-module new4_module --ie
-    - cmd: tars add-component new5 -d
-    - cmd: tars add-component new5_ --data
-    - cmd: tars add-module new5_module --data
-    - cmd: tars add-component new6 -t
-    - cmd: tars add-component new6_ --template
-    - cmd: tars add-module new6_module --template
-    - cmd: tars add-page main.html
-    - cmd: tars add-page inner
-    - cmd: tars add-page contacts -e
-    - cmd: tars add-page contacts_ --empty
-    - cmd: tars build --release --ie
+      - cmd: tars --version
+      - cmd: mkdir tars-temp
+      - cmd: cd tars-temp
+      - cmd: tars init --silent
+      - cmd: tars -v
+      - cmd: tars update-project
+      - cmd: tars -v
+      - cmd: tars upgrade-project -f
+      - cmd: tars -v
+      - cmd: tars add-component new -e
+      - cmd: tars add-component new_ --empty
+      - cmd: tars add-module new_module -e
+      - cmd: tars add-component new1 -f
+      - cmd: tars add-component new1_ --full
+      - cmd: tars add-module new1_module -f
+      - cmd: tars add-component new2 -b
+      - cmd: tars add-component new2_ --basic
+      - cmd: tars add-module new2_module --basic
+      - cmd: tars add-component new3 -a
+      - cmd: tars add-component new3_ --assets
+      - cmd: tars add-module new3_module --assets
+      - cmd: tars add-component new4 -i
+      - cmd: tars add-component new4_ --ie
+      - cmd: tars add-module new4_module --ie
+      - cmd: tars add-component new5 -d
+      - cmd: tars add-component new5_ --data
+      - cmd: tars add-module new5_module --data
+      - cmd: tars add-component new6 -t
+      - cmd: tars add-component new6_ --template
+      - cmd: tars add-module new6_module --template
+      - cmd: tars add-page main.html
+      - cmd: tars add-page inner
+      - cmd: tars add-page contacts -e
+      - cmd: tars add-page contacts_ --empty
+      - cmd: tars build --release --ie

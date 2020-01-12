@@ -8,14 +8,14 @@ There is a description for all TARS-CLI commands.
 
 ## Command list
 
-* [tars init](#tars-init) — TARS initialization.
-* [tars dev](#tars-dev) — run dev task in TARS.
-* [tars build](#tars-build) — run build task in TARS.
-* [tars start](#tars-start-taskname) — run custom task from gulpfile from current directory.
-* [tars add-component](#tars-add-component-componentname) — add component to markup/components.
-* [tars add-page](#tars-add-page-pagename) — add page to markup/pages.
-* [tars update](#tars-update) — update TARS-CLI.
-* [tars update-project](#tars-update-project) — update TARS in current project.
+-   [tars init](#tars-init) — TARS initialization.
+-   [tars dev](#tars-dev) — run dev task in TARS.
+-   [tars build](#tars-build) — run build task in TARS.
+-   [tars start](#tars-start-taskname) — run custom task from gulpfile from current directory.
+-   [tars add-component](#tars-add-component-componentname) — добавляет компонент (модуль) в markup/components.
+-   [tars add-page](#tars-add-page-pagename) — add page to markup/pages.
+-   [tars update](#tars-update) — update TARS-CLI.
+-   [tars update-project](#tars-update-project) — update TARS in current project.
 
 ## tars init
 
@@ -29,10 +29,10 @@ If you don't need to use the interactive mode, this command must be run with fla
 
 ### Available flags
 
-* `--silent`: starts init without interactive mode.
-* `-s`, `--source`: init downloads from the repository TARS the latest markup builder version and unpacks in the current directory by default. With the `-s` flag you can determine where to download the zip-archive with TARS, if you have your own TARS builder-version (fork).
-* `--exclude-html`: templater files will be updated by default, but you can prevent with behaviour, by using that flag.
-* `--exclude-css`: css-preprocessor files will be updated by default, but you can prevent with behaviour, by using that flag.
+-   `--silent`: starts init without interactive mode.
+-   `-s`, `--source`: init downloads from the repository TARS the latest markup builder version and unpacks in the current directory by default. With the `-s` flag you can determine where to download the zip-archive with TARS, if you have your own TARS builder-version (fork).
+-   `--exclude-html`: templater files will be updated by default, but you can prevent with behaviour, by using that flag.
+-   `--exclude-css`: css-preprocessor files will be updated by default, but you can prevent with behaviour, by using that flag.
 
 `--exclude-html` and `--exclude-css` can be useful in case of initing from custom source.
 
@@ -40,7 +40,7 @@ If you don't need to use the interactive mode, this command must be run with fla
 
 ### An example of using the command
 
-````bash
+```bash
 # Starts init in interactive mode
 tars init
 
@@ -55,7 +55,7 @@ tars init --silent --source http://url.to.tars.zip
 
 # Downloads TARS from http://url.to.tars.zip and inits project in interactive mode without templater-files updating
 tars init --exclude-html -s http://url.to.tars.zip
-````
+```
 
 [Back to the command list.](#command-list)
 
@@ -67,17 +67,17 @@ Interactive mode is available if you run command without flags. You can select d
 
 ### Available flags
 
-* `-l`, `--livereload`, `--lr`: starts livereload in browser.
-* `-t`, `--tunnel`: initialization of project with sharing markup in outside Web.
-* `--ie8`: includes styles for ie8 in the build.
-* `--ie9`: includes styles for ie9 in the build.
-* `--ie`: includes styles for ie8 and ie9 in the build.
-* `--silent`: starts builder without interactive mode.
-* `--custom-flags`: allows you to use custom flags with dev-team command. An example of use is described below. In interactive mode the flags are listed by the space without quotes and commas.
+-   `-l`, `--livereload`, `--lr`: starts livereload in browser.
+-   `-t`, `--tunnel`: initialization of project with sharing markup in outside Web.
+-   `--ie8`: includes styles for ie8 in the build.
+-   `--ie9`: includes styles for ie9 in the build.
+-   `--ie`: includes styles for ie8 and ie9 in the build.
+-   `--silent`: starts builder without interactive mode.
+-   `--custom-flags`: allows you to use custom flags with dev-team command. An example of use is described below. In interactive mode the flags are listed by the space without quotes and commas.
 
 ### An example of using the command
 
-````bash
+```bash
 # Will be start an interactive mode
 tars dev
 
@@ -92,7 +92,7 @@ tars dev --tunnel --ie8
 
 # Will be start the server for livereload and creates a tunnel to the outside web ie8 and ie9 + two custom flag support
 tars dev --tunnel --ie --custom-flags '--custom-flag1 --custom-flag2'
-````
+```
 
 [Back to the command list.](#command-list)
 
@@ -104,17 +104,17 @@ Available interactive mode when you run the command without flags. You can selec
 
 ### Available flags
 
-* `-m`, `--min`: minimizes static files.
-* `-r`, `--release`: minimizes static files and adds hash to file-names. This mode is useful if you need build, that is ready for deploy.
-* `--ie8`: includes styles for ie8 in the build.
-* `--ie9`: includes styles for ie9 in the build.
-* `--ie`: includes styles for ie8 and ie9 in the build.
-* `--silent`: starts builder without interactive mode.
-* `--custom-flags`: allows you to use custom flags with dev-command. An example of use is described below. Flags have to be separated by the space without quotes and commas in interactive mode.
+-   `-m`, `--min`: minimizes static files.
+-   `-r`, `--release`: minimizes static files and adds hash to file-names. This mode is useful if you need build, that is ready for deploy.
+-   `--ie8`: includes styles for ie8 in the build.
+-   `--ie9`: includes styles for ie9 in the build.
+-   `--ie`: includes styles for ie8 and ie9 in the build.
+-   `--silent`: starts builder without interactive mode.
+-   `--custom-flags`: allows you to use custom flags with dev-command. An example of use is described below. Flags have to be separated by the space without quotes and commas in interactive mode.
 
 ### An example of using the command
 
-````bash
+```bash
 # Will be start an interactive mode
 tars build
 
@@ -129,7 +129,7 @@ tars build --release --ie8
 
 # Will be created a release-version of the build + ie8 and ie9 support + two custom flag
 tars build --release --ie --custom-flags '--custom-flag1 --custom-flag2'
-````
+```
 
 [Back to the command list.](#command-list)
 
@@ -139,11 +139,11 @@ You can start any task via TARS-CLI from your local gulpfile (or from gulpfile f
 
 ### Available flags
 
-* `--flags`: allows you to use flags with %taskName%. An example of use is described below. Flags have to be separated by the space without quotes and commas in interactive mode.
+-   `--flags`: allows you to use flags with %taskName%. An example of use is described below. Flags have to be separated by the space without quotes and commas in interactive mode.
 
 ### An example of using the command
 
-````bash
+```bash
 # Starts dev task from gulpfile
 tars start dev
 
@@ -152,7 +152,7 @@ tars start dev --flags '--lr'
 
 # Starts dev task from gulpfile with --lr and --ie flags
 tars start dev --flags '--lr --ie'
-````
+```
 
 [Back to the command list.](#command-list)
 
@@ -164,31 +164,35 @@ Available interactive mode when you run the command without flags. You can selec
 
 ### Available flags
 
-* `-f`, `--full`: adds component with all folders and files that can be in the component: folder for the assets, ie, data + selected templater file, js and selected css-preprocessor.
-* `-b`, `--basic`: adds only basic files.
-* `-d`, `--data`: adds a folder for data. It also creates a data-file with the following contents:
-````javascript
-componentName: {}
-````
-* `-i`, `--ie`: adds a folder for the styles for IE.
-* `-a`, `--assets`: adds a folder for assets.
-* `-t`, `--template`: creates new component, which is based on component _template. So, if you need your own template for all new components, you can use this flag. **Attention, it is very important, that _template has to be existed in markup/components!** After using flag `-t` new component this name %componentName% will be created and it will be a full copy of _template component. So, you have to rename all files and folders in new component by yourself in that case, cause TARS doesn't know anything about structure of _template component.
-* `-s`, `--scheme`: adds a new component which structure is based on scheme file. By default it is default_component_scheme in components folder in your project. You can get more info about scheme from [docs](component-scheme.md).
-* `--custom-path`: this option allows to set custom path for new component. This option is usefull in case of creating inserted component.
-* `-e`, `--empty`: adds just component folder without files.
+-   `-f`, `--full`: adds component with all folders and files that can be in the component: folder for the assets, ie, data + selected templater file, js and selected css-preprocessor.
+-   `-b`, `--basic`: adds only basic files.
+-   `-d`, `--data`: adds a folder for data. It also creates a data-file with the following contents:
+
+```javascript
+componentName: {
+}
+```
+
+-   `-i`, `--ie`: adds a folder for the styles for IE.
+-   `-a`, `--assets`: adds a folder for assets.
+-   `-t`, `--template`: creates new component, which is based on component \_template. So, if you need your own template for all new components, you can use this flag. **Attention, it is very important, that \_template has to be existed in markup/components!** After using flag `-t` new component this name %componentName% will be created and it will be a full copy of \_template component. So, you have to rename all files and folders in new component by yourself in that case, cause TARS doesn't know anything about structure of \_template component.
+-   `-s`, `--scheme`: adds a new component which structure is based on scheme file. By default it is default_component_scheme in components folder in your project. You can get more info about scheme from [docs](component-scheme.md).
+-   `--custom-path`: this option allows to set custom path for new component. This option is usefull in case of creating inserted component.
+-   `-e`, `--empty`: adds just component folder without files.
 
 The keys have the following priority:
-* `-s`
-* `-t`
-* `-e`
-* `-f`
-* `other`
 
-In other words, if you use the `-d -b` и `-e`,  empty folder will be created for the component, because `-e` has higher priority. If you select "Full version of the component" mode and "Empty Folder" mode will be created only an empty folder.
+-   `-s`
+-   `-t`
+-   `-e`
+-   `-f`
+-   `other`
+
+In other words, if you use the `-d -b` и `-e`, empty folder will be created for the component, because `-e` has higher priority. If you select "Full version of the component" mode and "Empty Folder" mode will be created only an empty folder.
 
 ### An example of using the command
 
-````bash
+```bash
 # Will be start an adding component interactive mode named "sidebar"
 tars add-component sidebar
 
@@ -214,23 +218,23 @@ tars add-component sidebar -s
 # Adds component "sidebar" into example-component directory
 # Structure of new component is based on custom_scheme.json
 tars add-component sidebar -s custom_scheme --custom-path example
-````
+```
 
 [Back to the command list.](#command-list)
 
 ## tars add-page %pageName%
 
-This command adds a new page in the markup/pages. It takes the name of the page as a parameter . An error will be thrown in case the page already exists. It is possible to add an empty page  and copy of the template page. If there is an extension in pageName, new page will be created from _template page with the same extension. Otherwise, the default extension for current templater will be used: .jade for Jade and .html for Handlebars.
+This command adds a new page in the markup/pages. It takes the name of the page as a parameter . An error will be thrown in case the page already exists. It is possible to add an empty page and copy of the template page. If there is an extension in pageName, new page will be created from \_template page with the same extension. Otherwise, the default extension for current templater will be used: .jade for Jade and .html for Handlebars.
 
 Interactive mode is not available.
 
 ### Available flags
 
-* `-e`, `--empty`: adds a empty page.
+-   `-e`, `--empty`: adds a empty page.
 
 ### An example of using the command
 
-````bash
+```bash
 # Will be created an inner page.{Html, jade} based _template.{Html, jade}
 tars add-page inner
 
@@ -239,11 +243,11 @@ tars add-page inner.html
 
 # Will be created an empty inner.html page
 tars add-page inner -e
-````
+```
 
 [Back to the command list.](#command-list)
 
-##  tars update
+## tars update
 
 Update the current version of TARS-CLI to the latest available. Starts npm update -g tars-cli command. In case of installation with sudo, you have to use sudo again in tars update. If you have the same version of TARS-cLI after update as before, you need to clean NPM-cache and restart update process:
 
@@ -255,20 +259,20 @@ Interactive mode is not available.
 
 ### An example of using the command
 
-````bash
+```bash
 tars update
-````
+```
 
-##  tars update-project
+## tars update-project
 
 Update the current version of TARS in current project to the latest available. **Please, be sure, that you use the latest version of TARS-CLI before update!**
 
 ### Available flags
 
-* `-f`, `--force`: update won't be started if current version of TARS in your project is the latest. But you can override it by using that flag.
-* `-s`, `--source`: you can update your current project with any TARS archive like in [tars init](#tars-init).
-* `--exclude-html`: _template.{html,hbs,jade} will be updated by default, but you can prevent with behaviour, by using that flag.
-* `--exclude-css`: sprite-templates will be updated by default, but you can prevent with behaviour, by using that flag.
+-   `-f`, `--force`: update won't be started if current version of TARS in your project is the latest. But you can override it by using that flag.
+-   `-s`, `--source`: you can update your current project with any TARS archive like in [tars init](#tars-init).
+-   `--exclude-html`: \_template.{html,hbs,jade} will be updated by default, but you can prevent with behaviour, by using that flag.
+-   `--exclude-css`: sprite-templates will be updated by default, but you can prevent with behaviour, by using that flag.
 
 `--exclude-html` and `--exclude-css` can be useful in case of updating from custom source.
 
@@ -278,7 +282,7 @@ Interactive mode is not available.
 
 ### An example of using the command
 
-````bash
+```bash
 # Starts update-project
 tars update-project
 
@@ -290,7 +294,7 @@ tars update-project -s http://url.to.tars.zip
 
 # Downloads TARS from http://url.to.tars.zip and update current project without templater-files updating
 tars update-project --exclude-html -s http://url.to.tars.zip
-````
+```
 
 ## tars add-module %moduleName%
 

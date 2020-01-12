@@ -1,63 +1,64 @@
 language: c
 
 os:
-  - linux
-  - osx
+    - linux
+    - osx
 
 env:
-  matrix:
-    - export NODE_VERSION="11"
-    - export NODE_VERSION="10"
-    - export NODE_VERSION="8"
+    matrix:
+        - export NODE_VERSION="13"
+        - export NODE_VERSION="12"
+        - export NODE_VERSION="11"
+        - export NODE_VERSION="10"
 
 matrix:
-  fast_finish: true
+    fast_finish: true
 
 before_install:
-  - echo $TRAVIS_OS_NAME
-  - git clone https://github.com/creationix/nvm.git ./.nvm
-  - source ./.nvm/nvm.sh
-  - nvm install $NODE_VERSION
-  - nvm use $NODE_VERSION
+    - echo $TRAVIS_OS_NAME
+    - git clone https://github.com/creationix/nvm.git ./.nvm
+    - source ./.nvm/nvm.sh
+    - nvm install $NODE_VERSION
+    - nvm use $NODE_VERSION
 
 before_script:
-  - if [ ${NODE_VERSION} = "6" ]; then npm install -g npm; fi
-  - npm -v
-  - 'npm install -g git://github.com/tars/tars-cli.git#${TRAVIS_COMMIT}'
+    - if [ ${NODE_VERSION} = "6" ]; then npm install -g npm; fi
+    - npm -v
+    - "npm install -g git://github.com/tars/tars-cli.git#${TRAVIS_COMMIT}"
 
 script:
-  - tars --version
-  - mkdir tars-temp
-  - cd tars-temp
-  - tars init --silent
-  - tars -v
-  - tars update-project
-  - tars -v
-  - tars upgrade-project -f
-  - tars -v
-  - tars add-component new -e
-  - tars add-component new_ --empty
-  - tars add-module new_module -e
-  - tars add-component new1 -f
-  - tars add-component new1_ --full
-  - tars add-module new1_module -f
-  - tars add-component new2 -b
-  - tars add-component new2_ --basic
-  - tars add-module new2_module --basic
-  - tars add-component new3 -a
-  - tars add-component new3_ --assets
-  - tars add-module new3_module --assets
-  - tars add-component new4 -i
-  - tars add-component new4_ --ie
-  - tars add-module new4_module --ie
-  - tars add-component new5 -d
-  - tars add-component new5_ --data
-  - tars add-module new5_module --data
-  - tars add-component new6 -t
-  - tars add-component new6_ --template
-  - tars add-module new6_module --template
-  - tars add-page main.html
-  - tars add-page inner
-  - tars add-page contacts -e
-  - tars add-page contacts_ --empty
-  - tars build --release --ie
+    - tars --version
+    - mkdir tars-temp
+    - cd tars-temp
+    - tars init --silent
+    - tars -v
+    - tars update-project
+    - tars -v
+    - tars upgrade-project -f
+    - tars -v
+    - tars add-component new -e
+    - tars add-component new_ --empty
+    - tars add-module new_module -e
+    - tars add-component new1 -f
+    - tars add-component new1_ --full
+    - tars add-module new1_module -f
+    - tars add-component new2 -b
+    - tars add-component new2_ --basic
+    - tars add-module new2_module --basic
+    - tars add-component new3 -a
+    - tars add-component new3_ --assets
+    - tars add-module new3_module --assets
+    - tars add-component new4 -i
+    - tars add-component new4_ --ie
+    - tars add-module new4_module --ie
+    - tars add-component new5 -d
+    - tars add-component new5_ --data
+    - tars add-module new5_module --data
+    - tars add-component new6 -t
+    - tars add-component new6_ --template
+    - tars add-module new6_module --template
+    - tars add-page main.html
+    - tars add-page inner
+    - tars add-page contacts -e
+    - tars add-page contacts_ --empty
+    - tars build --release --ie
