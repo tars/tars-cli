@@ -1,6 +1,6 @@
 {
   "name": "tars-cli",
-  "version": "1.12.1",
+  "version": "1.12.2",
   "os": [
     "darwin",
     "linux",
@@ -76,6 +76,7 @@
     "gulp-svg-spritesheet": "https://github.com/artem-malko/gulp-svg-spritesheet/archive/master.tar.gz",
     "gulp-svg-symbols": "https://github.com/artem-malko/gulp-svg-symbols/archive/master.tar.gz",
     "gulp-svg2png": "1.0.2",
+    "gulp-terser": "^1.2.0",
     "gulp-uglify": "^3.0.2",
     "gulp-util": "3.0.8",
     "gulp-zip": "^5.0.1",
