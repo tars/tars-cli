@@ -89,6 +89,7 @@
     "stream-combiner": "^0.2.2",
     "terser-webpack-plugin": "2.3.2",
     "through2": "^3.0.1",
+    "typescript": "^3.8.3",
     "uglifyjs-webpack-plugin": "2.2.0",
     "webpack": "^4.41.5",
     "webpack-dev-middleware": "^3.7.2",
@@ -107,6 +108,7 @@
   },
   "preferGlobal": true,
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified!\" && exit 1",
     "postuninstall": "node ./lib/npm-scripts/postuninstall.js",
     "postversion": "node ./lib/npm-scripts/postversion.js",
