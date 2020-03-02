@@ -104,7 +104,7 @@
     "fsevents": "^2.1.2"
   },
   "bin": {
-    "tars": "./bin/tars.js"
+    "tars": "./dist/bin/tars.js"
   },
   "preferGlobal": true,
   "scripts": {
