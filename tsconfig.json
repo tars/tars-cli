@@ -62,5 +62,7 @@
 
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
-  }
+  },
+  "include": ["lib/**/*"],
+  "exclude": ["node_modules"]
 }
