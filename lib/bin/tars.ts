@@ -1,11 +1,10 @@
 #!/usr/bin/env node
-// @ts-nocheck
 'use strict';
 
 const program = require('commander');
-const fs = require('fs');
+import * as fs from 'fs';
 const path = require('path');
-const tarsUtils = require('../lib/utils');
+const tarsUtils = require('../utils');
 const args = process.argv.slice(2);
 const cliRootPath = path.resolve(__dirname, '../');
 let npmRootPath = path.join(cliRootPath, 'node_modules/');
@@ -48,7 +47,7 @@ program
     .option('--exclude-css', 'Prevent preprocessor-files uploading')
     .option('--silent', 'TARS will not ask any question about configuration')
     .option('-s, --source <source>', 'Change source of TARS')
-    .action(options => require('../lib/command-actions/init')(options));
+    .action((options: any) => require('../command-actions/init')(options));
 
 program
     .command('build')
@@ -61,9 +60,9 @@ program
     .option('--ie', 'Generate files for ie')
     .option('--silent', 'Start build in silent mode, without promt')
     .option('--custom-flags <customFlags>', 'Add custom flags')
-    .action(options => {
+    .action((options: any) => {
         if (isTarsReadyToWork()) {
-            require('../lib/command-actions/build')(options);
+            require('../command-actions/build')(options);
         }
     });
 
@@ -79,9 +78,9 @@ program
     .option('--ie', 'Generate files for ie')
     .option('--silent', 'Start dev in silent mode, without promt')
     .option('--custom-flags <customFlags>', 'Add custom flags')
-    .action(options => {
+    .action((options: any) => {
         if (isTarsReadyToWork()) {
-            require('../lib/command-actions/dev')(options);
+            require('../command-actions/dev')(options);
         }
     });
 
@@ -102,9 +101,9 @@ program
     .option('-e, --empty', 'Add component without files')
     .option('--custom-path <customPath>', 'Add component into custom folder')
     .option('--silent', 'Add component in silent mode, without promt')
-    .action((componentName, options) => {
+    .action((componentName: any, options: any) => {
         if (isTarsReadyToWork()) {
-            require('../lib/command-actions/add-component')(componentName, options);
+            require('../command-actions/add-component')(componentName, options);
         }
     });
 
@@ -112,9 +111,9 @@ program
     .command('add-page <pageName>')
     .description('Add page to markup/pages directory')
     .option('-e, --empty', 'Add empty file')
-    .action((pageName, options) => {
+    .action((pageName: any, options: any) => {
         if (isTarsReadyToWork()) {
-            require('../lib/command-actions/add-page')(pageName, options);
+            require('../command-actions/add-page')(pageName, options);
         }
     });
 
@@ -122,7 +121,7 @@ program
     .command('update')
     .alias('upgrade')
     .description('Update TARS-cli')
-    .action(() => require('../lib/command-actions/update')());
+    .action(() => require('../command-actions/update')());
 
 program
     .command('update-project')
@@ -132,9 +131,9 @@ program
     .option('--exclude-html', 'Prevent templater-files updating')
     .option('--exclude-css', 'Prevent preprocessor-files updating')
     .option('-s, --source <source>', 'Change source of TARS for updating')
-    .action(options => {
+    .action((options: any) => {
         if (isTarsReadyToWork()) {
-            require('../lib/command-actions/update-project')(options);
+            require('../command-actions/update-project')(options);
         }
     });
 
@@ -143,9 +142,9 @@ program
     .alias('run')
     .description('Start task from the local gulpfile')
     .option('--flags <flags>', 'Add flags "--flags" \'flags, with space separator\'')
-    .action((taskName, options) => {
+    .action((taskName: any, options: any) => {
         if (isTarsReadyToWork()) {
-            require('../lib/command-actions/start-task')(taskName, options);
+            require('../command-actions/start-task')(taskName, options);
         }
     });
 
@@ -153,7 +152,7 @@ program
     .option('-v, --version', 'Version of TARS-cli');
 
 if (program.version && args.length && (args[0] === '--version' || args[0] === '-v')) {
-    require('../lib/command-actions/get-version')();
+    require('../command-actions/get-version')();
 }
 
 if (!args.length) {
