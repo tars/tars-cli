@@ -6,7 +6,7 @@ import * as fs from 'fs';
 const path = require('path');
 const tarsUtils = require('../utils');
 const args = process.argv.slice(2);
-const cliRootPath = path.resolve(__dirname, '../');
+const cliRootPath = path.resolve(__dirname, '../../');
 let npmRootPath = path.join(cliRootPath, 'node_modules/');
 
 try {
