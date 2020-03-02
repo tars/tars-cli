@@ -1,3 +1,4 @@
+// @ts-nocheck
 const Download = require('download');
 const exec = require('child_process').exec;
 const fsExtra = require('fs-extra');

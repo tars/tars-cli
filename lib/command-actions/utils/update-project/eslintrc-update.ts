@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use strict';
 
 module.exports = function updateEslintrc(currentEslintConfig) {
