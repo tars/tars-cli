@@ -82,6 +82,7 @@
     "gulp-zip": "^5.0.1",
     "gulp.spritesmith": "^6.11.0",
     "gulp4-run-sequence": "^1.0.0",
+    "inquirer": "^7.0.5",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "run-sequence": "^2.2.1",
