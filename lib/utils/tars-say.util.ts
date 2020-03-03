@@ -1,4 +1,5 @@
 import { platform } from 'os';
+import chalk from 'chalk';
 import { spinner } from '../ui';
 
 /**
