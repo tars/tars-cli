@@ -1,4 +1,5 @@
-const chalk = require('chalk');
+import { AbstractAction } from './abstract.action';
+import chalk from 'chalk';
 const runCommand = require('./utils/run-command');
 import { spinner } from '../ui';
 import { tarsSay } from '../utils';
@@ -8,7 +9,8 @@ import { tarsSay } from '../utils';
  * @param  {String} taskName Task name to start
  * @param  {Object} options  Build options from commander
  */
-module.exports = function startTask(taskName: any, options: any) {
+export class StartAction extends AbstractAction {
+  public async handle(taskName: any, options: any) {
     let commandOptions = [taskName];
 
     console.log('\n');
@@ -23,4 +25,5 @@ module.exports = function startTask(taskName: any, options: any) {
     tarsSay('Please wait for a moment, while I\'m preparing builder for working...\n');
 
     runCommand('gulp', commandOptions);
-};
+  }
+}
