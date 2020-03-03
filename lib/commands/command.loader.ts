@@ -1,12 +1,12 @@
 import { CommanderStatic } from 'commander';
 import {
-  AddComponentAction,
+  // AddComponentAction,
   AddPageAction,
   BuildAction,
   DevAction,
   InitAction,
   StartAction,
-  UpdateProjectAction,
+  // UpdateProjectAction,
   UpdateAction,
   VersionAction,
 } from '../actions';
@@ -22,14 +22,14 @@ import { VersionCommand } from './version.command';
 
 export class CommandLoader {
   public static load(program: CommanderStatic): void {
-    new AddComponentCommand(new AddComponentAction()).load(program);
+    // new AddComponentCommand(new AddComponentAction()).load(program);
     new AddPageCommand(new AddPageAction()).load(program);
     new BuildCommand(new BuildAction()).load(program);
     new DevCommand(new DevAction()).load(program);
     new InitCommand(new InitAction()).load(program);
     new StartCommand(new StartAction()).load(program);
     // @ts-ignore
-    new UpdateProjectCommand(new UpdateProjectAction()).load(program);
+    // new UpdateProjectCommand(new UpdateProjectAction()).load(program);
     new UpdateCommand(new UpdateAction()).load(program);
     new VersionCommand(new VersionAction()).load(program);
 

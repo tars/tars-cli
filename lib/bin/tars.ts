@@ -19,16 +19,18 @@ try {
 process.env.cliRoot = cliRootPath;
 process.env.npmRoot = npmRootPath;
 
-const program: CommanderStatic = commander;
+const bootstrap = () => {
+  const program: CommanderStatic = commander;
+  program.usage(
+    '[command] [options] \n         Command without flags will be started in interactive mode.',
+  );
 
-program.usage(
-  '[command] [options] \n         Command without flags will be started in interactive mode.',
-);
+  CommandLoader.load(program);
+  program.parse(process.argv);
 
-if (!args.length) {
-  program.outputHelp();
-}
+  if (!args.length) {
+    program.outputHelp();
+  }
+};
 
-CommandLoader.load(program);
-
-program.parse(process.argv);
+bootstrap();

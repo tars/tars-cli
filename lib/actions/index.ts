@@ -1,10 +1,10 @@
 export * from './abstract.action';
-export * from './add-component.action';
+// export * from './add-component.action';
 export * from './add-page.action';
 export * from './build.action';
 export * from './dev.action';
 export * from './init.action';
 export * from './start.action';
-export * from './update-project.action';
+// export * from './update-project.action';
 export * from './update.action';
 export * from './version.action';
