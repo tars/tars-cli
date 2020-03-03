@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import commander from 'commander';
 import { CommanderStatic } from 'commander';
+import { CommandLoader } from '../commands';
 import * as fs from 'fs';
 import * as path from 'path';
 import { isTarsInited, tarsNotInitedActions } from '../utils';
@@ -162,18 +163,10 @@ program
     }
   });
 
-program.option('-v, --version', 'Version of TARS-cli');
-
-if (
-  program.version &&
-  args.length &&
-  (args[0] === '--version' || args[0] === '-v')
-) {
-  require('../command-actions/get-version')();
-}
-
 if (!args.length) {
   program.outputHelp();
 }
+
+CommandLoader.load(program);
 
 program.parse(process.argv);
