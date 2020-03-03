@@ -32,7 +32,9 @@ let downloadedVersion: string;
 
 let urls = {
   tars: 'https://github.com/tars/tars/archive/master.zip',
+  // @ts-ignore
   css: `https://github.com/tars/tars-${currentTarsConfig.cssPreprocessor}/archive/master.zip`,
+  // @ts-ignore
   templater: `https://github.com/tars/tars-${currentTarsConfig.templater}/archive/master.zip`,
 };
 let dest = {

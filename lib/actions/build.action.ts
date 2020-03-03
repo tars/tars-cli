@@ -110,6 +110,7 @@ export class BuildAction extends AbstractAction {
 
     // @ts-ignore
     if (
+      // @ts-ignore
       buildOptions.indexOf(buildPromtOptions.release.flag) !== -1 &&
       // @ts-ignore
       buildOptions.indexOf(buildPromtOptions.min.flag) !== -1
