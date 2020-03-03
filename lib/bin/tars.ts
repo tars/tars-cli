@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-'use strict';
-
-const program = require('commander');
+import * as commander from 'commander';
+import { CommanderStatic } from 'commander';
 import * as fs from 'fs';
 const path = require('path');
 import { isTarsInited as inited, tarsNotInitedActions } from '../utils';
@@ -37,6 +36,8 @@ function isTarsReadyToWork() {
     return true;
 }
 
+const program: CommanderStatic = commander;
+
 program
     .usage('[command] [options] \n         Command without flags will be started in interactive mode.');
 
@@ -47,7 +48,7 @@ program
     .option('--exclude-css', 'Prevent preprocessor-files uploading')
     .option('--silent', 'TARS will not ask any question about configuration')
     .option('-s, --source <source>', 'Change source of TARS')
-    .action((options: any) => require('../command-actions/init')(options));
+    .action(options => require('../command-actions/init')(options));
 
 program
     .command('build')
@@ -60,7 +61,7 @@ program
     .option('--ie', 'Generate files for ie')
     .option('--silent', 'Start build in silent mode, without promt')
     .option('--custom-flags <customFlags>', 'Add custom flags')
-    .action((options: any) => {
+    .action(options => {
         if (isTarsReadyToWork()) {
             require('../command-actions/build')(options);
         }
@@ -78,7 +79,7 @@ program
     .option('--ie', 'Generate files for ie')
     .option('--silent', 'Start dev in silent mode, without promt')
     .option('--custom-flags <customFlags>', 'Add custom flags')
-    .action((options: any) => {
+    .action(options => {
         if (isTarsReadyToWork()) {
             require('../command-actions/dev')(options);
         }
@@ -101,7 +102,7 @@ program
     .option('-e, --empty', 'Add component without files')
     .option('--custom-path <customPath>', 'Add component into custom folder')
     .option('--silent', 'Add component in silent mode, without promt')
-    .action((componentName: any, options: any) => {
+    .action((componentName, options) => {
         if (isTarsReadyToWork()) {
             require('../command-actions/add-component')(componentName, options);
         }
@@ -111,7 +112,7 @@ program
     .command('add-page <pageName>')
     .description('Add page to markup/pages directory')
     .option('-e, --empty', 'Add empty file')
-    .action((pageName: any, options: any) => {
+    .action((pageName, options) => {
         if (isTarsReadyToWork()) {
             require('../command-actions/add-page')(pageName, options);
         }
@@ -131,7 +132,7 @@ program
     .option('--exclude-html', 'Prevent templater-files updating')
     .option('--exclude-css', 'Prevent preprocessor-files updating')
     .option('-s, --source <source>', 'Change source of TARS for updating')
-    .action((options: any) => {
+    .action((options) => {
         if (isTarsReadyToWork()) {
             require('../command-actions/update-project')(options);
         }
@@ -142,7 +143,7 @@ program
     .alias('run')
     .description('Start task from the local gulpfile')
     .option('--flags <flags>', 'Add flags "--flags" \'flags, with space separator\'')
-    .action((taskName: any, options: any) => {
+    .action((taskName, options) => {
         if (isTarsReadyToWork()) {
             require('../command-actions/start-task')(taskName, options);
         }
