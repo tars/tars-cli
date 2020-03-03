@@ -1,17 +1,15 @@
-// @ts-nocheck
-'use strict';
-
 const inquirer = require('inquirer');
 const chalk = require('chalk');
-const tarsUtils = require('../utils');
+import { spinner } from '../ui';
+import { tarsSay } from '../utils';
 
 /**
  * Ask about custom flags
  * @param  {Object} answers     Answers from promt
  * @param  {Function} callback  Function to start after promt
  */
-module.exports = function customFlagsPromt(answers, callback) {
-    tarsUtils.spinner.stop(true);
+module.exports = function customFlagsPromt(answers: any, callback: any) {
+    spinner.stop(true);
 
     inquirer.prompt([
         {
@@ -19,9 +17,10 @@ module.exports = function customFlagsPromt(answers, callback) {
             name: 'customFlags',
             message: 'Input custom flags with space separator without any quotes:'
         }
-    ]).then(flagsAnswers => {
+    ]).then((flagsAnswers: any) => {
         answers.customFlags = flagsAnswers.customFlags.split(' ');
-        tarsUtils.tarsSay(`Used custom flags: ${chalk.bold.cyan(answers.customFlags.join(', '))}`);
+        // @ts-ignore
+        tarsSay(`Used custom flags: ${chalk.bold.cyan(answers.customFlags.join(', '))}`);
         callback(answers);
     });
 };

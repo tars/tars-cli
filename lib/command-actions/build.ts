@@ -1,17 +1,16 @@
-// @ts-nocheck
-'use strict';
-
 const chalk = require('chalk');
 const runCommand = require('./utils/run-command');
 const generalOptionsProcessing = require('./utils/general-options-processing');
 const buildPromt = require('../promt/build-promt');
-const tarsUtils = require('../utils');
-const buildPromtOptions = require('../constants').BUILD;
+import { spinner } from '../ui';
+import { tarsSay, getUsedFlags } from '../utils';
+import { BUILD as buildPromtOptions } from '../constants';
 
-function extractBuildOptionsFromPromt(answers) {
+function extractBuildOptionsFromPromt(answers: any) {
+    // @ts-ignore
     let buildOptions = [];
 
-    answers.mode.forEach(mode => {
+    answers.mode.forEach((mode: any) => {
         switch (mode) {
             case buildPromtOptions.release.title:
                 buildOptions.push(buildPromtOptions.release.flag);
@@ -29,6 +28,7 @@ function extractBuildOptionsFromPromt(answers) {
                 buildOptions.push(buildPromtOptions.ie.flag);
                 break;
             case buildPromtOptions.customFlags.title:
+                // @ts-ignore
                 buildOptions = buildOptions.concat(answers.customFlags);
                 break;
             default:
@@ -36,31 +36,35 @@ function extractBuildOptionsFromPromt(answers) {
         }
     });
 
+    // @ts-ignore
     if (buildOptions.indexOf(buildPromtOptions.release.flag) !== -1 &&
+        // @ts-ignore
         buildOptions.indexOf(buildPromtOptions.min.flag) !== -1) {
+        // @ts-ignore
         buildOptions.splice(buildPromtOptions.min.flag, 1);
     }
 
+    // @ts-ignore
     return buildOptions;
 }
 
-function extractBuildOptionsFromFlags(commandOptions) {
+function extractBuildOptionsFromFlags(commandOptions: any) {
     let buildOptions = [];
 
-    tarsUtils.tarsSay('Build options (active are green): ');
+    tarsSay('Build options (active are green): ');
 
     if (commandOptions.release) {
         buildOptions.push(buildPromtOptions.release.flag);
-        tarsUtils.tarsSay(chalk.green('✓ Release mode.'));
+        tarsSay(chalk.green('✓ Release mode.'));
     } else {
-        tarsUtils.tarsSay(chalk.grey('Release mode "-r".'));
+        tarsSay(chalk.grey('Release mode "-r".'));
     }
 
     if (commandOptions.min && !commandOptions.release) {
         buildOptions.push(buildPromtOptions.min.flag);
-        tarsUtils.tarsSay(chalk.green('✓ Minify mode.'));
+        tarsSay(chalk.green('✓ Minify mode.'));
     } else {
-        tarsUtils.tarsSay(chalk.grey('Minify mode "-m".'));
+        tarsSay(chalk.grey('Minify mode "-m".'));
     }
 
     return buildOptions.concat(generalOptionsProcessing(commandOptions));
@@ -71,16 +75,16 @@ function extractBuildOptionsFromFlags(commandOptions) {
  * @param  {Object} answers Answers from promt
  * @param  {Object} options from inquirer
  */
-function buildInit(answers, commandOptions) {
+function buildInit(answers: any, commandOptions: any) {
     const buildOptions = answers ? extractBuildOptionsFromPromt(answers) : extractBuildOptionsFromFlags(commandOptions);
 
     if (!answers) {
         console.log('\n');
-        tarsUtils.tarsSay('Execute ' + chalk.bold.cyan('"tars build --help"') + ', to see all avaliable options.');
-        tarsUtils.tarsSay('You can use interactive mode via starting tars without any flags.');
+        tarsSay('Execute ' + chalk.bold.cyan('"tars build --help"') + ', to see all avaliable options.');
+        tarsSay('You can use interactive mode via starting tars without any flags.');
     }
 
-    tarsUtils.tarsSay('Please wait for a moment, while I\'m preparing builder for working...\n');
+    tarsSay('Please wait for a moment, while I\'m preparing builder for working...\n');
     runCommand('gulp', buildOptions);
 }
 
@@ -88,18 +92,18 @@ function buildInit(answers, commandOptions) {
  * Start build task in gulp
  * @param  {Object} options Build options from commander
  */
-module.exports = function build(options) {
+module.exports = function build(options: any) {
     const commandOptions = Object.assign({}, options);
 
     console.log('\n');
-    tarsUtils.spinner.start();
-    tarsUtils.tarsSay(chalk.underline('Build task has been started!') + '\n');
+    spinner.start();
+    tarsSay(chalk.underline('Build task has been started!') + '\n');
 
-    if (tarsUtils.getUsedFlags(commandOptions).length) {
+    if (getUsedFlags(commandOptions).length) {
         buildInit(null, commandOptions);
     } else {
-        tarsUtils.tarsSay('Welcome to the interactive mode.');
-        tarsUtils.tarsSay('Please, answer some questions:');
+        tarsSay('Welcome to the interactive mode.');
+        tarsSay('Please, answer some questions:');
         buildPromt(buildInit);
     }
 };

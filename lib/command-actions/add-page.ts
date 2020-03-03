@@ -1,9 +1,7 @@
-// @ts-nocheck
-'use strict';
-
 const fs = require('fs');
 const chalk = require('chalk');
-const tarsUtils = require('../utils');
+import { spinner } from '../ui';
+import { tarsSay, getTarsConfig } from '../utils'; 
 const fsExtra = require('fs-extra');
 const getTemplaterExtension = require('./utils/get-templater-extension');
 
@@ -12,9 +10,9 @@ const getTemplaterExtension = require('./utils/get-templater-extension');
  * @param  {String} pageName   The name of new page
  * @param  {Object} opts       Options
  */
-module.exports = function addPage(pageName, opts) {
+module.exports = function addPage(pageName: any, opts: any) {
     const cwd = process.cwd();
-    const tarsConfig = tarsUtils.getTarsConfig();
+    const tarsConfig = getTarsConfig();
     const templater = tarsConfig.templater.toLowerCase();
     let extension = getTemplaterExtension(templater);
     // Path to new page. Includes page name
@@ -29,29 +27,30 @@ module.exports = function addPage(pageName, opts) {
 
     console.log('\n');
 
-    fs.stat(npd, (fsErr, stats) => {
+    fs.stat(npd, (fsErr: any, stats: any) => {
 
         if (!stats) {
             if (opts.empty) {
                 fs.closeSync(fs.openSync(npd, 'w'));
-                tarsUtils.tarsSay(chalk.green('Page "' + pageName + '" has been added to markup/pages.\n'), true);
+                tarsSay(chalk.green('Page "' + pageName + '" has been added to markup/pages.\n'), true);
             } else {
+                // @ts-ignore
                 fsExtra.copy(cwd + '/markup/pages/_template.' + extension, npd, error => {
 
                     if (error) {
-                        tarsUtils.tarsSay(chalk.red('"_template.' + extension + '" does not exist in the "markup/pages" directory.'));
-                        tarsUtils.tarsSay('This file is used as template for new page.');
-                        tarsUtils.tarsSay('Create this file or run the command ' + chalk.cyan('"tars add-page <pageName> -e"') + ' to create empty page.\n', true);
+                        tarsSay(chalk.red('"_template.' + extension + '" does not exist in the "markup/pages" directory.'));
+                        tarsSay('This file is used as template for new page.');
+                        tarsSay('Create this file or run the command ' + chalk.cyan('"tars add-page <pageName> -e"') + ' to create empty page.\n', true);
                         return;
                     }
 
-                    tarsUtils.tarsSay(chalk.green('Page "' + pageName + '" has been added to markup/pages.\n'), true);
+                    tarsSay(chalk.green('Page "' + pageName + '" has been added to markup/pages.\n'), true);
                 });
             }
         } else {
-            tarsUtils.tarsSay(chalk.red('Page "' + pageName + '" already exists.\n'), true);
+            tarsSay(chalk.red('Page "' + pageName + '" already exists.\n'), true);
         }
     });
 
-    tarsUtils.spinner.stop(true);
+    spinner.stop(true);
 };

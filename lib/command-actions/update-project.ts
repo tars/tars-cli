@@ -8,14 +8,12 @@ const chalk = require('chalk');
 const path = require('path');
 const semver = require('semver');
 
-const tarsUtils = require('../utils');
+import { spinner } from '../ui';
+import { tarsSay, getTarsConfig as currentTarsConfig, getTarsProjectVersion as currentTarsVersion } from '../utils';
 const getTemplaterExtension = require('./utils/get-templater-extension');
 const cwd = process.cwd();
 const backupVersionGenerator = require(`${cwd}/tars/helpers/set-build-version`);
 const backupFolderName = `${path.parse(cwd).name}-backup${backupVersionGenerator()}`;
-
-const currentTarsConfig = tarsUtils.getTarsConfig();
-const currentTarsVersion = tarsUtils.getTarsProjectVersion();
 
 const templater = currentTarsConfig.templater.toLowerCase();
 const templaterExtension = getTemplaterExtension(templater);
@@ -71,8 +69,8 @@ function downloadFiles(type, callback) {
 function makeBackup() {
     return new Promise(resolve => {
 
-        tarsUtils.tarsSay('Please, wait for a minute, while I\'m creating backup of your current project...');
-        tarsUtils.tarsSay('You can get a cup of coffee or tea =)');
+        tarsSay('Please, wait for a minute, while I\'m creating backup of your current project...');
+        tarsSay('You can get a cup of coffee or tea =)');
         const backupPath = path.resolve(cwd, '../', `${backupFolderName}`);
 
         fsExtra.copy(cwd, backupPath,
@@ -101,7 +99,7 @@ function makeBackup() {
                 }
 
 
-                tarsUtils.tarsSay(
+                tarsSay(
                     `Backup has been created. Dir name is: "${chalk.cyan(backupFolderName)}" in backup dir`
                 );
                 resolve();
@@ -158,7 +156,7 @@ function updateConfigFiles() {
         );
 
         fs.writeFileSync(tarsJsonPath, JSON.stringify(newTarsJson, null, 4));
-        tarsUtils.tarsSay('tars.json has been updated.');
+        tarsSay('tars.json has been updated.');
         /**
          * END tars.json update
          */
@@ -181,7 +179,7 @@ function updateConfigFiles() {
         );
 
         fs.writeFileSync(`${cwd}/plugins-config.json`, newPluginsConfigString);
-        tarsUtils.tarsSay('plugins-config has been created.');
+        tarsSay('plugins-config has been created.');
 
         /**
          * END update plugins-config.js
@@ -227,7 +225,7 @@ function updateConfigFiles() {
         const newTarsConfigContent = `module.exports = ${JSON.stringify(newTarsConfig, null, 4)};`;
 
         fs.writeFileSync(`${cwd}/tars-config.js`, newTarsConfigContent);
-        tarsUtils.tarsSay('tars-config has been updated.');
+        tarsSay('tars-config has been updated.');
         /**
          * END tars-config.js update
          */
@@ -249,7 +247,7 @@ function updateConfigFiles() {
                 .filter((item, pos, self) => self.indexOf(item) === pos);
 
             fs.writeFileSync(babelConfigPath, JSON.stringify(newBabelConfig, null, 2));
-            tarsUtils.tarsSay('.babelrc has been updated.');
+            tarsSay('.babelrc has been updated.');
         }
         /**
          * END .babelrc update
@@ -283,7 +281,7 @@ function updateConfigFiles() {
             );
         }
 
-        tarsUtils.tarsSay('.eslintrc has been updated.');
+        tarsSay('.eslintrc has been updated.');
 
         /**
          * END .eslintrc update
@@ -315,7 +313,7 @@ function updateConfigFiles() {
         if (JSON.stringify(newPackageJson) !== JSON.stringify(require(packageJsonPath))) {
             isNeededToReinstallPackages = true;
             fs.writeFileSync(packageJsonPath, JSON.stringify(newPackageJson, null, 2));
-            tarsUtils.tarsSay('package.json has been updated.');
+            tarsSay('package.json has been updated.');
         }
         /**
          * END package.json update
@@ -334,7 +332,7 @@ function updateConfigFiles() {
          * END update component-scheme
          */
 
-        tarsUtils.tarsSay('All config-files have been updated.');
+        tarsSay('All config-files have been updated.');
         resolve();
     });
 }
@@ -389,7 +387,7 @@ function updateTasksAndHelpers() {
             throw new Error(copyError);
         }
 
-        tarsUtils.tarsSay('Tasks, watchers, helpers and tars.js have been updated.');
+        tarsSay('Tasks, watchers, helpers and tars.js have been updated.');
         resolve();
     });
 }
@@ -414,7 +412,7 @@ function updatesForCss() {
                 );
             }
 
-            tarsUtils.tarsSay('Style-files have been updated.');
+            tarsSay('Style-files have been updated.');
             resolve();
         } else {
             resolve();
@@ -437,7 +435,7 @@ function updatesForHtml() {
                         throw new Error(error);
                     }
 
-                    tarsUtils.tarsSay('Templater-files have been updated.');
+                    tarsSay('Templater-files have been updated.');
                     resolve();
                 }
             );
@@ -475,7 +473,7 @@ function updatesForJs() {
             throw new Error(error);
         }
 
-        tarsUtils.tarsSay('JS-files have been updated.');
+        tarsSay('JS-files have been updated.');
         resolve();
     });
 }
@@ -491,7 +489,7 @@ function gulpfileUpdate() {
                 throw new Error(error);
             }
 
-            tarsUtils.tarsSay('Gulpfile has been updated.');
+            tarsSay('Gulpfile has been updated.');
             resolve();
         });
     });
@@ -522,7 +520,7 @@ function updateDocs() {
             throw new Error(copyError);
         }
 
-        tarsUtils.tarsSay('Documentation has been updated.');
+        tarsSay('Documentation has been updated.');
         resolve();
     });
 }
@@ -538,12 +536,12 @@ function installPackages() {
                 if (error) {
                     throw new Error(error);
                 } else {
-                    tarsUtils.tarsSay('NPM-packages have been updated.');
+                    tarsSay('NPM-packages have been updated.');
                     resolve();
                 }
             });
         } else {
-            tarsUtils.tarsSay('NPM-packages were not changed.');
+            tarsSay('NPM-packages were not changed.');
             resolve();
         }
     });
@@ -561,7 +559,7 @@ function updateWebpackConfig() {
 
         fsExtra.copySync(`${cwd}/webpack.config.js`, `${cwd}/${currentTarsVersion}-webpack.config.js`, { clobber: true });
         fsExtra.copySync(`${dest.tars.fullPath}/webpack.config.js`, `${cwd}/webpack.config.js`, { clobber: true });
-        tarsUtils.tarsSay('Webpack.config has been updated.');
+        tarsSay('Webpack.config has been updated.');
         return resolve();
     });
 }
@@ -577,8 +575,8 @@ function customActions() {
         try {
             customActionsConfig = require(`${dest.tars.fullPath}/custom-update-actions.json`);
         } catch (error) {
-            tarsUtils.tarsSay(chalk.yellow(error.message));
-            tarsUtils.tarsSay(chalk.yellow('Will continue without custom-update-actions'));
+            tarsSay(chalk.yellow(error.message));
+            tarsSay(chalk.yellow('Will continue without custom-update-actions'));
             return resolve();
         }
 
@@ -596,8 +594,8 @@ function customActions() {
                         `${cwd}${itemToCopy.to}`
                     );
                 } catch (copyError) {
-                    tarsUtils.tarsSay(chalk.yellow('Error while coping files from custom-actions'));
-                    tarsUtils.tarsSay(chalk.yellow(copyError.message));
+                    tarsSay(chalk.yellow('Error while coping files from custom-actions'));
+                    tarsSay(chalk.yellow(copyError.message));
                 }
             });
         }
@@ -610,8 +608,8 @@ function customActions() {
                         `${cwd}${itemToRename.to}`
                     );
                 } catch (renameError) {
-                    tarsUtils.tarsSay(chalk.yellow('Error while renaming files from custom-actions'));
-                    tarsUtils.tarsSay(chalk.yellow(renameError.message));
+                    tarsSay(chalk.yellow('Error while renaming files from custom-actions'));
+                    tarsSay(chalk.yellow(renameError.message));
                 }
             });
         }
@@ -637,7 +635,7 @@ function removeUselessFiles(isLogsMuted) {
         del.sync(pathsToDel);
 
         if (!isLogsMuted) {
-            tarsUtils.tarsSay('Useless files have been removed.');
+            tarsSay('Useless files have been removed.');
         }
 
         resolve();
@@ -649,16 +647,16 @@ function removeUselessFiles(isLogsMuted) {
  */
 function finalActions() {
     console.log('\n');
-    tarsUtils.tarsSay(chalk.green('Your project has been updated successfully!'));
-    tarsUtils.tarsSay(`Current version is: ${chalk.cyan.bold(downloadedVersion)}`);
-    tarsUtils.tarsSay(chalk.yellow('Do not forget to check gulpfile.js, system task and watchers if you have changed it.'));
-    tarsUtils.tarsSay(chalk.yellow('Do not forget to check webpack.config.js!'));
-    tarsUtils.tarsSay(chalk.yellow('I can not merge it automatically('));
-    tarsUtils.tarsSay(chalk.yellow('So, I have created a copy of your previous webpack.config.js.'));
-    tarsUtils.tarsSay(chalk.yellow('Please, merge it manually.'));
-    tarsUtils.tarsSay(chalk.yellow('You can remove old webpack.config.js after merging.'));
-    tarsUtils.tarsSay(`Dir with backup of your project: "${chalk.cyan(backupFolderName)}"`);
-    tarsUtils.tarsSay('Have a nice work =).', true);
+    tarsSay(chalk.green('Your project has been updated successfully!'));
+    tarsSay(`Current version is: ${chalk.cyan.bold(downloadedVersion)}`);
+    tarsSay(chalk.yellow('Do not forget to check gulpfile.js, system task and watchers if you have changed it.'));
+    tarsSay(chalk.yellow('Do not forget to check webpack.config.js!'));
+    tarsSay(chalk.yellow('I can not merge it automatically('));
+    tarsSay(chalk.yellow('So, I have created a copy of your previous webpack.config.js.'));
+    tarsSay(chalk.yellow('Please, merge it manually.'));
+    tarsSay(chalk.yellow('You can remove old webpack.config.js after merging.'));
+    tarsSay(`Dir with backup of your project: "${chalk.cyan(backupFolderName)}"`);
+    tarsSay('Have a nice work =).', true);
 }
 
 /**
@@ -669,9 +667,9 @@ function actionsOnError(error) {
     console.log('\n');
     del.sync([`${currentTarsVersion}-webpack.config.js`]);
     removeUselessFiles(true);
-    tarsUtils.tarsSay(chalk.red('Something is gone wrong...'));
-    tarsUtils.tarsSay(`Dir with backup of your project: "${chalk.cyan(backupFolderName)}"`);
-    tarsUtils.tarsSay('Please, repost the message and the stack trace of Error to developer tars.builder@gmail.com', true);
+    tarsSay(chalk.red('Something is gone wrong...'));
+    tarsSay(`Dir with backup of your project: "${chalk.cyan(backupFolderName)}"`);
+    tarsSay('Please, repost the message and the stack trace of Error to developer tars.builder@gmail.com', true);
     console.error(error.stack);
 }
 
@@ -686,8 +684,8 @@ function startUpdateProcess() {
         ])
         .then(() => {
             return new Promise(resolve => {
-                tarsUtils.tarsSay('New version has been downloaded successfully.');
-                tarsUtils.tarsSay('I\'ll wait for 5 seconds to be sure, that all new files on your disk already.');
+                tarsSay('New version has been downloaded successfully.');
+                tarsSay('I\'ll wait for 5 seconds to be sure, that all new files on your disk already.');
 
                 setTimeout(() => {
                     resolve();
@@ -713,7 +711,7 @@ function startUpdateProcess() {
 module.exports = function updateProject(options) {
     const installedTarsCliVersion = require(`${process.env.cliRoot}/package.json`).version;
 
-    tarsUtils.spinner.start();
+    spinner.start();
 
     commandOptions = Object.assign({}, options);
 
@@ -722,19 +720,19 @@ module.exports = function updateProject(options) {
     }
 
     if (semver.cmp(currentTarsVersion, '<', '1.5.0')) {
-        tarsUtils.tarsSay('I\'m so sad, but automatic update is available from version 1.5.0 only!');
-        tarsUtils.tarsSay(`Current version is: ${currentTarsVersion}`, true);
+        tarsSay('I\'m so sad, but automatic update is available from version 1.5.0 only!');
+        tarsSay(`Current version is: ${currentTarsVersion}`, true);
         return false;
     }
 
-    tarsUtils.tarsSay('Checking, if update is available for you...');
+    tarsSay('Checking, if update is available for you...');
 
     new Download({ extract: true, mode: '755' })
         .get('https://raw.githubusercontent.com/tars/tars-cli/master/package.json')
         .run((error, files) => {
 
             if (error) {
-                tarsUtils.tarsSay('Something is gone wrong! Please, try again later.', true);
+                tarsSay('Something is gone wrong! Please, try again later.', true);
 
                 throw new Error(error);
             }
@@ -742,10 +740,10 @@ module.exports = function updateProject(options) {
             const latestTarsCliVersion = JSON.parse(files[0].contents.toString()).version;
 
             if (semver.cmp(installedTarsCliVersion, '<', latestTarsCliVersion)) {
-                tarsUtils.tarsSay('Version of installed TARS-CLI is not the latest!');
-                tarsUtils.tarsSay(`Please, update TARS-CLI via ${chalk.cyan.bold('tars update')} at first!`);
-                tarsUtils.tarsSay(`The latest version is: ${chalk.cyan.bold(latestTarsCliVersion)}`);
-                tarsUtils.tarsSay(`Installed version is: ${chalk.cyan.bold(installedTarsCliVersion)}`, true);
+                tarsSay('Version of installed TARS-CLI is not the latest!');
+                tarsSay(`Please, update TARS-CLI via ${chalk.cyan.bold('tars update')} at first!`);
+                tarsSay(`The latest version is: ${chalk.cyan.bold(latestTarsCliVersion)}`);
+                tarsSay(`Installed version is: ${chalk.cyan.bold(installedTarsCliVersion)}`, true);
                 return false;
             }
 
@@ -754,23 +752,23 @@ module.exports = function updateProject(options) {
                     downloadedVersion = require(`${dest.tars.fullPath}/tars.json`).version;
 
                     if (semver.cmp(currentTarsVersion, '=', downloadedVersion) && !commandOptions.force) {
-                        tarsUtils.tarsSay('You have the latest version of TARS already!', true);
+                        tarsSay('You have the latest version of TARS already!', true);
                         removeUselessFiles(true);
                         return;
                     }
 
                     if (commandOptions.force) {
-                        tarsUtils.tarsSay('Force update!');
+                        tarsSay('Force update!');
                     } else {
-                        tarsUtils.tarsSay(`Ok, new version ${chalk.cyan.bold(downloadedVersion)} is available. Let's do it!`);
+                        tarsSay(`Ok, new version ${chalk.cyan.bold(downloadedVersion)} is available. Let's do it!`);
                     }
 
                     startUpdateProcess();
                 })
                 .catch(downloadError => {
-                    tarsUtils.tarsSay(chalk.red('Something is gone wrong...'));
-                    tarsUtils.tarsSay('Files in your project have not been changed');
-                    tarsUtils.tarsSay('Please, repost the message and the stack trace of Error to developer tars.builder@gmail.com', true);
+                    tarsSay(chalk.red('Something is gone wrong...'));
+                    tarsSay('Files in your project have not been changed');
+                    tarsSay('Please, repost the message and the stack trace of Error to developer tars.builder@gmail.com', true);
                     console.error(downloadError.stack);
                 });
         });

@@ -1,8 +1,5 @@
-// @ts-nocheck
-'use strict';
-
 const chalk = require('chalk');
-const tarsUtils = require('../utils');
+import { tarsSay } from '../utils';
 
 console.log('\n\n');
-tarsUtils.tarsSay(chalk.green('TARS-CLI has been updated successfully.\n'), true);
+tarsSay(chalk.green('TARS-CLI has been updated successfully.\n'), true);

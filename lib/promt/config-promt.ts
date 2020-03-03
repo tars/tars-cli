@@ -1,16 +1,14 @@
-// @ts-nocheck
-'use strict';
-
 const chalk = require('chalk');
 const inquirer = require('inquirer');
-const tarsUtils = require('../utils');
-const configPromtOptions = require('../constants').CONFIG;
+import { spinner } from '../ui';
+import { tarsSay, validateFolderName } from '../utils';
+import { CONFIG as configPromtOptions } from '../constants';
 
 /**
  * Init promt for config
  * @param  {Function} callback Function to start after promt
  */
-module.exports = function promt(callback) {
+module.exports = function promt(callback: any) {
     const args = process.argv.slice(2);
     let promts = [];
 
@@ -79,7 +77,7 @@ module.exports = function promt(callback) {
                 },
                 new inquirer.Separator(chalk.grey('—————————————————————————————'))
             ],
-            validate: answer => {
+            validate: (answer: any) => {
                 if (answer.length < 1) {
                     return 'You have to choose at least one DPI!';
                 }
@@ -95,27 +93,27 @@ module.exports = function promt(callback) {
             name: 'staticFolderName',
             message: 'Enter static folder name',
             default: () => 'static',
-            validate: tarsUtils.validateFolderName
+            validate: validateFolderName
         }, {
             type: 'input',
             name: 'imagesFolderName',
             message: 'Enter images folder name',
             default: () => 'img',
-            validate: tarsUtils.validateFolderName
+            validate: validateFolderName
         }, {
             type: 'input',
             name: 'componentsFolderName',
             message: 'Enter components folder name',
             default: () => 'components',
-            validate: tarsUtils.validateFolderName
+            validate: validateFolderName
         }
     );
 
-    tarsUtils.tarsSay('Please, answer some questions:\n');
-    tarsUtils.spinner.stop(true);
+    tarsSay('Please, answer some questions:\n');
+    spinner.stop(true);
 
-    inquirer.prompt(promts).then(answers => {
-        tarsUtils.tarsSay('You can change all options in tars-config.js\n');
+    inquirer.prompt(promts).then((answers: any) => {
+        tarsSay('You can change all options in tars-config.js\n');
         callback(answers);
     });
 };

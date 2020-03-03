@@ -1,10 +1,7 @@
-// @ts-nocheck
-'use strict';
-
-const tarsUtils = require('./utils');
+import { isTarsInited, getTarsProjectVersion } from './utils';
 const semver = require('semver');
 
-const GENERAL_BUILD_OPTIONS = {
+export const GENERAL_BUILD_OPTIONS = {
     'ie9': {
         flag: '--ie9',
         title: ' IE9 maintenance'
@@ -27,7 +24,7 @@ const GENERAL_BUILD_OPTIONS = {
  * Constats for build promt and processing
  * @type {Object}
  */
-const BUILD = Object.assign(
+export const BUILD = Object.assign(
     {},
     {
         'release': {
@@ -42,7 +39,7 @@ const BUILD = Object.assign(
     GENERAL_BUILD_OPTIONS
 );
 
-const DEV = Object.assign(
+export const DEV = Object.assign(
     {},
     {
         'livereload': {
@@ -57,7 +54,7 @@ const DEV = Object.assign(
     GENERAL_BUILD_OPTIONS
 );
 
-const ADD_COMPONENT = {
+export const ADD_COMPONENT = {
     basic: {
         title: ' Basic files (js, html and stylies)'
     },
@@ -81,17 +78,19 @@ const ADD_COMPONENT = {
     }
 };
 
-if (tarsUtils.isTarsInited().inited && semver.cmp(tarsUtils.getTarsProjectVersion(), '>=', '1.8.0')) {
+if (isTarsInited().inited && semver.cmp(getTarsProjectVersion(), '>=', '1.8.0')) {
+    // @ts-ignore
     ADD_COMPONENT.scheme = {
         title: ' Structure of new component is based on scheme file'
     };
 
+    // @ts-ignore
     ADD_COMPONENT.customPath = {
         title: ' Set path for new component (relative to component folder, without component name)'
     };
 }
 
-const CONFIG = {
+export const CONFIG = {
     js: {
         workflow: {
             'Concat (Just concatenation of JavaScript-files into one bundle)': 'concat',
@@ -107,7 +106,7 @@ const CONFIG = {
     }
 };
 
-const FS = {
+export const FS = {
     clearDir: {
         title: 'Clear current directory'
     },
@@ -117,13 +116,4 @@ const FS = {
     stopInit: {
         title: 'Stop init'
     }
-};
-
-module.exports = {
-    BUILD,
-    DEV,
-    ADD_COMPONENT,
-    GENERAL_BUILD_OPTIONS,
-    CONFIG,
-    FS
 };

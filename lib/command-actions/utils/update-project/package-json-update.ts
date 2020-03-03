@@ -1,10 +1,7 @@
-// @ts-nocheck
-"use strict";
-
 const fsExtra = require("fs-extra");
 const chalk = require("chalk");
 
-const tarsUtils = require("../../../utils");
+import { tarsSay } from '../../../utils';
 const cwd = process.cwd();
 
 /**
@@ -13,7 +10,7 @@ const cwd = process.cwd();
  * @param  {Object} donor    Object — provider of deps
  * @return {Object}          Processed object
  */
-function mergePackageJson(acceptor, donor) {
+function mergePackageJson(acceptor: any, donor: any) {
     const keys = Object.keys(donor);
 
     keys.forEach(key => {
@@ -27,7 +24,7 @@ function mergePackageJson(acceptor, donor) {
     return acceptor;
 }
 
-module.exports = function updatePackageJson(destPath) {
+module.exports = function updatePackageJson(destPath: any) {
     const packageJsonPath = `${cwd}/package.json`;
     let currentUserPackageJson;
     let newUserPackageJson;
@@ -45,8 +42,8 @@ module.exports = function updatePackageJson(destPath) {
     try {
         currentUserPackageJson = require(`${cwd}/user-package.json`);
     } catch (error) {
-        tarsUtils.tarsSay(chalk.yellow(error.message));
-        tarsUtils.tarsSay(
+        tarsSay(chalk.yellow(error.message));
+        tarsSay(
             chalk.yellow(
                 "Will continue without local user-package.json processing"
             )
@@ -57,8 +54,8 @@ module.exports = function updatePackageJson(destPath) {
     try {
         newUserPackageJson = require(`${destPath}/user-package.json`);
     } catch (error) {
-        tarsUtils.tarsSay(chalk.yellow(error.message));
-        tarsUtils.tarsSay(
+        tarsSay(chalk.yellow(error.message));
+        tarsSay(
             chalk.yellow("Will continue new local user-package.json processing")
         );
         newUserPackageJson = {};

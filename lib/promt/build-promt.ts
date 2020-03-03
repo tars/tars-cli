@@ -1,18 +1,15 @@
-// @ts-nocheck
-'use strict';
-
 const inquirer = require('inquirer');
 const customFlagsPromt = require('./custom-flags-promt');
-const tarsUtils = require('../utils');
-const buildPromtOptions = require('../constants').BUILD;
+import { spinner } from '../ui';
+import { BUILD as buildPromtOptions } from '../constants';
 const generateChoices = require('./utils/generateChoices');
 
 /**
  * Init promt for build command
  * @param  {Function} callback Function to start after promt
  */
-module.exports = function buildPromt(callback) {
-    tarsUtils.spinner.stop(true);
+module.exports = function buildPromt(callback: any) {
+    spinner.stop(true);
 
     inquirer.prompt([
         {
@@ -21,7 +18,7 @@ module.exports = function buildPromt(callback) {
             message: 'What mode would you like to use? Available multiple choice.',
             choices: generateChoices.generateForCheckboxList(buildPromtOptions)
         }
-    ]).then(devAnswers => {
+    ]).then((devAnswers: any) => {
         if (devAnswers.mode.indexOf(buildPromtOptions.customFlags.title) > -1) {
             return customFlagsPromt(devAnswers, callback);
         }

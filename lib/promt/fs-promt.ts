@@ -1,19 +1,19 @@
-// @ts-nocheck
 'use strict';
 
 const fs = require('fs');
 const fsExtra = require('fs-extra');
 const inquirer = require('inquirer');
-const tarsUtils = require('../utils');
+import { spinner } from '../ui';
+import { validateFolderName } from '../utils';
 const generateChoices = require('./utils/generateChoices');
-const fsPromtOptions = require('../constants').FS;
+import { FS as fsPromtOptions } from '../constants';
 
 /**
  * Init promt for config
  * @param  {Function} callback Function to start after promt
  */
-module.exports = function fsPromt(callback) {
-    tarsUtils.spinner.stop(true);
+module.exports = function fsPromt(callback: any) {
+    spinner.stop(true);
 
     inquirer.prompt([
         {
@@ -22,7 +22,7 @@ module.exports = function fsPromt(callback) {
             message: 'What would you like to do?',
             choices: generateChoices.generateForSimpleList(fsPromtOptions)
         }
-    ]).then(fsPromtAnswers => {
+    ]).then((fsPromtAnswers: any) => {
         switch (fsPromtAnswers.action) {
             case fsPromtOptions.clearDir.title:
                 inquirer.prompt([{
@@ -30,7 +30,7 @@ module.exports = function fsPromt(callback) {
                     name: 'clearDir',
                     message: `Are you sure, you want to clear dir: ${process.cwd()}`,
                     default: false
-                }]).then(answers => {
+                }]).then((answers: any) => {
                     if (answers.clearDir) {
                         fsExtra.removeSync('./*');
                         fsExtra.removeSync('./.*');
@@ -49,8 +49,8 @@ module.exports = function fsPromt(callback) {
                     name: 'folderName',
                     message: 'Enter directory name',
                     default: () => 'awesome-project',
-                    validate: tarsUtils.validateFolderName
-                }]).then(answers => {
+                    validate: validateFolderName
+                }]).then((answers: any) => {
                     fs.mkdir(answers.folderName);
                     process.chdir(`./${answers.folderName}`);
                     callback();

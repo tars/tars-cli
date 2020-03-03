@@ -1,14 +1,11 @@
-// @ts-nocheck
-'use strict';
-
 const fs = require('fs');
-const configPromtOptions = require('../constants').CONFIG;
+import { CONFIG as configPromtOptions } from '../constants';
 
 /**
  * Save answers from promt to local tars-config
  * @param  {Object} answers Answers from fs-promts
  */
-module.exports = function saveConfigAnswers(answers) {
+module.exports = function saveConfigAnswers(answers: any) {
     const cwd = process.cwd();
     const originalConfig = require(`${cwd}/tars-config.js`);
     const templaterName = answers.templater === 'Jade (supports only 1.11.0)' ? 'Jade' : answers.templater;
@@ -32,6 +29,7 @@ module.exports = function saveConfigAnswers(answers) {
     newConfig.js = Object.assign(
         newConfig.js,
         {
+            // @ts-ignore
             workflow: configPromtOptions.js.workflow[answers.jsWorkflow],
             useBabel: answers.useBabel,
             lint: answers.useLint
@@ -41,6 +39,7 @@ module.exports = function saveConfigAnswers(answers) {
     newConfig.css = Object.assign(
         newConfig.css,
         {
+            // @ts-ignore
             workflow: configPromtOptions.css.workflow[answers.cssWorkflow]
         }
     );

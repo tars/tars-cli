@@ -1,8 +1,5 @@
-// @ts-nocheck
-'use strict';
-
 const chalk = require('chalk');
-const tarsUtils = require('../utils');
+import { tarsSay } from '../utils';
 const Download = require('download');
 const semver = require('semver');
 
@@ -12,14 +9,14 @@ const semver = require('semver');
 module.exports = function getVersion() {
     console.log('\n');
     const installedTarsCliVersion = require(`${process.env.cliRoot}/package.json`).version;
-    tarsUtils.tarsSay(`TARS-CLI version: "${chalk.cyan.bold(installedTarsCliVersion)}"`, true);
+    tarsSay(`TARS-CLI version: "${chalk.cyan.bold(installedTarsCliVersion)}"`, true);
 
     Promise
         .resolve()
         .then(() => new Promise(resolve => {
             new Download({ extract: true, mode: '755' })
                 .get('https://raw.githubusercontent.com/tars/tars-cli/master/package.json')
-                .run((error, files) => {
+                .run((error: any, files: any) => {
                     if (error) {
                         return resolve();
                     }
@@ -27,11 +24,11 @@ module.exports = function getVersion() {
                     const latestTarsCliVersion = JSON.parse(files[0].contents.toString()).version;
 
                     if (semver.cmp(installedTarsCliVersion, '<', latestTarsCliVersion)) {
-                        tarsUtils.tarsSay(
+                        tarsSay(
                             `Update available for TARS-CLI! New version is: "${chalk.cyan.bold(latestTarsCliVersion)}"`,
                             true
                         );
-                        tarsUtils.tarsSay(
+                        tarsSay(
                             `Run the command "${chalk.cyan.bold('tars update')}" to update TARS-CLI. \n`,
                             true
                         );
@@ -40,11 +37,12 @@ module.exports = function getVersion() {
                 });
         }))
         .then(() => {
+            // @ts-ignore
             let installedTarsVersion;
 
             try {
                 installedTarsVersion = require(`${process.cwd()}/tars.json`).version;
-                tarsUtils.tarsSay(`TARS version in current project: "${chalk.cyan.bold(installedTarsVersion)}"`, true);
+                tarsSay(`TARS version in current project: "${chalk.cyan.bold(installedTarsVersion)}"`, true);
             } catch (error) {
                 /* eslint-disable no-undefined */
                 installedTarsVersion = undefined;
@@ -53,19 +51,21 @@ module.exports = function getVersion() {
 
             new Download({ extract: true, mode: '755' })
                 .get('https://raw.githubusercontent.com/tars/tars/master/package.json')
-                .run((error, files) => {
+                .run((error: any, files: any) => {
+                    // @ts-ignore
                     if (error || !installedTarsVersion) {
                         return false;
                     }
 
                     const latestTarsVersion = JSON.parse(files[0].contents.toString()).version;
 
+                    // @ts-ignore
                     if (semver.cmp(installedTarsVersion, '<', latestTarsVersion)) {
-                        tarsUtils.tarsSay(
+                        tarsSay(
                             `Update available for TARS! New version is: "${chalk.cyan.bold(latestTarsVersion)}"`,
                             true
                         );
-                        tarsUtils.tarsSay(
+                        tarsSay(
                             `Run the command "${chalk.cyan.bold('tars update-project')}" to update TARS in current project. \n`,
                             true
                         );

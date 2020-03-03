@@ -2,8 +2,8 @@
 'use strict';
 
 const inquirer = require('inquirer');
-const tarsUtils = require('../utils');
-const addComponentdPromtOptions = require('../constants').ADD_COMPONENT;
+import { spinner } from '../ui'; 
+import { ADD_COMPONENT as addComponentdPromtOptions } from '../constants';
 const customPathPromt = require('./custom-path-promt');
 
 /**
@@ -12,7 +12,7 @@ const customPathPromt = require('./custom-path-promt');
  * @param  {Function} callback  Function to start after promt
  */
 module.exports = function customSchemePromt(answers, callback) {
-    tarsUtils.spinner.stop(true);
+    spinner.stop(true);
 
     inquirer.prompt([
         {

@@ -1,6 +1,3 @@
-// @ts-nocheck
-"use strict";
-
 const Download = require("download");
 const exec = require("child_process").exec;
 const extfs = require("extfs");
@@ -8,7 +5,8 @@ const del = require("del");
 const fs = require("fs");
 const chalk = require("chalk");
 const runCommand = require("./utils/run-command");
-const tarsUtils = require("../utils");
+import { spinner } from '../ui';
+import { tarsSay, getTarsProjectVersion, isTarsInited } from '../utils';
 const configPromt = require("../promt/config-promt");
 const fsPromt = require("../promt/fs-promt");
 const saveConfigAnswers = require("../promt/save-config-answers");
@@ -19,7 +17,7 @@ let commandOptions = {};
  * Main init funciton, download all additional tasks.
  * @param  {Object} answers         Object with answers from promt
  */
-function mainInit(answers) {
+function mainInit(answers: any) {
     const cwd = process.cwd();
     const downloadTars = new Download({
         mode: "755",
@@ -29,13 +27,13 @@ function mainInit(answers) {
         .get(tarsZipUrl)
         .dest(cwd);
 
-    tarsUtils.tarsSay("Please, wait for a moment, while magic is happening...");
+    tarsSay("Please, wait for a moment, while magic is happening...");
 
-    downloadTars.run(downloadErr => {
+    downloadTars.run((downloadErr: any) => {
         let commandToExec = "npm i && npm i gulp@4.0.2 --save-dev";
 
         if (downloadErr) {
-            tarsUtils.spinner.stop(true);
+            spinner.stop(true);
             throw downloadErr;
         }
 
@@ -48,12 +46,12 @@ function mainInit(answers) {
         // Get version of TARS from tars.json
         // or package.json if tars.json does not exist
         try {
-            process.env.tarsVersion = tarsUtils.getTarsProjectVersion();
+            process.env.tarsVersion = getTarsProjectVersion();
         } catch (error) {
             process.env.tarsVersion = require(`${cwd}/package.json`).version;
         }
 
-        tarsUtils.tarsSay(`TARS version is: ${process.env.tarsVersion}`);
+        tarsSay(`TARS version is: ${process.env.tarsVersion}`);
 
         del.sync([
             `${cwd}/package.json`,
@@ -72,7 +70,7 @@ function mainInit(answers) {
             "package.json",
             JSON.stringify(packageJson, null, 2) + "\n"
         );
-        tarsUtils.tarsSay("Local package.json has been created");
+        tarsSay("Local package.json has been created");
 
         const tarsConfig = require(`${cwd}/tars-config.js`);
 
@@ -81,7 +79,7 @@ function mainInit(answers) {
                 ' && npm i --save @babel/preset-env@"<8.0.0"  @babel/core@"<8.0.0"';
         }
 
-        exec(commandToExec, (error, stdout, stderr) => {
+        exec(commandToExec, (error: any, stdout: any, stderr: any) => {
             if (error) {
                 console.log(stderr);
                 return;
@@ -89,15 +87,17 @@ function mainInit(answers) {
 
             let gulpInitCommandOptions = ["init", "--silent"];
 
+            // @ts-ignore
             if (commandOptions.excludeCss) {
                 gulpInitCommandOptions.push("--exclude-css");
             }
 
+            // @ts-ignore
             if (commandOptions.excludeHtml) {
                 gulpInitCommandOptions.push("--exclude-html");
             }
 
-            tarsUtils.tarsSay(
+            tarsSay(
                 "Local gulp and other dependencies has been installed"
             );
             runCommand("gulp", gulpInitCommandOptions);
@@ -111,43 +111,46 @@ function mainInit(answers) {
 function startInit() {
     const cwd = process.cwd();
 
-    tarsUtils.tarsSay(
+    tarsSay(
         chalk.underline("Initialization has been started!") + "\n"
     );
-    tarsUtils.tarsSay("I'll be inited in " + chalk.cyan('"' + cwd + '"'));
-    tarsUtils.tarsSay(
+    tarsSay("I'll be inited in " + chalk.cyan('"' + cwd + '"'));
+    tarsSay(
         "TARS source will be downloaded from " +
             chalk.cyan('"' + tarsZipUrl + '"')
     );
 
+    // @ts-ignore
     if (!commandOptions.source) {
-        tarsUtils.tarsSay(
+        tarsSay(
             "You can specify source url by using flag " +
                 chalk.cyan('"--source"') +
                 " or " +
                 chalk.cyan('"-s"')
         );
-        tarsUtils.tarsSay(
+        tarsSay(
             "Example: " +
                 chalk.cyan('"tars init -s http://url.to.zip.with.tars"')
         );
-        tarsUtils.tarsSay(
+        tarsSay(
             "Run command " +
                 chalk.cyan('"tars init --help"') +
                 " for more info.\n"
         );
     }
 
-    tarsUtils.tarsSay(
+    tarsSay(
         'I\'m going to install "gulp" localy and create local package.json'
     );
-    tarsUtils.tarsSay(
+    tarsSay(
         "You can modify package.json by using command " +
             chalk.cyan('"npm init"') +
             " or manually."
     );
 
+    // @ts-ignore
     if (commandOptions.silent) {
+        // @ts-ignore
         mainInit();
     } else {
         configPromt(mainInit);
@@ -158,19 +161,19 @@ function startInit() {
  * Init TARS
  * @param  {Object} options Options of init
  */
-module.exports = function init(options) {
+module.exports = function init(options: any) {
     const cwd = process.cwd();
 
     commandOptions = options;
-    tarsUtils.spinner.start();
+    spinner.start();
 
     if (options.source) {
         tarsZipUrl = options.source;
     }
 
-    if (tarsUtils.isTarsInited().inited) {
-        tarsUtils.tarsSay("TARS has been inited already!");
-        tarsUtils.tarsSay(
+    if (isTarsInited().inited) {
+        tarsSay("TARS has been inited already!");
+        tarsSay(
             "You can't init Tars in current directory again.",
             true
         );
@@ -178,9 +181,10 @@ module.exports = function init(options) {
     }
 
     console.log("\n");
+    // @ts-ignore
     extfs.isEmpty(cwd, empty => {
         if (!empty) {
-            tarsUtils.tarsSay(
+            tarsSay(
                 chalk.red(`Directory "${cwd}" is not empty.`),
                 true
             );

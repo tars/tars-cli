@@ -1,17 +1,14 @@
-// @ts-nocheck
-'use strict';
-
 const fs = require('fs');
 const fsExtra = require('fs-extra');
 const mkdirp = require('mkdirp');
 const chalk = require('chalk');
 const del = require('del');
 const addComponentPromt = require('../promt/add-component-promt');
-const tarsUtils = require('../utils');
-const currentTarsVersion = tarsUtils.getTarsProjectVersion();
-const addComponentdPromtOptions = require('../constants').ADD_COMPONENT;
+import { tarsSay, getTarsConfig, getTarsProjectVersion, getUsedFlags, validateFolderName } from '../utils';
+const currentTarsVersion = getTarsProjectVersion();
+import { ADD_COMPONENT as addComponentdPromtOptions } from '../constants';
 const cwd = process.cwd();
-const tarsConfig = tarsUtils.getTarsConfig();
+const tarsConfig = getTarsConfig();
 const getTemplaterExtension = require('./utils/get-templater-extension');
 const templater = tarsConfig.templater.toLowerCase();
 const cssPreprocessor = tarsConfig.cssPreprocessor.toLowerCase();
@@ -23,30 +20,33 @@ const extensions = {
     tpl: getTemplaterExtension(templater),
     css: cssPreprocessor === 'stylus' ? 'styl' : cssPreprocessor
 };
+// @ts-ignore
 let newComponentName;
 
-function actionsOnError(error, newComponentPath) {
+function actionsOnError(error: any, newComponentPath: any) {
     console.log('\n');
     del.sync(newComponentPath);
-    tarsUtils.tarsSay(chalk.red('Something is gone wrong...'));
-    tarsUtils.tarsSay('Please, repost the message and the stack trace of Error to developer tars.builder@gmail.com', true);
+    tarsSay(chalk.red('Something is gone wrong...'));
+    tarsSay('Please, repost the message and the stack trace of Error to developer tars.builder@gmail.com', true);
     console.error(error.stack);
 }
 
-function getNewComponentPath(customPath) {
+function getNewComponentPath(customPath: any) {
     let newComponentPath = `${cwd}/markup/${componentsFolderName}/`;
 
     // Path to new component. Includes component name
     if (customPath && semver.cmp(currentTarsVersion, '>=', '1.8.0')) {
+        // @ts-ignore
         newComponentPath += `${customPath}/${newComponentName}`;
     } else {
+        // @ts-ignore
         newComponentPath += newComponentName;
     }
 
     return newComponentPath;
 }
 
-function isComponentExist(newComponentPath) {
+function isComponentExist(newComponentPath: any) {
     // Create new component if component with newComponentName is not existed already
     try {
         fs.statSync(newComponentPath);
@@ -54,7 +54,7 @@ function isComponentExist(newComponentPath) {
         return false;
     }
 
-    tarsUtils.tarsSay(chalk.red(`Component "${newComponentPath}" already exists.\n`), true);
+    tarsSay(chalk.red(`Component "${newComponentPath}" already exists.\n`), true);
     return true;
 }
 
@@ -62,7 +62,8 @@ function isComponentExist(newComponentPath) {
  * Generate base files for component. Js, Html and Css file
  * @param {String} newComponentPath Path to new component
  */
-function generateBaseFiles(newComponentPath) {
+function generateBaseFiles(newComponentPath: any) {
+    // @ts-ignore
     const newComponentFolder = `${newComponentPath}/${newComponentName}`;
 
     fs.appendFileSync(`${newComponentFolder}.${extensions.css}`, '\n');
@@ -72,6 +73,7 @@ function generateBaseFiles(newComponentPath) {
     if (extensions.tpl === 'jade' || extensions.tpl === 'pug') {
         fs.writeFileSync(
             `${newComponentFolder}.${extensions.tpl}`,
+            // @ts-ignore
             `mixin ${newComponentName}(data)\n    .${newComponentName}`
         );
     }
@@ -81,7 +83,7 @@ function generateBaseFiles(newComponentPath) {
  * Create folder for IE's stylies
  * @param {String} newComponentPath Path to new component
  */
-function createIEFolder(newComponentPath) {
+function createIEFolder(newComponentPath: any) {
     fs.mkdirSync(newComponentPath + '/ie');
 }
 
@@ -89,7 +91,7 @@ function createIEFolder(newComponentPath) {
  * Create folder for assets
  * @param {String} newComponentPath Path to new component
  */
-function createAssetsFolder(newComponentPath) {
+function createAssetsFolder(newComponentPath: any) {
     fs.mkdirSync(newComponentPath + '/assets');
 }
 
@@ -97,7 +99,8 @@ function createAssetsFolder(newComponentPath) {
  * Create folder for data
  * @param {String} newComponentPath Path to new component
  */
-function createDataFolder(newComponentPath) {
+function createDataFolder(newComponentPath: any) {
+    // @ts-ignore
     let processedComponentName = newComponentName;
     let dataFileContent = '';
 
@@ -105,7 +108,7 @@ function createDataFolder(newComponentPath) {
         processedComponentName = '\'' + processedComponentName + '\'';
     }
 
-    if (semver.cmp(tarsUtils.getTarsProjectVersion(), '>=', '1.6.0')) {
+    if (semver.cmp(getTarsProjectVersion(), '>=', '1.6.0')) {
         dataFileContent = `var data = {${processedComponentName}: {}};`;
     } else {
         dataFileContent = `${processedComponentName}: {}`;
@@ -120,25 +123,27 @@ function createDataFolder(newComponentPath) {
     );
 }
 
-function successLog(customPath) {
+function successLog(customPath: any) {
     let newComponentPath = `markup/${componentsFolderName}`;
 
     if (customPath) {
         newComponentPath += `/${customPath}`;
     }
 
-    tarsUtils.tarsSay(chalk.green(`Component "${newComponentName}" has been added to ${newComponentPath}.\n`), true);
+    // @ts-ignore
+    tarsSay(chalk.green(`Component "${newComponentName}" has been added to ${newComponentPath}.\n`), true);
 }
 
-function createCopyOfTemplate(newComponentPath, customPath) {
+function createCopyOfTemplate(newComponentPath: any, customPath: any) {
+    // @ts-ignore
     fsExtra.copy(`${cwd}/markup/${componentsFolderName}/_template`, newComponentPath, error => {
 
         if (error) {
-            tarsUtils.tarsSay(
+            tarsSay(
                 chalk.red(`_template component does not exist in the "markup/${componentsFolderName}" directory.`)
             );
-            tarsUtils.tarsSay('This folder is used as template for new component.');
-            tarsUtils.tarsSay(
+            tarsSay('This folder is used as template for new component.');
+            tarsSay(
                 `Create template or run the command
                 ${chalk.cyan('"tars add-component <componentName>"')}
                 to create component with another options.\n`,
@@ -150,13 +155,14 @@ function createCopyOfTemplate(newComponentPath, customPath) {
     });
 }
 
-function createComponentByScheme(newComponentPath, params) {
+function createComponentByScheme(newComponentPath: any, params: any) {
     params = params || {};
 
-    function parseScheme(schemeConfig) {
+    function parseScheme(schemeConfig: any) {
         return new Promise(resolve => {
             const stringifiedConfig = JSON.stringify(schemeConfig);
             const processedConfig = stringifiedConfig
+            // @ts-ignore
                 .replace(/__componentName__/g, newComponentName)
                 .replace(/__templateExtension__/g, extensions.tpl)
                 .replace(/__cssExtension__/g, extensions.css);
@@ -175,7 +181,7 @@ function createComponentByScheme(newComponentPath, params) {
                 schemeFilePath += '.json';
             }
 
-            fsExtra.readJson(schemeFilePath, (error, schemeConfig) => {
+            fsExtra.readJson(schemeFilePath, (error: any, schemeConfig: any) => {
                 if (error) {
                     return reject(error);
                 }
@@ -185,7 +191,8 @@ function createComponentByScheme(newComponentPath, params) {
         });
     }
 
-    function writeFiles(path, files) {
+    function writeFiles(path: any, files: any) {
+        // @ts-ignore
         files.map(file => {
             try {
                 fs.writeFileSync(
@@ -198,8 +205,8 @@ function createComponentByScheme(newComponentPath, params) {
         });
     }
 
-    function processFolders(path, folders) {
-        folders.map(folder => {
+    function processFolders(path: any, folders: any) {
+        folders.map((folder: any) => {
             const folderPath = `${path}/${folder.name}`;
             const folderFiles = folder.files;
             const folderFolders = folder.folders;
@@ -216,12 +223,12 @@ function createComponentByScheme(newComponentPath, params) {
         });
     }
 
-    function generateComponent(scheme) {
+    function generateComponent(scheme: any) {
         return new Promise((resolve, reject) => {
             const initialFolders = scheme.folders;
             const initialFiles = scheme.files;
 
-            mkdirp(newComponentPath, error => {
+            mkdirp((newComponentPath: any, error: any) => {
                 if (error) {
                     return reject(error);
                 }
@@ -259,7 +266,7 @@ function createComponentByScheme(newComponentPath, params) {
  * Create component with structure based on command options
  * @param {Object} commandOptions Options, which is passed from CLI
  */
-function createComponent(commandOptions) {
+function createComponent(commandOptions: any) {
     // Path to new component. Includes component name
     const newComponentPath = getNewComponentPath(commandOptions.customPath);
 
@@ -287,7 +294,7 @@ function createComponent(commandOptions) {
         return;
     }
 
-    mkdirp(newComponentPath, error => {
+    mkdirp((newComponentPath: any, error: any) => {
         if (error) {
             return actionsOnError(error, newComponentPath);
         }
@@ -334,7 +341,7 @@ function createComponent(commandOptions) {
  * Create component with structure based on answers from promt
  * @param  {Object} answers Answers from promt
  */
-function createComponentWithPromt(answers) {
+function createComponentWithPromt(answers: any) {
     // Path to new component. Includes component name
     const newComponentPath = getNewComponentPath(answers.customPath);
 
@@ -342,6 +349,7 @@ function createComponentWithPromt(answers) {
         return;
     }
 
+    // @ts-ignore
     if (answers.mode.indexOf(addComponentdPromtOptions.scheme.title) > -1) {
         createComponentByScheme(
             newComponentPath,
@@ -354,11 +362,12 @@ function createComponentWithPromt(answers) {
     }
 
     if (answers.mode.indexOf(addComponentdPromtOptions.template.title) > -1) {
+        // @ts-ignore
         createCopyOfTemplate(newComponentPath);
         return successLog(answers.customPath);
     }
 
-    mkdirp(newComponentPath, error => {
+    mkdirp((newComponentPath: any, error: any) => {
         if (error) {
             return actionsOnError(error, newComponentPath);
         }
@@ -372,7 +381,7 @@ function createComponentWithPromt(answers) {
                 createAssetsFolder(newComponentPath);
                 createDataFolder(newComponentPath);
             } else {
-                answers.mode.forEach(mode => {
+                answers.mode.forEach((mode: any) => {
                     console.log(mode);
                     switch (mode) {
                         case addComponentdPromtOptions.assets.title:
@@ -404,21 +413,21 @@ function createComponentWithPromt(answers) {
  * @param  {String} componentName The name of new component
  * @param  {Object} options       Inquirer options
  */
-module.exports = function addComponent(componentName, options) {
+module.exports = function addComponent(componentName: any, options: any) {
     console.log('\n');
 
-    const validateResult = tarsUtils.validateFolderName(componentName);
+    const validateResult = validateFolderName(componentName);
 
     // If componentName has depricated symbols, log the error
     if (typeof validateResult === 'string') {
-        tarsUtils.tarsSay(chalk.red(validateResult + '\n'), true);
+        tarsSay(chalk.red(validateResult + '\n'), true);
         return;
     }
 
     newComponentName = componentName;
     const commandOptions = Object.assign({}, options);
 
-    if (tarsUtils.getUsedFlags(commandOptions).length) {
+    if (getUsedFlags(commandOptions).length) {
         createComponent(commandOptions);
     } else {
         addComponentPromt(createComponentWithPromt);

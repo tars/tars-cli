@@ -1,21 +1,18 @@
-// @ts-nocheck
-'use strict';
-
-const path = require('path');
+import { resolve } from 'path';
 const spawn = require('win-spawn');
-const tarsUtils = require('../../utils');
+import { spinner } from '../../ui';
 
 /**
  * Run command in different env
  * @param  {String} commandName     Name of the command
  * @param  {Array}  commandOptions  Options for task
  */
-module.exports = function runCommand(commandName, commandOptions) {
+module.exports = function runCommand(commandName: any, commandOptions: any) {
 
     if (commandName === 'gulp') {
-        commandName = path.resolve(process.env.npmRoot + '.bin/gulp');
+        commandName = resolve(process.env.npmRoot + '.bin/gulp');
     }
 
-    tarsUtils.spinner.stop(true);
+    spinner.stop(true);
     spawn(commandName, commandOptions, { stdio: 'inherit' });
 };

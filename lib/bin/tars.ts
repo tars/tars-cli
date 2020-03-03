@@ -4,7 +4,7 @@
 const program = require('commander');
 import * as fs from 'fs';
 const path = require('path');
-const tarsUtils = require('../utils');
+import { isTarsInited as inited, tarsNotInitedActions } from '../utils';
 const args = process.argv.slice(2);
 const cliRootPath = path.resolve(__dirname, '../../');
 let npmRootPath = path.join(cliRootPath, 'node_modules/');
@@ -24,12 +24,12 @@ process.env.npmRoot = npmRootPath;
  * @return {Boolean} TARS init status
  */
 function isTarsReadyToWork() {
-    const isTarsInited = tarsUtils.isTarsInited();
+    const isTarsInited = inited();
 
     // If we are not in TARS directory or TARS has not been inited
     if (!isTarsInited.inited) {
         if (!isTarsInited.error) {
-            tarsUtils.tarsNotInitedActions();
+            tarsNotInitedActions();
         }
         return false;
     }

@@ -1,11 +1,8 @@
-// @ts-nocheck
-'use strict';
-
 /**
  * Set templates extension
  * @return {string} Templater extension
  */
-module.exports = function getTemplaterExtension(templater) {
+module.exports = function getTemplaterExtension(templater: any) {
     switch (templater) {
         case 'handelbars':
         case 'handlebars':
