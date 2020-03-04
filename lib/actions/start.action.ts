@@ -1,8 +1,7 @@
 import { AbstractAction } from './abstract.action';
 import chalk from 'chalk';
-const runCommand = require('./utils/run-command');
 import { spinner } from '../ui';
-import { tarsSay } from '../utils';
+import { tarsSay, runCommand } from '../utils';
 
 /**
  * Start build task in gulp

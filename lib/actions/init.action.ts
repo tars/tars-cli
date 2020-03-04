@@ -5,7 +5,7 @@ const extfs = require('extfs');
 const del = require('del');
 const fs = require('fs');
 const chalk = require('chalk');
-const runCommand = require('./utils/run-command');
+import { runCommand } from '../utils';
 import { spinner } from '../ui';
 import { tarsSay, getTarsProjectVersion, isTarsInited } from '../utils';
 const configPromt = require('../promt/config-promt');

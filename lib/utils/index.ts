@@ -6,3 +6,4 @@ export * from './get-used-flags.util';
 export * from './is-tars-inited.util';
 export * from './get-tars-config.util';
 export * from './tars-not-inited-actions.util';
+export * from './run-command.util';

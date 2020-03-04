@@ -1,9 +1,8 @@
 import { AbstractAction } from './abstract.action';
 const chalk = require('chalk');
-const runCommand = require('./utils/run-command');
 const execSync = require('child_process').execSync;
 import { spinner } from '../ui'
-import { tarsSay } from '../utils'
+import { tarsSay, runCommand } from '../utils'
 
 /**
  * Just updates tars-cli dependencies and tars-cli itself

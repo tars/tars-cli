@@ -1,6 +1,6 @@
 import { AbstractAction } from './abstract.action';
 const chalk = require('chalk');
-const runCommand = require('./utils/run-command');
+import { runCommand } from '../utils';
 const generalOptionsProcessing = require('./utils/general-options-processing');
 const devPromt = require('../promt/dev-promt');
 import { spinner } from '../ui';
