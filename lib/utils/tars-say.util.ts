@@ -7,7 +7,7 @@ import { spinner } from '../ui';
  * @param  {String}  message Message to output
  * @param  {Boolean} Stopspinner or restart it
  */
-export const tarsSay = (message: any, stopSpinner?: any) => {
+export const tarsSay = (message: string, stopSpinner?: boolean) => {
     // Restart spinner after every message from TARS
     if (stopSpinner) {
         spinner.stop(true);

@@ -3,7 +3,7 @@
  * @param  {String}                     Value Recieved folder name
  * @return {Boolean || String}          True or error text (not consistent, because of inquirer va)
  */
-export const validateFolderName = (value: any) => {
+export const validateFolderName = (value: string) => {
     const pass = /[?<>:*|"\\]/.test(value);
 
     if (!pass) {
