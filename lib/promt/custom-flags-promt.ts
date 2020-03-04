@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const chalk = require('chalk');
+import chalk from 'chalk';
 import { spinner } from '../ui';
 import { tarsSay } from '../utils';
 

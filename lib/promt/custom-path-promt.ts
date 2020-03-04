@@ -3,7 +3,7 @@
 const inquirer = require('inquirer');
 import { spinner } from '../ui';
 import { getTarsProjectVersion, tarsSay, validateFolderName } from '../utils';
-const chalk = require('chalk');
+import chalk from 'chalk';
 const semver = require('semver');
 
 /**

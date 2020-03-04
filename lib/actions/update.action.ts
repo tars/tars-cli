@@ -1,5 +1,5 @@
 import { AbstractAction } from './abstract.action';
-const chalk = require('chalk');
+import chalk from 'chalk';
 const execSync = require('child_process').execSync;
 import { spinner } from '../ui'
 import { tarsSay, runCommand } from '../utils'

@@ -1,4 +1,4 @@
-const chalk = require('chalk');
+import chalk from 'chalk';
 const inquirer = require('inquirer');
 import { spinner } from '../ui';
 import { tarsSay, validateFolderName } from '../utils';

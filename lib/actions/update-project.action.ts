@@ -4,7 +4,7 @@ const exec = require('child_process').exec;
 const fsExtra = require('fs-extra');
 const del = require('del');
 const fs = require('fs');
-const chalk = require('chalk');
+import chalk from 'chalk';
 const path = require('path');
 const semver = require('semver');
 

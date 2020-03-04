@@ -1,4 +1,4 @@
-const chalk = require('chalk');
+import chalk from 'chalk';
 import { tarsSay } from '../utils';
 
 console.log('\n\n');

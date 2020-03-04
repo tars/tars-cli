@@ -1,6 +1,6 @@
 import { AbstractAction } from './abstract.action';
 const fs = require('fs');
-const chalk = require('chalk');
+import chalk from 'chalk';
 import { spinner } from '../ui';
 import { tarsSay, getTarsConfig } from '../utils';
 const fsExtra = require('fs-extra');

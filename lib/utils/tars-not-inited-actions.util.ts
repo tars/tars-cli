@@ -1,5 +1,5 @@
 import { tarsSay } from './';
-const chalk = require('chalk');
+import chalk from 'chalk';
 
 /**
  * Actions, then TARS is not inited

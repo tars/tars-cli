@@ -1,10 +1,9 @@
 import { AbstractAction } from './abstract.action';
-const chalk = require('chalk');
-import { runCommand } from '../utils';
+import chalk from 'chalk';
 const generalOptionsProcessing = require('./utils/general-options-processing');
 const buildPromt = require('../promt/build-promt');
 import { spinner } from '../ui';
-import { tarsSay, getUsedFlags } from '../utils';
+import { tarsSay, getUsedFlags, runCommand } from '../utils';
 import { BUILD as buildPromtOptions } from '../constants';
 
 /**

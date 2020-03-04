@@ -2,7 +2,7 @@ import { AbstractAction } from './abstract.action';
 const fs = require('fs');
 const fsExtra = require('fs-extra');
 const mkdirp = require('mkdirp');
-const chalk = require('chalk');
+import chalk from 'chalk';
 const del = require('del');
 const addComponentPromt = require('../promt/add-component-promt');
 import {

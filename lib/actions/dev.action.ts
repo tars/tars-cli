@@ -1,5 +1,5 @@
 import { AbstractAction } from './abstract.action';
-const chalk = require('chalk');
+import chalk from 'chalk';
 import { runCommand } from '../utils';
 const generalOptionsProcessing = require('./utils/general-options-processing');
 const devPromt = require('../promt/dev-promt');

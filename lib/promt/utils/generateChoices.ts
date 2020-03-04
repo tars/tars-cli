@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const chalk = require('chalk');
+import chalk from 'chalk';
 
 module.exports = {
     /**
