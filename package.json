@@ -1,6 +1,6 @@
 {
   "name": "tars-cli",
-  "version": "1.13",
+  "version": "1.13.0",
   "os": [
     "darwin",
     "linux",
