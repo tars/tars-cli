@@ -1,6 +1,6 @@
 {
   "name": "tars-cli",
-  "version": "1.12.2",
+  "version": "1.13.0",
   "os": [
     "darwin",
     "linux",
@@ -69,7 +69,7 @@
     "gulp-pug-inheritance": "https://github.com/artem-malko/gulp-pug-inheritance/archive/master.tar.gz",
     "gulp-rename": "^1.4.0",
     "gulp-replace-task": "0.11.0",
-    "gulp-sass": "https://github.com/stof/gulp-sass/archive/7ab018e3678729392978311eef2cb02754650960.tar.gz",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-strip-debug": "^3.0.0",
     "gulp-stylus": "^2.7.0",
@@ -85,6 +85,7 @@
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "run-sequence": "^2.2.1",
+    "sass": "^1.49.9",
     "source-map-loader": "^0.2.4",
     "stream-combiner": "^0.2.2",
     "terser-webpack-plugin": "2.3.2",
@@ -99,8 +100,8 @@
     "eslint": "^6.8.0"
   },
   "optionalDependencies": {
-    "posix": "^4.1.2",
-    "fsevents": "^2.1.2"
+    "fsevents": "^2.1.2",
+    "posix": "^4.2.0"
   },
   "bin": {
     "tars": "./bin/tars.js"
